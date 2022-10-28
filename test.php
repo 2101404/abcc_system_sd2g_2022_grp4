@@ -3,4 +3,5 @@
     echo "ペルソナ"
     echo "リポジトリを作成しました!!!!!!";
     locale_lookup
+    st
 ?>

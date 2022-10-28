@@ -6,4 +6,5 @@
     echo "私がリポジトリ";
     locale_lookup
     st
+    aaaaa
 ?>

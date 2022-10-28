@@ -5,4 +5,5 @@
     echo "ペルソナ2"
     echo "私がリポジトリ";
     locale_lookup
+    aaaaa
 ?>

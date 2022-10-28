@@ -7,4 +7,6 @@
     locale_lookup
     st
     aaaaa
+
+    バッキャロ〜！！
 ?>

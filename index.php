@@ -9,6 +9,20 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 	<link rel="stylesheet" href="./css/style.css">
 	<title>TopPage</title>
+
+	<?php
+		function showCategory($itemLink,$itemImg,$text){
+			for ($i=0; $i < 8; $i++) { 
+				echo'	<div class="col-3">
+							<a href="'.$itemLink[$i].'">
+								<img src="'.$itemImg[$i].'" class="img-fluid" alt="">
+								<p class="text-center text-secondary">'.$text[$i].'</p>
+							</a>
+						</div>
+					';
+			}
+		}
+	?>
 </head>
 
 
@@ -19,11 +33,11 @@
 	<div class="container">
 
 		<!-- カルーセル -->
-		<div id="carouselIndicators" class="carousel slide " data-bs-ride="carousel">
+		<div id="carouselIndicators" class="carousel slide mb-5" data-bs-ride="carousel">
 			<div class="carousel-indicators">
-				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-				<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+				<button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+				<button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+				<button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
 			</div>
 
 			<div class="carousel-inner">
@@ -40,49 +54,64 @@
 				</div>
 			</div>
 
-			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
 				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 				<span class="visually-hidden">Previous</span>
 			</button>
 
-			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
 				<span class="carousel-control-next-icon" aria-hidden="true"></span>
 				<span class="visually-hidden">Next</span>
 			</button>
 		</div>
 
 		<!-- セット商品一覧のボタン -->
-		<div style="text-align:center">
-			<button type="button" class="btn btn-lg btn-outline-primary">セット商品一覧へ</button>
+		<div class="text-center">
+			<button type="button" class="btn btn-lg btn-outline-primary mt-5">セット商品一覧へ</button>
 		</div>
 
 		<!-- メンズカテゴリー -->
-		<h2 class="caption">MENS</h2>
-		<div class="category">
-
+		<h2 class="text-center mt-5 mb-3">MENS</h2>
+		<div class=" p-3 frame">
+			<div class="row">
+				<?php
+					$itemImg =['./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png',];
+					$text =['スーツ','ジャケット','シューズ','ネクタイ','バッグ','ベルト','コート','靴下',];
+					$itemLink =['','','','','','','','',];
+					showCategory($itemLink,$itemImg,$text);
+				?>
+			</div>
 		</div>
 
 		<!-- レディスカテゴリ -->
-		<h2 class="caption">LADIES</h2>
-		<div class="category">
+		<h2 class="text-center mt-5 mb-3">LADIES</h2>
+		<div class=" p-3 frame">
+			<div class="row">
+			<?php
+					$itemImg =['./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png',];
+					$text =['セットアップ','スカート','パンツ','シューズ','バッグ','ベルト','コート','靴下',];
+					$itemLink =['','','','','','','','',];
+					showCategory($itemLink,$itemImg,$text);
+				?>
 
+			</div>
 		</div>
 
 		<!-- 特集 -->
-		<h2 class="caption">特集</h2>
+		<h2 class="text-center mt-5 mb-3">特集</h2>
 		<div class="row">
-                <div class="col-5 feature">
-                    a
+                <div class="col-5 text-center">
+                    <img class="image-test"src="./imgs/sample/noimage.png" width="60%" alt="">
                 </div>
 				<div class="col-2" ></div>
-                <div class="col-5 feature">
-                    a
+                <div class="col-5 text-center">
+					<img class="image-test" src="./imgs/sample/noimage.png" width="50%" alt="">
                 </div>
 
 		</div>
 
 		<!-- 特集ボタン -->
-		<div style="text-align:center;margin-top:3em;margin-bottom:3em">
+		<div class="text-center mt-5 mb-5">
 			<button type="button" class="btn btn-lg btn-outline-primary">特集一覧へ</button>
 		</div>
 

@@ -1,3 +1,22 @@
 body {
     padding-top: 72px;
 }
+
+#carouselIndicators{
+    margin-bottom: 3em;
+}
+
+.caption{
+    text-align: center;
+    margin-top:5em;
+}
+
+.category{
+    border:solid;
+    height:300px;
+}
+
+.feature{
+    border:solid;
+    height:200px;
+}

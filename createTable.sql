@@ -31,7 +31,7 @@ CREATE TABLE item (
     item_sale_price INT NOT NULL,
     item_registration_date DATE NOT NULL,
     PRIMARY KEY(item_id),
-    FOREIGN KEY(category_id) REFERENCES category(category_id);
+    FOREIGN KEY(category_id) REFERENCES category(category_id)
 
 );
 
@@ -51,5 +51,15 @@ CREATE TABLE order(
     member_id INT NOT NULL,
     order_date DATE NOT NULL,
     PRIMARY KEY(order_id) NOT NULL,
-    
+);
+
+CREATE TABLE order_details(
+    order_id INT NOT NULL,
+    item_id INT NOT NULL,
+    suryo_data INT NOT NULL,
+    item_size VARCHAR(3) NOT NULL,
+    item_price INT NOT NULL,
+    PRIMARY KEY(order_id,item_id),
+    FOREIGN KEY(order_id) REFERENCES order(oreder_id),
+    FOREIGN KEY(item_id) REFERENCES item(item_id)
 );

@@ -46,11 +46,11 @@ CREATE TABLE cart (
     FOREIGN KEY(item_id) REFERENCES item(item_id)
 );
 
-CREATE TABLE order(
+CREATE TABLE orders(
     order_id INT NOT NULL,
     member_id INT NOT NULL,
     order_date DATE NOT NULL,
-    PRIMARY KEY(order_id) NOT NULL,
+    PRIMARY KEY(order_id)
 );
 
 CREATE TABLE order_details(
@@ -60,6 +60,6 @@ CREATE TABLE order_details(
     item_size VARCHAR(3) NOT NULL,
     item_price INT NOT NULL,
     PRIMARY KEY(order_id,item_id),
-    FOREIGN KEY(order_id) REFERENCES order(oreder_id),
+    FOREIGN KEY(order_id) REFERENCES orders(order_id),
     FOREIGN KEY(item_id) REFERENCES item(item_id)
 );

@@ -14,7 +14,7 @@
 		function showCategory($itemLink,$itemImg,$text){
 			for ($i=0; $i < 8; $i++) { 
 				echo'	<div class="col-3">
-							<a href="'.$itemLink[$i].'">
+							<a href="./item_category.php?category='.$text[$i].'">
 								<img src="'.$itemImg[$i].'" class="img-fluid" alt="">
 								<p class="text-center text-secondary">'.$text[$i].'</p>
 							</a>
@@ -67,7 +67,8 @@
 
 		<!-- セット商品一覧のボタン -->
 		<div class="text-center">
-			<button type="button" class="btn btn-lg btn-outline-primary mt-5">セット商品一覧へ</button>
+			<!-- 後でリンク先確認 -->
+			<a type="button" href="./item_category.php?category=セット商品" class="btn btn-lg btn-outline-primary mt-5">セット商品一覧へ</a>
 		</div>
 
 		<!-- メンズカテゴリー -->
@@ -112,7 +113,8 @@
 
 		<!-- 特集ボタン -->
 		<div class="text-center mt-5 mb-5">
-			<button type="button" class="btn btn-lg btn-outline-primary">特集一覧へ</button>
+			<!-- 後でリンク先入れる -->
+			<a type="button" class="btn btn-lg btn-outline-primary">特集一覧へ</a>
 		</div>
 
 

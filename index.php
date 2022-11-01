@@ -13,9 +13,11 @@
 	<?php
 		function showCategory($itemLink,$itemImg,$text){
 			for ($i=0; $i < 8; $i++) { 
-				echo'	<div class="col-3">
+				echo'	<div class="col-6 col-md-3">
 							<a href="./item_category.php?category='.$text[$i].'">
-								<img src="'.$itemImg[$i].'" class="img-fluid" alt="">
+								<div class="ratio ratio-1x1">
+									<img src="'.$itemImg[$i].'" class="img-fluid category-thumbnails" alt="'.$text[$i].'">
+								</div>
 								<p class="text-center text-secondary">'.$text[$i].'</p>
 							</a>
 						</div>
@@ -73,10 +75,10 @@
 
 		<!-- メンズカテゴリー -->
 		<h2 class="text-center mt-5 mb-3">MENS</h2>
-		<div class=" p-3 frame">
+		<div class=" p-3 frame category" >
 			<div class="row">
 				<?php
-					$itemImg =['./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png',];
+					$itemImg =['./imgs/category/suit01.jpg','./imgs/category/jacket01.jpg','./imgs/category/shoes01.jpg','./imgs/category/tie01.jpg','./imgs/category/bag01.jpg','./imgs/category/belt01.png','./imgs/category/coat01.jpg','./imgs/category/socks01.png',];
 					$text =['スーツ','ジャケット','シューズ','ネクタイ','バッグ','ベルト','コート','靴下',];
 					$itemLink =['','','','','','','','',];
 					showCategory($itemLink,$itemImg,$text);
@@ -86,10 +88,10 @@
 
 		<!-- レディスカテゴリ -->
 		<h2 class="text-center mt-5 mb-3">LADIES</h2>
-		<div class=" p-3 frame">
+		<div class=" p-3 frame category">
 			<div class="row">
 			<?php
-					$itemImg =['./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png',];
+					$itemImg =['./imgs/category/setup01.png','./imgs/category/skirt01.png','./imgs/category/pants01.png','./imgs/category/shoes02.png','./imgs/category/bag02.png','./imgs/category/belt02.png','./imgs/category/coat02.png','./imgs/category/socks01.png',];
 					$text =['セットアップ','スカート','パンツ','シューズ','バッグ','ベルト','コート','靴下',];
 					$itemLink =['','','','','','','','',];
 					showCategory($itemLink,$itemImg,$text);

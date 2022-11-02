@@ -13,9 +13,11 @@
 	<?php
 		function showCategory($itemLink,$itemImg,$text){
 			for ($i=0; $i < 8; $i++) { 
-				echo'	<div class="col-3">
-							<a href="'.$itemLink[$i].'">
-								<img src="'.$itemImg[$i].'" class="img-fluid" alt="">
+				echo'	<div class="col-6 col-md-3">
+							<a href="./item_category.php?category='.$text[$i].'">
+								<div class="ratio ratio-1x1">
+									<img src="'.$itemImg[$i].'" class="img-fluid category-thumbnails" alt="'.$text[$i].'">
+								</div>
 								<p class="text-center text-secondary">'.$text[$i].'</p>
 							</a>
 						</div>
@@ -42,14 +44,17 @@
 
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<a href="index4.php">
+					<!-- リンク入れる -->
+					<a href="">
 						<img src="imgs/sample/suit7.jpg" class="d-block w-100" alt="...">
 					</a>
 				</div>
 				<div class="carousel-item">
+					<!-- リンク入れる -->
 					<img src="imgs/sample/suit8.jpg" class="d-block w-100" alt="...">
 				</div>
 				<div class="carousel-item">
+					<!-- リンク入れる -->
 					<img src="imgs/sample/suit9.jpg" class="d-block w-100" alt="...">
 				</div>
 			</div>
@@ -67,15 +72,16 @@
 
 		<!-- セット商品一覧のボタン -->
 		<div class="text-center">
-			<button type="button" class="btn btn-lg btn-outline-primary mt-5">セット商品一覧へ</button>
+			<!-- 後でリンク先確認 -->
+			<a type="button" href="./item_category.php?category=セット商品" class="btn btn-lg btn-outline-primary mt-5">セット商品一覧へ</a>
 		</div>
 
 		<!-- メンズカテゴリー -->
 		<h2 class="text-center mt-5 mb-3">MENS</h2>
-		<div class=" p-3 frame">
+		<div class=" p-3 frame category" >
 			<div class="row">
 				<?php
-					$itemImg =['./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png',];
+					$itemImg =['./imgs/category/suit01.jpg','./imgs/category/jacket01.jpg','./imgs/category/shoes01.jpg','./imgs/category/tie01.jpg','./imgs/category/bag01.jpg','./imgs/category/belt01.png','./imgs/category/coat01.jpg','./imgs/category/socks01.png',];
 					$text =['スーツ','ジャケット','シューズ','ネクタイ','バッグ','ベルト','コート','靴下',];
 					$itemLink =['','','','','','','','',];
 					showCategory($itemLink,$itemImg,$text);
@@ -85,10 +91,10 @@
 
 		<!-- レディスカテゴリ -->
 		<h2 class="text-center mt-5 mb-3">LADIES</h2>
-		<div class=" p-3 frame">
+		<div class=" p-3 frame category">
 			<div class="row">
 			<?php
-					$itemImg =['./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png','./imgs/sample/noimage.png',];
+					$itemImg =['./imgs/category/setup01.png','./imgs/category/skirt01.png','./imgs/category/pants01.png','./imgs/category/shoes02.png','./imgs/category/bag02.png','./imgs/category/belt02.png','./imgs/category/coat02.png','./imgs/category/socks01.png',];
 					$text =['セットアップ','スカート','パンツ','シューズ','バッグ','ベルト','コート','靴下',];
 					$itemLink =['','','','','','','','',];
 					showCategory($itemLink,$itemImg,$text);
@@ -112,7 +118,8 @@
 
 		<!-- 特集ボタン -->
 		<div class="text-center mt-5 mb-5">
-			<button type="button" class="btn btn-lg btn-outline-primary">特集一覧へ</button>
+			<!-- 後でリンク先入れる -->
+			<a type="button" class="btn btn-lg btn-outline-primary">特集一覧へ</a>
 		</div>
 
 

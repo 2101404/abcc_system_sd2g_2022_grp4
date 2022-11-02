@@ -29,7 +29,7 @@ CREATE TABLE item (
     item_price INT NOT NULL,
     is_sale BOOLEAN NOT NULL,
     item_sale_price INT NOT NULL,
-    item_registration_date DATE NOT NULL,
+    item_registration_date DATE DEFAULT CURRENT_DATE NOT NULL,
     PRIMARY KEY(item_id),
     FOREIGN KEY(category_id) REFERENCES category(category_id)
 
@@ -39,7 +39,7 @@ CREATE TABLE cart (
     member_id INT NOT NULL,
     item_id INT NOT NULL,
     suryo_data INT NOT NULL,
-    touroku_data DATE NULL,
+    touroku_data DATE DEFAULT CURRENT_DATE NOT NULL,
     item_size VARCHAR(3) NOT NULL,
     PRIMARY KEY(member_id,item_id),
     FOREIGN KEY(member_id) REFERENCES member(member_id),
@@ -49,7 +49,7 @@ CREATE TABLE cart (
 CREATE TABLE orders(
     order_id INT NOT NULL,
     member_id INT NOT NULL,
-    order_date DATE NOT NULL,
+    order_date DATE DEFAULT CURRENT_DATE NOT NULL,
     PRIMARY KEY(order_id)
 );
 

@@ -44,14 +44,17 @@
 
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<a href="index4.php">
+					<!-- リンク入れる -->
+					<a href="">
 						<img src="imgs/sample/suit7.jpg" class="d-block w-100" alt="...">
 					</a>
 				</div>
 				<div class="carousel-item">
+					<!-- リンク入れる -->
 					<img src="imgs/sample/suit8.jpg" class="d-block w-100" alt="...">
 				</div>
 				<div class="carousel-item">
+					<!-- リンク入れる -->
 					<img src="imgs/sample/suit9.jpg" class="d-block w-100" alt="...">
 				</div>
 			</div>

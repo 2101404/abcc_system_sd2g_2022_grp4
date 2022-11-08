@@ -15,6 +15,19 @@
             return $ps->fetchAll();
         }
 
+        // 会員IDを使って、注文表・注文詳細表・商品表からデータをとってくる
+        public function getBuyHistory($memberId){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT * FROM orders AS O INNER JOIN order_details AS OD ON O.order_id = OD.order_id 
+                                              INNER JOIN item AS I ON OD.item_id = I.item_id WHERE O.member_id = ?
+                                              ORDER BY OD.order_id";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$memberId,PDO::PARAM_INT);
+            $ps->execute();
+
+            return $ps->fetchAll();
+        }
+
         public function buyItems($memberId){
             $pdo = $this->dbConnect();
             $sql1 = "SELECT * FROM cart AS C INNER JOIN item AS I ON C.item_id = I.item_id WHERE C.member_id = ?";

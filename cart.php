@@ -12,7 +12,20 @@
 </head>
 <body>
     <!-- ヘッダーの読み込み -->
-    <?php include "header.php" ?>
+    <?php include "header.php" 
+
+    $ps = $pdo->prepare($sql);
+    
+    $ps->bindValue(1, $_POST['item_id'], PDO::PARAM_STR);
+    $ps->bindValue(1, $_POST['cart_size'], PDO::PARAM_STR);
+    $ps->bindValue(1, $_POST['cart_suryo'], PDO::PARAM_STR);
+    $ps->bindValue(1, $_POST['item_price'], PDO::PARAM_STR);
+
+    $ps->execute();
+    
+    echo "メアド（アカウント）:$_POST['user_mail']<br>";
+    ?>
+
 
     
     <h2>買い物かご</h2>

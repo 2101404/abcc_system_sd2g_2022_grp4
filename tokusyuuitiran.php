@@ -17,8 +17,10 @@
 <div class ="container">
     <!-- 1 -->
     <a href='tokusyuusyousai1.php'>
+        <div class="text-center">
 
-        <img class="img-fluid rounded" width=100% src="./imgs/sample/tokusyuu1.png" alt="tokusyuu1">
+            <img class="img-fluid rounded" width=100% style="max-width:700px" src="./imgs/sample/tokusyuu1.png" alt="tokusyuu1">
+        </div>
     </a>
     <p>ネクタイのキレイな結び方を動画でわかりやすくご紹介。</p>
 

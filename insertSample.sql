@@ -4,6 +4,7 @@ VALUES('abc@example.com',12345,'山田','太郎','ヤマダ','タロウ','男','
 
 -- カテゴリーテーブル
 INSERT INTO `category` (`category_id`, `category_name`) VALUES (NULL, 'スーツ');
+INSERT INTO category(category_name) VALUES('バッグ');
 
 -- 商品テーブル
 INSERT INTO item(category_id, item_image, item_name, item_description, item_color, item_price, is_sale, item_sale_price, item_registration_date)

@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS dev;
+USE dev;
+
 CREATE TABLE member (
     member_id INT AUTO_INCREMENT NOT NULL,
     mail VARCHAR(191) NOT NULL,
@@ -47,7 +50,7 @@ CREATE TABLE cart (
 );
 
 CREATE TABLE orders(
-    order_id INT NOT NULL,
+    order_id INT AUTO_INCREMENT NOT NULL,
     member_id INT NOT NULL,
     order_date DATE DEFAULT CURRENT_DATE NOT NULL,
     PRIMARY KEY(order_id)

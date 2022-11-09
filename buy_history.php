@@ -71,6 +71,7 @@
         <h2 class="my-3">購入履歴</h2>
         
         <?php 
+            // ログインしているユーザーのIDを設定するように後で変える
             $memberId = 1;
 
             $dbm = new DBManager();
@@ -82,24 +83,29 @@
             $cnt = 0;
             foreach($tbl as $row){
                 $rowcnt = count($tbl);
+                // 初回の処理
                 if($cnt == 0){
                     $orderId = $row['order_id'];
                     showDate($row['order_date']);
                 }
+
                 if($orderId == $row['order_id'] || $cnt == 0){
+                    // 注文番号が同じ商品の金額を合計する
                     $sum += $row['item_price'];
-                    
                 }else{
+                    // 注文番号の区切り 合計金額の表示と注文日の表示
                     showSum($sum);
                     showDate($row['order_date']);
                     $sum = 0;
                     $sum += $row['item_price'];
                 }
 
+                // 商品の履歴を表示
                 showHistory($row['order_date'],$row['item_image'],$row['item_name'],$row['suryo_data'],$row['item_size'],$row['item_price']);
 
                 $orderId = $row['order_id'];
                 $cnt++;
+                // 最後の商品を表示した後の処理
                 if($cnt == $rowcnt){
                     showSum($sum);
                 }

@@ -14,6 +14,7 @@
     <!-- ヘッダーの読み込み -->
     <?php include "header.php" ?>
 
+    
     <h2>買い物かご</h2>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

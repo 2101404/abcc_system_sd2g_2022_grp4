@@ -45,17 +45,21 @@
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<!-- リンク入れる -->
-					<a href="">
+					<a href="./item_detail.php">
 						<img src="imgs/sample/suit7.jpg" class="d-block w-100" alt="...">
 					</a>
 				</div>
 				<div class="carousel-item">
 					<!-- リンク入れる -->
-					<img src="imgs/sample/suit8.jpg" class="d-block w-100" alt="...">
+					<a href="./item_detail.php">
+						<img src="imgs/sample/suit8.jpg" class="d-block w-100" alt="...">
+					</a>
 				</div>
 				<div class="carousel-item">
 					<!-- リンク入れる -->
-					<img src="imgs/sample/suit9.jpg" class="d-block w-100" alt="...">
+					<a href="./item_detail.php">
+						<img src="imgs/sample/suit9.jpg" class="d-block w-100" alt="...">
+					</a>
 				</div>
 			</div>
 
@@ -119,7 +123,7 @@
 		<!-- 特集ボタン -->
 		<div class="text-center mt-5 mb-5">
 			<!-- 後でリンク先入れる -->
-			<a type="button" class="btn btn-lg btn-outline-primary">特集一覧へ</a>
+			<a type="button" href="./tokusyuuitiran.php"class="btn btn-lg btn-outline-primary">特集一覧へ</a>
 		</div>
 
 

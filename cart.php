@@ -41,29 +41,30 @@
             ';
 
         }
-        function showSum($sum){
+        function showSum($price,$suryo){
             echo' <!-- 合計金額 -->
                     <div class="row">
                         <div class="col-12">
-                            <p class="text-end my-3 fs-3"> 合計金額 '.$sum.'円</p>
+                            <p class="text-end my-3 fs-3"> 小計 '.$price*$suryo.'円</p>
                         </div>
                     </div>    
                 ';
 
         }
-        function showDate($date){
-            echo'
-                <div class="col-12">
-                    <h3 class="">'.$date.'</h3>
-                </div>
-            ';
-            
+        function showSum($sum){
+            echo' <!-- 合計金額 -->
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="text-end my-3 fs-3"> 合計 '.$sum.'円</p>
+                        </div>
+                    </div>    
+                ';
 
 
         }
     ?>
 
-    <title>購入履歴</title>
+    <title>買い物かご</title>
 </head>
 <body>
     <?php require_once "DBManager.php"; ?>
@@ -72,7 +73,7 @@
     <?php include "header.php"; ?>
     <div class="container" style="max-width:800px">
 
-        <h2 class="my-3">購入履歴</h2>
+        <h2 class="my-3">買い物かご</h2>
         
         <?php 
             // ログインしているユーザーのIDを設定するように後で変える
@@ -117,9 +118,9 @@
             echo "</div> ";
         ?>
         
-        
-       
-
+        <div class="text-right my-3">    
+            <a type="button" class="btn btn-outline-primary" href="">注文</a>
+        </div>
         
         <div class="text-center my-3">    
             <a type="button" class="btn btn-outline-primary" href="">マイページに戻る</a>

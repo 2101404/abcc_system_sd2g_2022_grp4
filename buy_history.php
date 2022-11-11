@@ -63,7 +63,6 @@
 </head>
 <body>
     <?php require_once "DBManager.php"; ?>
-
     <!-- ヘッダーの読み込み -->
     <?php include "header.php"; ?>
     <div class="container" style="max-width:800px">

@@ -28,6 +28,7 @@
                 $ps->bindValue(7,$seibetsu,PDO::PARAM_STR);     $ps->bindValue(8,$birth,PDO::PARAM_STR);
                 $ps->bindValue(9,$phone_num,PDO::PARAM_STR);    $ps->bindValue(10,$jusho,PDO::PARAM_STR);
                 $ps->execute();
+            }
         // 会員IDを使って、注文表・注文詳細表・商品表からデータをとってくる
         public function getBuyHistory($memberId){
             $pdo = $this->dbConnect();

@@ -10,8 +10,7 @@
 
     <title>cart</title>
 </head>
-<body>
-    <!-- ヘッダーの読み込み -->
+
     <?php
         function showHistory($date,$image,$itemName,$suryo,$size,$price){
             echo'
@@ -63,9 +62,12 @@
         }
     ?>
 
-    <title>購入履歴</title>
+    <title>買い物かご</title>
 </head>
 <body>
+    <h2>買い物かご</h2>
+    <a href="./cart_delete.php">削除</a><br>
+    <a href="./order_confirmation.php">注文</a>
     <?php require_once "DBManager.php"; ?>
 
     <!-- ヘッダーの読み込み -->
@@ -128,7 +130,7 @@
     </div>
     
 
-    <h2>買い物かご</h2>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

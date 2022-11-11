@@ -22,9 +22,9 @@
         ?>
     </h3>
 
+    <a href="./item_detail.php">商品詳細</a>
     <!-- 戻るボタン -->
 		<div class="text-center mt-5 mb-5">
-			<!-- 後でリンク先入れる -->
             <a type="button" href="./index.php?" class="btn btn-lg btn-outline-primary mt-5">トップページに戻る</a>
 		</div>
 

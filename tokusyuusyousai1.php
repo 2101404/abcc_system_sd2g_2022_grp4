@@ -15,8 +15,9 @@
     <?php include "header.php" ?>
 
 <div class ="container">
-
-    <img class="img-fluid rounded" src="./imgs/sample/tokusyuu1.png" alt="tokusyuu1">
+    <div class ="text-center">
+    <img class="img-fluid rounded" width=100% style="max-width:700px" src="./imgs/sample/tokusyuu1.png" alt="tokusyuu1">
+    </div>
     <p>ネクタイのキレイな結び方を動画でわかりやすくご紹介。</p>
     
     <!-- 1 -->

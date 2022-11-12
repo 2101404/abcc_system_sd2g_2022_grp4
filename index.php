@@ -16,7 +16,7 @@
 				echo'	<div class="col-6 col-md-3">
 							<a href="./item_category.php?category='.$text[$i].'">
 								<div class="ratio ratio-1x1">
-									<img src="'.$itemImg[$i].'" class="img-fluid category-thumbnails" alt="'.$text[$i].'">
+									<img src="'.$itemImg[$i].'" class="img-fluid" alt="'.$text[$i].'">
 								</div>
 								<p class="text-center text-secondary">'.$text[$i].'</p>
 							</a>

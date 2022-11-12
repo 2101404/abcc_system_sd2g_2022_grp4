@@ -17,15 +17,6 @@ a{
     margin-right:auto;
 }
 
-.category-thumbnails{
-    object-fit:cover;
-}
-
-.feature{
-    border:solid;
-    height:200px;
-}
-
 .frame{
     background-color:#EEEEEE;
     

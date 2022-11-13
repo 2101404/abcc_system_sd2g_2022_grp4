@@ -19,5 +19,13 @@ INSERT INTO category(category_name) VALUES('ネクタイ');
 
 -- 商品テーブル
 INSERT INTO item(category_id, item_image, item_name, item_description, item_color, item_price, is_sale, item_sale_price, item_registration_date)
-VALUES(1,'./imgs/category/suit01.jpg','スーツテスト','商品説明です','黒',10000,FALSE,8000,'2022-11-1');
+VALUES((SELECT category_id FROM category WHERE category_name = 'スーツ'),'./imgs/category/suit01.jpg','スーツテスト','商品説明です','黒',10000,FALSE,8000,'2022-11-1');
+INSERT INTO item(category_id, item_image, item_name, item_description, item_color, item_price, is_sale, item_sale_price, item_registration_date)
+VALUES(1,'./imgs/category/bag01.jpg','バッグ','バッグです','黒',10000,FALSE,8000,'2022-11-1');
+INSERT INTO item(category_id, item_image, item_name, item_description, item_color, item_price, is_sale, item_sale_price, item_registration_date)
+VALUES(1,'./imgs/category/belt03.png','ベルト','ベルトです','茶',3000,FALSE,2500,'2022-11-1');
+INSERT INTO item(category_id, item_image, item_name, item_description, item_color, item_price, is_sale, item_sale_price, item_registration_date)
+VALUES(1,'./imgs/category/shoes01.jpg','靴','靴です','黒',5000,FALSE,2500,CURRENT_DATE());
+INSERT INTO item(category_id, item_image, item_name, item_description, item_color, item_price, is_sale, item_sale_price, item_registration_date)
+VALUES(1,'./imgs/sample/ikeoji.png','イケオジになっちゃうスタイリッシュスーツ！！','大人の雰囲気を醸し出す、スタイリッシュなスーツです。 これを着ればあなたもきっとイケオジに。','黒',750000,FALSE,600000,CURRENT_DATE());
 

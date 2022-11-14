@@ -8,7 +8,7 @@
         // 商品IDで商品の情報を取ってくる
         public function getItemById($id){
             $pdo = $this->dbConnect();
-            $sql = "SELECT * FROM item WHERE item_id = ?";
+            $sql = "SELECT * FROM item AS I INNER JOIN category AS C ON I.category_id = C.category_id WHERE item_id = ?";
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1,$id,PDO::PARAM_INT);
             $ps->execute();

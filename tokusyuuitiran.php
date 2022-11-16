@@ -45,11 +45,10 @@
     <p>スーツや小物まで、各種アイテムのお手入れ方法をご紹介。上手にメンテナンスして長くキレイに使用しましょう。</p>
     </div>
 
-    <!-- b -->
-    <div class="text-center">
-    <button class = "btn btn-light btn-lg" >トップページに戻る</button>
-    </div>
-</div>
+    <!-- 戻るボタン -->
+		<div class="text-center mt-5 mb-5">
+            <a type="button" href="./index.php?" class="btn btn-lg btn-outline-primary mt-5">トップページに戻る</a>
+		</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

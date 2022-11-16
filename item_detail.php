@@ -44,12 +44,12 @@
                 <span class="badge bg-danger">new</span>
                 <h5 class="text-muted text-start">カテゴリ【<?php echo $item['category_name']; ?>】</h5>
                 <h3><?php echo $item['item_name']; ?></h3>
-                <p class="my-5 fs-3 text-end">￥<span class="fs-3" id="price"><?php echo $item['item_price']; ?></span></p>
+                <p class="my-5 fs-3 text-end">￥<span class="fs-3" id="price"><?php echo number_format($item['item_price']); ?></span></p>
                 <div class="text-start my-4">
 
+                    <label for="size">サイズ</label>
                     <select class="form-select form-select-lg" name="size">
-                            <option selected>サイズを選択
-                            </option>
+                            <option selected>サイズを選択</option>
                             <option value="S">S</option>
                             <option value="M">M</option>
                             <option value="L">L</option>
@@ -57,11 +57,18 @@
 
                 </div>
                 <div class="text-start mt-5">
+                    <label for="suryo">数量</label>
                     <select class="form-select form-select-lg" onchange="calcPrice()" id="suryo">
-                        <option value="0"selected>数量を選択</option>
-                        <option value="1">1</option>
+                        <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
                     </select>
 
 
@@ -69,7 +76,7 @@
             </div>
 
         </div>
-        <p class="text-end fs-4  my-3">選択内容：商品価格<span id="sum">0</span>円</p>
+        <p class="text-end fs-4  my-3">選択内容：商品価格<span id="sum"><?php echo number_format($item['item_price']) ?> </span>円</p>
 
         <h6 class="text-muted mt-4">【商品説明】</h3>
             <p class="m-0">
@@ -97,9 +104,9 @@
                 let suryo = document.getElementById("suryo").value;
                 suryo = parseInt(suryo);
                 let price = document.getElementById("price").innerHTML;
-                price = parseInt(price);
+                price = parseInt(<?php echo $item['item_price'] ?>);
 
-                let sum = price * suryo;
+                let sum = (price * suryo).toLocaleString();
                 let sumArea = document.getElementById("sum");
                 sumArea.innerHTML = sum; 
             }

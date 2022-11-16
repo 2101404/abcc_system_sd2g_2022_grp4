@@ -32,7 +32,7 @@ CREATE TABLE item (
     item_description VARCHAR(300) NOT NULL,
     item_color VARCHAR(10) NOT NULL,
     item_price INT NOT NULL,
-    item_size VARCHAR(191), NOT NULL
+    item_size VARCHAR(191) NOT NULL,
     is_sale BOOLEAN NOT NULL,
     item_sale_price INT NOT NULL,
     item_registration_date DATE NOT NULL,

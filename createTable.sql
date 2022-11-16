@@ -32,9 +32,10 @@ CREATE TABLE item (
     item_description VARCHAR(300) NOT NULL,
     item_color VARCHAR(10) NOT NULL,
     item_price INT NOT NULL,
+    item_size VARCHAR(191), NOT NULL
     is_sale BOOLEAN NOT NULL,
     item_sale_price INT NOT NULL,
-    item_registration_date DATE DEFAULT CURRENT_DATE NOT NULL,
+    item_registration_date DATE NOT NULL,
     PRIMARY KEY(item_id),
     FOREIGN KEY(category_id) REFERENCES category(category_id)
 
@@ -44,7 +45,7 @@ CREATE TABLE cart (
     member_id INT NOT NULL,
     item_id INT NOT NULL,
     suryo_data INT NOT NULL,
-    touroku_data DATE DEFAULT CURRENT_DATE NOT NULL,
+    touroku_data DATE NOT NULL,
     item_size VARCHAR(3) NOT NULL,
     PRIMARY KEY(member_id,item_id),
     FOREIGN KEY(member_id) REFERENCES member(member_id),
@@ -54,7 +55,7 @@ CREATE TABLE cart (
 CREATE TABLE orders(
     order_id INT AUTO_INCREMENT NOT NULL,
     member_id INT NOT NULL,
-    order_date DATE DEFAULT CURRENT_DATE NOT NULL,
+    order_date DATE NOT NULL,
     PRIMARY KEY(order_id)
 );
 

@@ -60,9 +60,19 @@
     </div>
 
     <!-- movie -->
-    <div class ="text-center">
-    <iframe width="560" height="315" src="https://youtu.be/8kH0P3Ka6L0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+
+    <div class="container alert-dark text-center">
+            <h4><i class="bi bi-caret-right-square-fill"></i>斜め上から動画で見る</h4>
+                <div class ="text-center">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/8kH0P3Ka6L0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+
+            <h4><i class="bi bi-caret-right-square-fill"></i>正面から動画で見る</h4>
+                <div class ="text-center">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/6nRMlqtfR70" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+            </div>
+        </div>
     </div>
+
 
     <!-- 戻るボタン -->
 		<div class="text-center mt-5 mb-5">

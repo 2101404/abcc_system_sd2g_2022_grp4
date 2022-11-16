@@ -59,11 +59,6 @@
     </div>
 
 
-    <!-- movie -->
-    <div class ="text-center">
-    <iframe width="560" height="315" src="https://youtu.be/8kH0P3Ka6L0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
-    </div>
-
     <!-- 戻るボタン -->
 		<div class="text-center mt-5 mb-5">
             <a type="button" href="./index.php?" class="btn btn-lg btn-outline-primary mt-5">トップページに戻る</a>

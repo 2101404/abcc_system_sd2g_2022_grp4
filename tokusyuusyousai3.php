@@ -96,7 +96,7 @@
 
     <!-- movie -->
     <div class ="text-center">
-    <iframe width="560" height="315" src="https://youtu.be/8kH0P3Ka6L0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/fsFuNmI9SjY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
     </div>
     
     <!-- 戻るボタン -->

@@ -16,7 +16,7 @@
 				echo'	<div class="col-6 col-md-3">
 							<a href="./item_category.php?category='.$text[$i].'">
 								<div class="ratio ratio-1x1">
-									<img src="'.$itemImg[$i].'" class="img-fluid category-thumbnails" alt="'.$text[$i].'">
+									<img src="'.$itemImg[$i].'" class="img-fluid" alt="'.$text[$i].'">
 								</div>
 								<p class="text-center text-secondary">'.$text[$i].'</p>
 							</a>
@@ -32,33 +32,33 @@
 	<!-- ヘッダーの読み込み -->
 	<?php include "header.php" ?>
 
-	<div class="container">
+	<div class="container-fluid p-0">
 
 		<!-- カルーセル -->
-		<div id="carouselIndicators" class="carousel slide mb-5" data-bs-ride="carousel">
+		<div id="carouselIndicators" class="carousel carousel-dark slide mb-5" data-bs-ride="carousel">
 			<div class="carousel-indicators">
 				<button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
 				<button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
 				<button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
 			</div>
 
-			<div class="carousel-inner">
+			<div class="carousel-inner text-center">
 				<div class="carousel-item active">
 					<!-- リンク入れる -->
 					<a href="./item_detail.php">
-						<img src="imgs/sample/suit7.jpg" class="d-block w-100" alt="...">
+						<img src="imgs/sample/carousel01.webp" class="w-100" alt="...">
 					</a>
 				</div>
 				<div class="carousel-item">
 					<!-- リンク入れる -->
 					<a href="./item_detail.php">
-						<img src="imgs/sample/suit8.jpg" class="d-block w-100" alt="...">
+						<img src="imgs/sample/suit8.jpg" class="w-100" alt="...">
 					</a>
 				</div>
 				<div class="carousel-item">
 					<!-- リンク入れる -->
 					<a href="./item_detail.php">
-						<img src="imgs/sample/suit9.jpg" class="d-block w-100" alt="...">
+						<img src="imgs/sample/suit9.jpg" class="w-100" alt="..." style="object-position:0% 0%">
 					</a>
 				</div>
 			</div>
@@ -85,7 +85,7 @@
 		<div class=" p-3 frame category" >
 			<div class="row">
 				<?php
-					$itemImg =['./imgs/category/suit01.jpg','./imgs/category/jacket01.jpg','./imgs/category/shoes01.jpg','./imgs/category/tie01.jpg','./imgs/category/bag01.jpg','./imgs/category/belt01.png','./imgs/category/coat01.jpg','./imgs/category/socks01.png',];
+					$itemImg =['./imgs/category/suit01.jpg','./imgs/category/jacket01.jpg','./imgs/category/shoes01.jpg','./imgs/category/tie01.jpg','./imgs/category/bag03.png','./imgs/category/belt03.png','./imgs/category/coat01.jpg','./imgs/category/socks01.png',];
 					$text =['スーツ','ジャケット','シューズ','ネクタイ','バッグ','ベルト','コート','靴下',];
 					$itemLink =['','','','','','','','',];
 					showCategory($itemLink,$itemImg,$text);
@@ -98,7 +98,7 @@
 		<div class=" p-3 frame category">
 			<div class="row">
 			<?php
-					$itemImg =['./imgs/category/setup01.png','./imgs/category/skirt01.png','./imgs/category/pants01.png','./imgs/category/shoes02.png','./imgs/category/bag02.png','./imgs/category/belt02.png','./imgs/category/coat02.png','./imgs/category/socks01.png',];
+					$itemImg =['./imgs/category/setup01.png','./imgs/category/skirt01.png','./imgs/category/pants01.png','./imgs/category/shoes02.png','./imgs/category/bag02.png','./imgs/category/belt04.png','./imgs/category/coat02.png','./imgs/category/socks01.png',];
 					$text =['セットアップ','スカート','パンツ','シューズ','バッグ','ベルト','コート','靴下',];
 					$itemLink =['','','','','','','','',];
 					showCategory($itemLink,$itemImg,$text);
@@ -109,16 +109,69 @@
 
 		<!-- 特集 -->
 		<h2 class="text-center mt-5 mb-3">特集</h2>
-		<div class="row">
-                <div class="col-5 text-center">
-                    <img class="image-test"src="./imgs/sample/noimage.png" width="60%" alt="">
+		<!-- <div class="row mx-5 gy-3 tokushu">
+                <div class="col-12 col-md-4">
+					<a href="./tokusyuusyousai1.php">
+						<img src="./imgs/sample/tokusyuu1.png" alt="">
+					</a>
                 </div>
-				<div class="col-2" ></div>
-                <div class="col-5 text-center">
-					<img class="image-test" src="./imgs/sample/noimage.png" width="50%" alt="">
+                <div class="col-12 col-md-4">
+					<a href="./tokusyuusyousai2.php">
+						<img  src="./imgs/sample/tokusyuu2.png" alt="">
+					</a>
                 </div>
+				<div class="col-12 col-md-4">
+					<a href="./tokusyuusyousai3.php">
+						<img  src="./imgs/sample/tokusyuu3.jpg" alt="">
+					</a>
+				</div>
 
+		</div> -->
+		<div class="row">
+			<div class="offset-3 col-6">
+				<!-- カルーセル -->
+				<div id="carouselIndicators-tokushu" class="carousel carousel-dark slide mb-3" data-bs-ride="carousel">
+					<div class="carousel-indicators">
+						<button type="button" data-bs-target="#carouselIndicators-tokushu" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+						<button type="button" data-bs-target="#carouselIndicators-tokushu" data-bs-slide-to="1" aria-label="Slide 2"></button>
+						<button type="button" data-bs-target="#carouselIndicators-tokushu" data-bs-slide-to="2" aria-label="Slide 3"></button>
+					</div>
+
+					<div class="carousel-inner text-center tokushu">
+						<div class="carousel-item active">
+							<!-- リンク入れる -->
+							<a href="./tokusyuusyousai1.php">
+								<img src="imgs/sample/tokusyuu1.png"  alt="...">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<!-- リンク入れる -->
+							<a href="./tokusyuusyousai2.php">
+								<img src="imgs/sample/tokusyuu2.png"  alt="...">
+							</a>
+						</div>
+						<div class="carousel-item">
+							<!-- リンク入れる -->
+							<a href="./tokusyuusyousai3.php">
+								<img src="imgs/sample/tokusyuu3.jpg"  alt="..." >
+							</a>
+						</div>
+					</div>
+
+					<button class="carousel-control-prev " type="button" data-bs-target="#carouselIndicators-tokushu" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+
+					<button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators-tokushu" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
+				</div>
+
+			</div>
 		</div>
+
 
 		<!-- 特集ボタン -->
 		<div class="text-center mt-5 mb-5">

@@ -8,26 +8,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./css/style.css">
 
-    <script type="text/javascript">
-            function calcPrice(){
-                let suryo = document.getElementById("suryo").value;
-                suryo = parseInt(suryo);
-                let price = document.getElementById("price").innerHTML;
-                price = parseInt(price);
-
-                let sum = price * suryo;
-                let sumArea = document.getElementById("sum");
-                sumArea.innerHTML = sum; 
-            }
-
-            $("[data-toggle=popover]").popover();
-    </script>
     <title>商品詳細</title>
 </head>
-<body class="my-3">
+<body class="my-3" onload="initPopover()">
     <!-- ヘッダーの読み込み -->
-    <?php include "header.php" ?>
-    
+    <?php include "header.php"; ?>
+    <?php
+        require_once "DBManager.php";
+        $dbm = new DBManager();
+        // $itemId = $_GET['itemid'];
+        // $itemtbl = $dbm->getItemById($itemId);
+        $itemtbl = $dbm->getItemById(5);
+        foreach($itemtbl as $item):
+    ?>
     <div class="container">
 
         <!-- パンくずリスト -->
@@ -43,15 +36,15 @@
         <div class="row gy-3">
             <!-- 商品画像 -->
             <div class="col-12 col-md-6">
-                <img src="imgs\sample\ikeoji.png" alt="" width="100%" style="max-height:400px;object-fit:contain;">
+                <img src=<?php echo $item['item_image'];?> alt="" width="100%" style="max-height:400px;object-fit:contain;">
 
             </div>
             <!-- 商品名・金額・サイズ・数量 -->
             <div class="col-12 col-md-6 ps-md-5">
                 <span class="badge bg-danger">new</span>
-                <h5 class="text-muted text-start">カテゴリ【スーツ】</h5>
-                <h3>イケオジになっちゃうスタイリッシュスーツ！！</h3>
-                <p class="my-5 fs-3 text-end">￥<span class="fs-3" id="price">750000</span></p>
+                <h5 class="text-muted text-start">カテゴリ【<?php echo $item['category_name']; ?>】</h5>
+                <h3><?php echo $item['item_name']; ?></h3>
+                <p class="my-5 fs-3 text-end">￥<span class="fs-3" id="price"><?php echo $item['item_price']; ?></span></p>
                 <div class="text-start my-4">
 
                     <select class="form-select form-select-lg" name="size">
@@ -80,8 +73,7 @@
 
         <h6 class="text-muted mt-4">【商品説明】</h3>
             <p class="m-0">
-                大人の雰囲気を醸し出す、スタイリッシュなスーツです。
-                これを着ればあなたもきっとイケオジに。
+                <?php echo $item['item_description']; ?>
             </p>
 
 
@@ -92,14 +84,33 @@
             </div>
 
             <div class="col-12 col-md-6 text-center mb-5">
-                <button class="btn  btn-lg btn-primary">買い物かごに入れる</button>
+                <a tabindex="0" class="btn btn-lg btn-primary" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="買い物かごに入れました">買い物かごに入れる</a>
             </div>
             <div class="col-12 text-center my-5">
                 <button class="btn btn-lg btn-outline-primary" onclick="history.back()">一つ前に戻る</button>
             </div>
         </div>
-        <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
     </div>
+    <?php endforeach; ?>
+    <script>
+            function calcPrice(){
+                let suryo = document.getElementById("suryo").value;
+                suryo = parseInt(suryo);
+                let price = document.getElementById("price").innerHTML;
+                price = parseInt(price);
+
+                let sum = price * suryo;
+                let sumArea = document.getElementById("sum");
+                sumArea.innerHTML = sum; 
+            }
+
+            function initPopover(){
+                var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+                var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                return new bootstrap.Popover(popoverTriggerEl);
+                });
+            }
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

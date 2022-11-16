@@ -4,8 +4,9 @@ body {
 
 a{
     text-decoration: none;
-    color:black;
+    
 }
+
 
 .ratio-1x1 img{
     object-fit:cover;
@@ -17,17 +18,8 @@ a{
     margin-right:auto;
 }
 
-.category-thumbnails{
-    object-fit:cover;
-}
-
-.feature{
-    border:solid;
-    height:200px;
-}
-
 .frame{
-    background-color:#EEEEEE;
+    background-color:#f1f1f1;
     
 }
 
@@ -36,4 +28,27 @@ a{
         height: 200px;
         object-fit: cover;
     
+}
+
+.carousel-item img{
+    max-width: 2000px;
+    object-fit:cover;
+}
+
+@media (min-width: 320px){
+    .carousel-item img{
+        height: 200px;
+    }
+}
+@media (min-width: 768px){
+    .carousel-item img{
+        height: 500px;
+    }
+}
+
+.tokushu img{
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+
 }

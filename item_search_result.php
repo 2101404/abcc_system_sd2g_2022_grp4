@@ -28,7 +28,6 @@
       <option value="3">L</option>
       </select>
     </div>
-  
 
   <!-- カラーの表示 -->
   <label class="col-sm-4 control-label">カラー</label>
@@ -58,7 +57,7 @@
       </div>
 
   <!-- プライス(価格)の表示 -->
-  <label class="col-sm-7 control-label">価格タイプ</label>
+  <label class="col-sm-8 control-label">価格タイプ</label>
   <ul>
     <div class="form-check">
       <input  type="radio" class="form-check-input" name="rdoname" id="rd1">
@@ -112,9 +111,9 @@
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
-              <img class="image-test"src="./imgs/sample/noimage.png" width="60%" alt="">
+            <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
               <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
-              <p class ="card-listText">￥100000</p>
+              <p class ="card-listText">￥1234567890(税込)</p>
             </div>
           </div>
         </div>
@@ -124,9 +123,9 @@
       <div class ="content">
         <div class="card-wrap">
           <div class ="card-list">
-            <img class="image-test"src="./imgs/sample/noimage.png" width="60%" alt="">
+            <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
             <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
-            <p class ="card-listText">￥10000</p>
+            <p class ="card-listText">￥10000(税込)</p>
           </div>
         </div>
       </div>
@@ -136,9 +135,9 @@
       <div class ="content">
         <div class="card-wrap">
           <div class ="card-list">
-            <img class="image-test"src="./imgs/sample/noimage.png" width="60%" alt="">
+            <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
             <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
-            <p class ="card-listText">￥10000</p>
+            <p class ="card-listText">￥10000(税込)</p>
           </div>
         </div>
       </div>
@@ -150,9 +149,9 @@
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
-              <img class="image-test"src="./imgs/sample/noimage.png" width="60%" alt="">
+            <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
               <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
-              <p class ="card-listText">￥10000</p>
+              <p class ="card-listText">￥10000(税込)</p>
             </div>
           </div>
         </div>
@@ -162,9 +161,9 @@
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
-              <img class="image-test"src="./imgs/sample/noimage.png" width="60%" alt="">
+            <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
               <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
-              <p class ="card-listText">￥10000</p>
+              <p class ="card-listText">￥10000(税込)</p>
             </div>
           </div>
         </div>
@@ -174,47 +173,9 @@
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
-              <img class="image-test"src="./imgs/sample/noimage.png" width="60%" alt="">
+            <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
               <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
-              <p class ="card-listText">￥10000</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-4">
-        <div class ="content">
-          <div class="card-wrap">
-            <div class ="card-list">
-              <img class="image-test"src="./imgs/sample/noimage.png" width="60%" alt="">
-              <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
-              <p class ="card-listText">￥10000</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-4">
-        <div class ="content">
-          <div class="card-wrap">
-            <div class ="card-list">
-              <img class="image-test"src="./imgs/sample/noimage.png" width="60%" alt="">
-              <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
-              <p class ="card-listText">￥10000</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-4">
-        <div class ="content">
-          <div class="card-wrap">
-            <div class ="card-list">
-              <img class="image-test"src="./imgs/sample/noimage.png" width="60%" alt="">
-              <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
-              <p class ="card-listText">￥10000</p>
+              <p class ="card-listText">￥10000(税込)</p>
             </div>
           </div>
         </div>
@@ -226,9 +187,9 @@
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
-              <img class="image-test"src="./imgs/sample/noimage.png" width="60%" alt="">
+              <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
               <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
-              <p class ="card-listText">￥10000</p>
+              <p class ="card-listText">￥10000(税込)</p>
             </div>
           </div>
         </div>
@@ -238,9 +199,9 @@
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
-              <img class="image-test"src="./imgs/sample/noimage.png" width="60%" alt="">
+              <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
               <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
-              <p class ="card-listText">￥10000</p>
+              <p class ="card-listText">￥10000(税込)</p>
             </div>
           </div>
         </div>
@@ -250,9 +211,47 @@
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
-              <img class="image-test"src="./imgs/sample/noimage.png" width="60%" alt="">
+              <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
+              <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
+              <p class ="card-listText">￥10000(税込)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-4">
+        <div class ="content">
+          <div class="card-wrap">
+            <div class ="card-list">
+              <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
+              <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
+              <p class ="card-listText">￥10000(税込)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class ="content">
+          <div class="card-wrap">
+            <div class ="card-list">
+              <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
+              <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
+              <p class ="card-listText">￥10000(税込)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class ="content">
+          <div class="card-wrap">
+            <div class ="card-list">
+              <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
               <h2 class = "card-listTitel">洗える ストレッチ</h2>
-              <p class ="card-listText">￥10000</p>
+              <p class ="card-listText">￥10000(税込)</p>
             </div>
           </div>
         </div>
@@ -264,9 +263,9 @@
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
-              <img class="image-test"src="./imgs/sample/noimage.png" width="60%" alt="">
+              <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
               <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
-              <p class ="card-listText">￥10000</p>
+              <p class ="card-listText">￥10000(税込)</p>
             </div>
           </div>
         </div>
@@ -276,9 +275,9 @@
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
-              <img class="image-test"src="./imgs/sample/noimage.png" width="60%" alt="">
+              <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
               <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
-              <p class ="card-listText">￥10000</p>
+              <p class ="card-listText">￥10000(税込)</p>
             </div>
           </div>
         </div>
@@ -288,9 +287,9 @@
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
-              <img class="image-test"src="./imgs/sample/noimage.png" width="60%" alt="">
+              <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
               <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ 紺ストライプ JOURNAL WORKS スリム</h2>
-              <p class ="card-listText">￥10000</p>
+              <p class ="card-listText">￥10000(税込)</p>
             </div>
           </div>
         </div>
@@ -302,9 +301,9 @@
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
-              <img class="image-test"src="./imgs/sample/noimage.png" width="60%" alt="">
+              <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
               <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
-              <p class ="card-listText">￥10000</p>
+              <p class ="card-listText">￥10000(税込)</p>
             </div>
           </div>
         </div>
@@ -314,9 +313,9 @@
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
-              <img class="image-test"src="./imgs/sample/noimage.png" width="60%" alt="">
+              <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
               <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
-              <p class ="card-listText">￥10000</p>
+              <p class ="card-listText">￥10000(税込)</p>
             </div>
           </div>
         </div>
@@ -326,9 +325,9 @@
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
-              <img class="image-test"src="./imgs/sample/noimage.png" width="60%" alt="">
+              <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
               <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
-              <p class ="card-listText">￥10000</p>
+              <p class ="card-listText">￥10000(税込)</p>
             </div>
           </div>
         </div>

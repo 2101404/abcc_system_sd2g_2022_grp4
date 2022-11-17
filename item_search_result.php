@@ -18,6 +18,28 @@
 
   <div id="container"class="container-fluid">
 
+    <?php
+      require_once "DBManager.php";
+      
+      // URLから検索キーワードの取得
+      $keyword = "";
+      if(isset($_GET['keyword'])){
+        $keyword = $_GET['keyword'];
+      }
+
+      echo "商品検索キーワード:「{$keyword}」<br>";
+      // キーワードが入力されている場合検索を行う
+      if(!empty($keyword)){
+        $dbm = new DBManager();
+        $itemTbl = $dbm->searchItem($keyword);
+        echo "一致件数：".count($itemTbl)."件";
+        foreach($itemTbl as $row){
+          echo "<li>商品名：".$row['item_name']."</li>";
+        }  
+      }
+      
+    ?>
+
     <h2 class="text-center mt-5 mb-3">検索キーワード:</h2>
     <h2 class="text-center mt-5 mb-3">検索一致件数:18件</h2>
 
@@ -29,6 +51,7 @@
       <option value="2">安い順</option>
       <option value="2">高い順</option>
     </select>
+    
     
     <!-- カード -->
     <div class="row">

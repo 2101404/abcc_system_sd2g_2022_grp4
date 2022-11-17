@@ -44,9 +44,9 @@ CREATE TABLE item (
 CREATE TABLE cart (
     member_id INT NOT NULL,
     item_id INT NOT NULL,
-    suryo_data INT NOT NULL,
-    touroku_data DATE NOT NULL,
-    item_size VARCHAR(3) NOT NULL,
+    cart_suryo INT NOT NULL,
+    cart_tourokubi DATE NOT NULL,
+    cart_size VARCHAR(3) NOT NULL,
     PRIMARY KEY(member_id,item_id),
     FOREIGN KEY(member_id) REFERENCES member(member_id),
     FOREIGN KEY(item_id) REFERENCES item(item_id)
@@ -62,9 +62,9 @@ CREATE TABLE orders(
 CREATE TABLE order_details(
     order_id INT NOT NULL,
     item_id INT NOT NULL,
-    suryo_data INT NOT NULL,
-    item_size VARCHAR(3) NOT NULL,
-    item_price INT NOT NULL,
+    od_suryo INT NOT NULL,
+    od_size VARCHAR(3) NOT NULL,
+    od_price INT NOT NULL,
     PRIMARY KEY(order_id,item_id),
     FOREIGN KEY(order_id) REFERENCES orders(order_id),
     FOREIGN KEY(item_id) REFERENCES item(item_id)

@@ -15,12 +15,34 @@
     <?php include "header.php"; ?>
     <?php
         require_once "DBManager.php";
-        $dbm = new DBManager();
-        // $itemId = $_GET['itemid'];
-        // $itemtbl = $dbm->getItemById($itemId);
-        $itemtbl = $dbm->getItemById(5);
-        foreach($itemtbl as $item):
+
+        // セッションスタート
+        session_start();
+        if(isset($_SESSION['member_id'])){
+            $memberId = $_SESSION['member_id'];
+        }
+        
+        
+        // URLから商品IDを取得する
+        if(isset($_GET['itemid'])){
+            $itemId = $_GET['itemid'];
+        }else{
+            // パラメーターを付けずにページを表示した場合エラーを表示する
+            exit("パラメーターが設定されていません");
+        }
+        
+        // DBから商品情報を取得する
+        try {
+            $dbm = new DBManager();
+            $item = $dbm->getItemById($itemId);
+            // $item= $dbm->getItemById(5);
+        } catch (Exception $ex) {
+            // DBから取得出来なかった場合エラーを表示する
+            echo $ex->getMessage();
+            exit();
+        }
     ?>
+
     <div class="container">
 
         <!-- パンくずリスト -->
@@ -98,7 +120,6 @@
             </div>
         </div>
     </div>
-    <?php endforeach; ?>
     <script>
             function calcPrice(){
                 let suryo = document.getElementById("suryo").value;

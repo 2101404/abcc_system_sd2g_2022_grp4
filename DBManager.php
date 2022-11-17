@@ -12,8 +12,11 @@
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1,$id,PDO::PARAM_INT);
             $ps->execute();
-            
-            return $ps->fetchAll();
+            $result = $ps->fetch();
+            if($result == false){
+                throw new Exception("データを取得できませんでした");
+            }
+            return $result;
         }
 
         // 会員登録

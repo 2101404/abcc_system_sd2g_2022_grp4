@@ -45,7 +45,7 @@
 			<div class="carousel-inner text-center">
 				<div class="carousel-item active">
 					<!-- リンク入れる -->
-					<a href="./item_detail.php">
+					<a href="./item_detail.php?itemid=5">
 						<img src="imgs/sample/carousel01.webp" class="w-100" alt="...">
 					</a>
 				</div>

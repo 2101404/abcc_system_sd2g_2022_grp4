@@ -27,7 +27,8 @@
         if(isset($_GET['itemid'])){
             $itemId = $_GET['itemid'];
         }else{
-            // パラメーターを付けずにページを表示した場合エラーを表示する
+            // パラメーターを付けずにページを表示した場合トップページに遷移させる
+            header('Location: index.php');
             exit("パラメーターが設定されていません");
         }
         
@@ -39,6 +40,7 @@
         } catch (Exception $ex) {
             // DBから取得出来なかった場合エラーを表示する
             echo $ex->getMessage();
+            echo '<br><a href="javascript:history.back()">戻る</a>';
             exit();
         }
     ?>

@@ -1,6 +1,4 @@
 <!-- サイドバーの表示 -->
-<header id="header"></header>
-
 <aside id="sub">
   <h2 class="text-center mt-5 mb-3">絞り込み</h2>
 

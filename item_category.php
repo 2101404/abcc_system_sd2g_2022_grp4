@@ -15,8 +15,7 @@
     <?php include "header.php" ?>
 
      <!-- サイドバーの読み込み -->
-     <?php include "sade.php" 
-     ?>
+     <?php include "side.php" ?>
 
     <h2>カテゴリー別商品</h2>
     <h3>

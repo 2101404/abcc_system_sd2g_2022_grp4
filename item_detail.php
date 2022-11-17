@@ -49,7 +49,7 @@
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="./index.php">Top</a></li>
-                <li class="breadcrumb-item">カテゴリ</li>
+                <li class="breadcrumb-item">カテゴリ【<?php echo $item['category_name']; ?>】</li>
                 <li class="breadcrumb-item active" aria-current="page">商品詳細</li>
             </ol>
         </nav>        
@@ -63,7 +63,12 @@
             </div>
             <!-- 商品名・金額・サイズ・数量 -->
             <div class="col-12 col-md-6 ps-md-5">
-                <span class="badge bg-danger">new</span>
+                <?php 
+                    //30日以内に登録された商品にNEWをつける(2592000秒=30日)
+                    if(strtotime(date("Y-m-d")) -strtotime( $item['item_registration_date'])  <= 2592000){
+                        echo '<span class="badge bg-danger">new</span>';
+                    } 
+                ?>
                 <h5 class="text-muted text-start">カテゴリ【<?php echo $item['category_name']; ?>】</h5>
                 <h3><?php echo $item['item_name']; ?></h3>
                 <p class="my-5 fs-3 text-end">￥<span class="fs-3" id="price"><?php echo number_format($item['item_price']); ?></span></p>

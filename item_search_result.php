@@ -18,7 +18,7 @@
     <!-- サイドバーの読み込み -->
     <?php include "side.php"?>
 
-    <div class="container-fluid p-0" style="width:max-content;margin-left:250px">
+    <div id="container"class="container-fluid">
 
         <h2 class="text-center mt-5 mb-3">検索キーワード:</h2>
     <h2 class="text-center mt-5 mb-3">検索一致件数:18件</h2>
@@ -36,7 +36,7 @@
 
     <!-- カード -->
     <div class="row">
-      <div class="col-4">
+      <div class="col-6 col-md-4">
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
@@ -48,7 +48,7 @@
         </div>
       </div>
 
-    <div class="col-4">
+    <div class="col-6 col-md-4">
       <div class ="content">
         <div class="card-wrap">
           <div class ="card-list">
@@ -60,7 +60,7 @@
       </div>
     </div>
   
-    <div class="col-4">
+    <div class="col-6 col-md-4">
       <div class ="content">
         <div class="card-wrap">
           <div class ="card-list">
@@ -71,10 +71,10 @@
         </div>
       </div>
     </div>
-  </div>
+  
 
-    <div class="row">
-      <div class="col-4">
+    
+      <div class="col-6 col-md-4">
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
@@ -86,7 +86,7 @@
         </div>
       </div>
 
-      <div class="col-4">
+      <div class="col-6 col-md-4">
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
@@ -98,7 +98,7 @@
         </div>
       </div>
 
-      <div class="col-4">
+      <div class="col-6 col-md-4">
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
@@ -109,10 +109,10 @@
           </div>
         </div>
       </div>
-    </div>
+    
 
-    <div class="row">
-      <div class="col-4">
+    
+      <div class="col-6 col-md-4">
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
@@ -124,7 +124,7 @@
         </div>
       </div>
 
-      <div class="col-4">
+      <div class="col-6 col-md-4">
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
@@ -136,7 +136,7 @@
         </div>
       </div>
 
-      <div class="col-4">
+      <div class="col-6 col-md-4">
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
@@ -147,22 +147,10 @@
           </div>
         </div>
       </div>
-    </div>
+   
 
-    <div class="row">
-      <div class="col-4">
-        <div class ="content">
-          <div class="card-wrap">
-            <div class ="card-list">
-              <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
-              <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
-              <p class ="card-listText">￥10000(税込)</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-4">
+    
+      <div class="col-6 col-md-4">
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
@@ -174,7 +162,19 @@
         </div>
       </div>
 
-      <div class="col-4">
+      <div class="col-6 col-md-4">
+        <div class ="content">
+          <div class="card-wrap">
+            <div class ="card-list">
+              <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
+              <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
+              <p class ="card-listText">￥10000(税込)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4">
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
@@ -185,10 +185,10 @@
           </div>
         </div>
       </div>
-    </div>
+    
 
-    <div class="row">
-      <div class="col-4">
+    
+      <div class="col-6 col-md-4">
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
@@ -200,7 +200,7 @@
         </div>
       </div>
 
-      <div class="col-4">
+      <div class="col-6 col-md-4">
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
@@ -212,7 +212,7 @@
         </div>
       </div>
 
-      <div class="col-4">
+      <div class="col-6 col-md-4">
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
@@ -223,10 +223,10 @@
           </div>
         </div>
       </div>
-    </div>
+    
 
-    <div class="row">
-      <div class="col-4">
+    
+      <div class="col-6 col-md-4">
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
@@ -238,7 +238,7 @@
         </div>
       </div>
 
-      <div class="col-4">
+      <div class="col-6 col-md-4">
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
@@ -250,7 +250,7 @@
         </div>
       </div>
 
-      <div class="col-4">
+      <div class="col-6 col-md-4">
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">

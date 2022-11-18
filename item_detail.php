@@ -20,6 +20,9 @@
         session_start();
         if(isset($_SESSION['member_id'])){
             $memberId = $_SESSION['member_id'];
+        }else{
+            // 仮で会員IDセットする
+            $memberId = 1;
         }
         
         
@@ -36,13 +39,15 @@
         try {
             $dbm = new DBManager();
             $item = $dbm->getItemById($itemId);
-            // $item= $dbm->getItemById(5);
         } catch (Exception $ex) {
             // DBから取得出来なかった場合エラーを表示する
             echo $ex->getMessage();
             echo '<br><a href="javascript:history.back()">戻る</a>';
             exit();
         }
+
+        // サイズを配列に入れる
+        $sizes = explode(",",$item['item_size']);
     ?>
 
     <div class="container">
@@ -79,9 +84,9 @@
                     <label for="size">サイズ</label>
                     <select class="form-select form-select-lg" name="size">
                             <option selected>サイズを選択</option>
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
+                            <?php foreach($sizes as $size){
+                                echo "<option value=\"$size\">$size</option>";
+                            } ?>
                     </select>
 
                 </div>

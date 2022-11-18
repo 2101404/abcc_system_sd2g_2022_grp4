@@ -19,6 +19,13 @@
 
     <!-- ボタン-->
     <div class="mt-5 d-grid gap-2 text-center">
+        <p>
+            上記で会員登録します。<br>
+            よろしいでしょうか？
+        </p>
+    </div>
+
+    <div class="mt-5 d-grid gap-2 text-center">
         <a href="register3.php">
             <button type="button" class="btn btn-outline-dark col-6">登録する</button>
         </a>

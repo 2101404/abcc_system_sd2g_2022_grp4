@@ -29,3 +29,20 @@ VALUES((SELECT category_id FROM category WHERE category_name = '靴'),'./imgs/ca
 INSERT INTO item(category_id, item_image, item_name, item_description, item_color, item_price, item_size, is_sale, item_sale_price, item_registration_date)
 VALUES((SELECT category_id FROM category WHERE category_name = 'スーツ'),'./imgs/sample/ikeoji.png','イケオジになっちゃうスタイリッシュスーツ！！','大人の雰囲気を醸し出す、スタイリッシュなスーツです。 これを着ればあなたもきっとイケオジに。','黒',750000,'S,M,L',FALSE,600000,CURRENT_DATE());
 
+-- 注文テーブル
+INSERT INTO `orders` (`order_id`, `member_id`, `order_date`) VALUES
+(1, 1, '2022-11-18'),
+(2, 1, '2022-11-19');
+
+-- 注文詳細テーブル
+INSERT INTO `order_details` (`order_id`, `item_id`, `od_suryo`, `od_size`, `od_price`) VALUES
+(1, 2, 1, 'M', 7000),
+(1, 5, 1, 'S', 7500000),
+(2, 3, 2, 'S', 2000),
+(2, 4, 1, '26c', 9000);
+
+-- 買い物かごテーブル
+INSERT INTO `cart` (`member_id`, `item_id`, `cart_suryo`, `cart_tourokubi`, `cart_size`) VALUES
+(1, 2, 3, '2022-11-18', 'S'),
+(1, 3, 1, '2022-11-18', 'S'),
+(1, 5, 1, '2022-11-18', 'S');

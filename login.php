@@ -7,17 +7,33 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./css/style.css">
-
     <title>ログイン</title>
+
 </head>
 <body>
     <!-- ヘッダーの読み込み -->
     <?php include "header.php" ?>
-    <h2>ログイン</h2>
+    <div class="container" style="max-width:500px">
+        <h2>ログイン</h2>
+        <div class="my-4">
+            <label for="mail">メールアドレス</label>
+            <input type="text" oninput="mailValidate('mail','result')" class="form-control" id="mail" placeholder="メールアドレス">
+            
+        </div>
+        <div id="result"></div>
+        
+        <div class="my-5">
+            <label for="pass">パスワード</label>
+            <input type="password"  class="form-control" id="pass" placeholder="パスワード">
+        </div>
+        <div class="text-center">
 
-    <a href="">ログイン</a><br>
-    <a href="register.php">新規会員登録</a>
+            <a href="" class="btn btn-outline-primary my-4">ログイン</a><br>
+            <a href="register.php" class="btn btn-outline-primary my-4">新規会員登録</a>
+        </div>
+    </div>
 
+    <script src="./mailValidate.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

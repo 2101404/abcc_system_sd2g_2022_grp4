@@ -8,57 +8,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./css/style.css">
 
-    <?php
-        function showHistory($date,$image,$itemName,$suryo,$size,$price){
-            echo'
-                <!-- 商品のリスト -->
-                <div class="col-12">
-                    <div class="card">
-                        <div class="row g-0">
-                            <div class="col-4 col-md-3">
-                                <div class="ratio ratio-1x1">
-                                    <img src="'.$image.'"   alt="..." >
-                                </div>
-                            </div>
-                            <div class="col-8 col-md-9">
-                                <div class="card-body">
-                                    <h3 class="card-title">'.$itemName.'</h5>
-                                    <p class="card-text fs-4">
-                                            <span class="me-3">数量：'.$suryo.'</span>
-                                            <span>サイズ：'.$size.'</span>
-                                            <span style="float:right;">'.$price.'円</span>
-                                    </p>
-                                    <!-- <a href="" style="float:right;">削除</a> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            ';
-
-        }
-        function showSum($sum){
-            echo' <!-- 合計金額 -->
-                    <div class="row">
-                        <div class="col-12">
-                            <p class="text-end my-3 fs-3"> 合計金額 '.$sum.'円</p>
-                        </div>
-                    </div>    
-                ';
-
-        }
-        function showDate($date){
-            echo'
-                <div class="col-12">
-                    <h3 class="">'.$date.'</h3>
-                </div>
-            ';
-            
-
-
-        }
-    ?>
-
     <title>購入履歴</title>
 </head>
 <body>
@@ -82,7 +31,7 @@
             $cnt = 0;
             foreach($tbl as $row){
                 $rowcnt = count($tbl);
-                // 初回の処理
+                // 初回の処理(注文日を表示する)
                 if($cnt == 0){
                     $orderId = $row['order_id'];
                     showDate($row['order_date']);
@@ -90,17 +39,17 @@
 
                 if($orderId == $row['order_id'] || $cnt == 0){
                     // 注文番号が同じ商品の金額を合計する
-                    $sum += $row['item_price'];
+                    $sum += $row['od_price'];
                 }else{
                     // 注文番号の区切り 合計金額の表示と注文日の表示
                     showSum($sum);
                     showDate($row['order_date']);
                     $sum = 0;
-                    $sum += $row['item_price'];
+                    $sum += $row['od_price'];
                 }
 
                 // 商品の履歴を表示
-                showHistory($row['order_date'],$row['item_image'],$row['item_name'],$row['suryo_data'],$row['item_size'],$row['item_price']);
+                showHistory($row['item_image'],$row['item_name'],$row['od_suryo'],$row['od_size'],$row['od_price']);
 
                 $orderId = $row['order_id'];
                 $cnt++;
@@ -121,6 +70,49 @@
         </div>
                      
     </div>
+    
+    <?php function showHistory($image,$itemName,$suryo,$size,$price){ ?>
+        <!-- 商品のリスト -->
+        <div class="col-12">
+            <div class="card">
+                <div class="row g-0">
+
+                    <div class="col-4 col-md-3">
+                        <div class="ratio ratio-1x1">
+                            <img src="<?=$image?>"   alt="..." >
+                        </div>
+                    </div>
+
+                    <div class="col-8 col-md-9">
+                        <div class="card-body">
+                            <h3 class="card-title"><?=$itemName?></h5>
+                            <p class="card-text fs-4">
+                                <span class="me-3">数量：<?=$suryo?></span>
+                                <span>サイズ：<?=$size?></span>
+                                <span style="float:right;"><?=number_format($price)?>円</span>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+
+    <?php function showSum($sum){ ?>
+        <!-- 合計金額 -->
+        <div class="row">
+            <div class="col-12">
+                <p class="text-end my-3 fs-3"> 合計金額 <?=number_format($sum)?>円</p>
+            </div>
+        </div>    
+    <?php } ?>
+
+    <?php function showDate($date){ ?>
+        <div class="col-12">
+            <h3 class=""><?=$date?></h3>
+        </div>
+    <?php } ?>
     
 
 

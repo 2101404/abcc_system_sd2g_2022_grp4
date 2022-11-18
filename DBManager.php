@@ -102,5 +102,16 @@
             $ps->bindValue(5,$size,PDO::PARAM_STR);
             $ps->execute();
         }
+
+        // 買い物かごを取得
+        public function getCart($memberId){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT * FROM cart AS C INNER JOIN item AS I ON C.item_id = I.item_id WHERE C.member_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$memberId,PDO::PARAM_INT);
+            $ps->execute();
+            
+            return $ps->fetchAll();
+        }
     }
 ?>

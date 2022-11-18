@@ -86,5 +86,18 @@
             $ps->bindValue(1,$memberId,PDO::PARAM_INT);
             $ps->execute();
         }
+
+        // 買い物かごに商品を入れる
+        public function addToCart($memberId, $itemId, $suryo, $torokubi, $size){
+            $pdo = $this->dbConnect();
+            $sql = "INSERT INTO cart VALUES(?,?,?,?,?)";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$memberId,PDO::PARAM_INT);
+            $ps->bindValue(1,$itemId,PDO::PARAM_INT);
+            $ps->bindValue(1,$suryo,PDO::PARAM_INT);
+            $ps->bindValue(1,$torokubi,PDO::PARAM_STR);
+            $ps->bindValue(1,$size,PDO::PARAM_STR);
+            $ps->execute();
+        }
     }
 ?>

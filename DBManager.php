@@ -113,5 +113,16 @@
             
             return $ps->fetchAll();
         }
+
+        // 会員情報取得
+        public function getMember($memberId){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT * FROM member WHERE member_id = ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$memberId,PDO::PARAM_INT);
+            $ps->execute();
+            
+            return $ps->fetch();
+        }
     }
 ?>

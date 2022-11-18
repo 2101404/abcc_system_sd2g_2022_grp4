@@ -113,5 +113,16 @@
             
             return $ps->fetchAll();
         }
+
+        // 商品名から商品検索
+        public function searchItem($keyword){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT * FROM item WHERE item_name Like ?";
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,"%".$keyword."%",PDO::PARAM_STR);
+            $ps->execute();
+
+            return $ps->fetchAll();
+        }
     }
 ?>

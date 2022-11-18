@@ -93,10 +93,10 @@
             $sql = "INSERT INTO cart VALUES(?,?,?,?,?)";
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1,$memberId,PDO::PARAM_INT);
-            $ps->bindValue(1,$itemId,PDO::PARAM_INT);
-            $ps->bindValue(1,$suryo,PDO::PARAM_INT);
-            $ps->bindValue(1,$torokubi,PDO::PARAM_STR);
-            $ps->bindValue(1,$size,PDO::PARAM_STR);
+            $ps->bindValue(2,$itemId,PDO::PARAM_INT);
+            $ps->bindValue(3,$suryo,PDO::PARAM_INT);
+            $ps->bindValue(4,$torokubi,PDO::PARAM_STR);
+            $ps->bindValue(5,$size,PDO::PARAM_STR);
             $ps->execute();
         }
     }

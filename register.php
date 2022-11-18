@@ -18,14 +18,65 @@
     <h2>新規会員登録</h2>
     <p>◎...必須項目</p>
 
-    <form action="register2.php" method="post" class="form_log">
-    <p>メールアドレス</p>
-    <input type="email" name="email" class="textbox un" placeholder="メールアドレス"><br>
-    <p>パスワード ＊半角数字、英字のみ</p>
-    <input type="password" name="password" class="textbox pass" placeholder="パスワード"><br>
-    <p>パスワード （確認用）</p>
-    <input type="password" name="password" class="textbox pass" placeholder="パスワード"><br>
-    </form>
+    <div class="mb-3">
+    <label action="register2.php" class="form_log">◎メールアドレス</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="メールアドレス">
+    </div>
+
+    <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">◎パスワード　＊半角数字、英字のみ</label>
+    <input type="password" class="form_log" id="exampleInputPassword1" placeholder="パスワード">
+    </div>
+
+    <div class="mb-3">
+    <label for="inputPassword5" class="form-label">◎パスワード　（確認用）</label>
+    <input type="password" class="form_log" id="exampleInputPassword1" placeholder="上記と同様のパスワード">
+    </div>
+
+    <div class="mb-3">
+    <label action="register2.php" class="form_log">◎氏名　＊全角のみ</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="例：山田">
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="例：太郎">
+    </div>
+
+    <div class="form-check">
+    <p>◎性別</p>
+    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+    <label class="form-check-label" for="exampleRadios1">男性</label>
+    </div>
+
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+    <label class="form-check-label" for="exampleRadios2">女性</label>
+    </div>
+
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+    <label class="form-check-label" for="exampleRadios3">未指定</label>
+    </div>
+
+    <p>◎生年月日</p>
+    <select class="form-select" aria-label="Default select example">
+    <option selected>2024</option>
+    <option value="1">2023</option>
+    <option value="2">2022</option>
+    <option value="3">2021</option>
+    </select>
+
+    <div class="mb-3">
+    <label action="register2.php" class="form_log">◎電話番号　＊ハイフンなし半角</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="例：080123456789">
+    </div>
+
+    <div class="mb-3">
+    <label action="register2.php" class="form_log">◎住所</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="例：福岡県福岡市〇〇区1-1-1">
+    </div>
+
+    <div class="mb-3">
+    <label action="register2.php" class="form_log">◎建物名・部屋番号</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="例：〇〇ビル 101号室">
+    </div>
 
     <div class="mt-5 d-grid gap-2 text-center">
         <a href="register2.php">

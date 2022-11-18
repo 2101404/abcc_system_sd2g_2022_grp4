@@ -12,8 +12,8 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
       <!-- 検索 -->
       <form class="d-flex" action="./item_search_result.php" method="get">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="keyword">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <input class="form-control me-2" type="search" placeholder="商品を検索" aria-label="検索" name="keyword">
+          <input class="btn btn-outline-success" type="submit" value="検索">
       </form>
 
       <!-- 右側のボタン類 -->

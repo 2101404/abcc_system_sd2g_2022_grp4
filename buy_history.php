@@ -117,7 +117,7 @@
 
         
         <div class="text-center my-3">    
-            <a type="button" class="btn btn-outline-primary" href="">マイページに戻る</a>
+            <a type="button" class="btn btn-outline-primary" href="./mypage.php">マイページに戻る</a>
         </div>
                      
     </div>

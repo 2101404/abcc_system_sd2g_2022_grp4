@@ -20,6 +20,9 @@
         session_start();
         if(isset($_SESSION['member_id'])){
             $memberId = $_SESSION['member_id'];
+        }else{
+            // 仮で会員IDセットする
+            $memberId = 1;
         }
         
         
@@ -36,16 +39,23 @@
         try {
             $dbm = new DBManager();
             $item = $dbm->getItemById($itemId);
-            // $item= $dbm->getItemById(5);
         } catch (Exception $ex) {
             // DBから取得出来なかった場合エラーを表示する
             echo $ex->getMessage();
             echo '<br><a href="javascript:history.back()">戻る</a>';
             exit();
         }
+
+        // サイズを配列に入れる
+        $sizes = explode(",",$item['item_size']);
     ?>
 
     <div class="container">
+    <form action="./addcart.php" method="post">
+        <input type="hidden" name="memId" value="<?php echo $memberId ?>">
+        <input type="hidden" name="itemId" value="<?php echo $itemId ?>">
+
+    
 
         <!-- パンくずリスト -->
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
@@ -78,16 +88,16 @@
 
                     <label for="size">サイズ</label>
                     <select class="form-select form-select-lg" name="size">
-                            <option selected>サイズを選択</option>
-                            <option value="S">S</option>
-                            <option value="M">M</option>
-                            <option value="L">L</option>
+                            <option value="" selected>サイズを選択</option>
+                            <?php foreach($sizes as $size){
+                                echo "<option value=\"$size\">$size</option>";
+                            } ?>
                     </select>
 
                 </div>
                 <div class="text-start mt-5">
                     <label for="suryo">数量</label>
-                    <select class="form-select form-select-lg" onchange="calcPrice()" id="suryo">
+                    <select class="form-select form-select-lg" onchange="calcPrice()" id="suryo" name="suryo">
                         <option value="1" selected>1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -116,16 +126,18 @@
         <!-- ボタン -->
         <div class="row gy-4 mt-4">
             <div class="col-12 col-md-6 text-center mb-3">
-                <button class="btn btn-lg btn-primary">購入に進む</button>
+                <a href="./cart.php" class="btn btn-lg btn-primary">購入に進む</a>
             </div>
 
             <div class="col-12 col-md-6 text-center mb-5">
-                <a tabindex="0" class="btn btn-lg btn-primary" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="買い物かごに入れました">買い物かごに入れる</a>
+                <button type="submit" tabindex="0" class="btn btn-lg btn-primary" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="買い物かごに入れました">買い物かごに入れる</button>
             </div>
             <div class="col-12 text-center my-5">
-                <button class="btn btn-lg btn-outline-primary" onclick="history.back()">一つ前に戻る</button>
+                <button type="button" class="btn btn-lg btn-outline-primary" onclick="history.back()">一つ前に戻る</button>
             </div>
         </div>
+
+    </form>
     </div>
     <script>
             function calcPrice(){

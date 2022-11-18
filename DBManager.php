@@ -18,6 +18,8 @@
             }
             return $result;
         }
+        
+        //新規登録画面
 
         // 会員登録
         public function insertmember(
@@ -27,12 +29,13 @@
                 $sql = "INSERT INTO member(mail,pass,sei,mei,hurigana_sei,hurigana_mei,seibetsu,birth,phone_num,jusho)
                 VALUES(?,?,?,?,?,?,?,?,?,?)";
                 $ps = $pdo->prepare($sql);
-                $ps->bindValue(1,$mail,PDO::PARAM_STR);         $ps->bindValue(2,$pass,PDO::PARAM_STR);
+                $ps->bindValue(1,$mail,PDO::PARAM_STR);         $ps->bindValue(2,password_hash($_POST["pass"],PASSWORD_DEFAULT),PDO::PARAM_STR);
                 $ps->bindValue(3,$sei,PDO::PARAM_STR);          $ps->bindValue(4,$mei,PDO::PARAM_STR);
                 $ps->bindValue(5,$hurigana_sei,PDO::PARAM_STR); $ps->bindValue(6,$hurigana_mei,PDO::PARAM_STR);
                 $ps->bindValue(7,$seibetsu,PDO::PARAM_STR);     $ps->bindValue(8,$birth,PDO::PARAM_STR);
                 $ps->bindValue(9,$phone_num,PDO::PARAM_STR);    $ps->bindValue(10,$jusho,PDO::PARAM_STR);
                 $ps->execute();
+                
             }
 
         // 会員IDを使って、注文表・注文詳細表・商品表からデータをとってくる

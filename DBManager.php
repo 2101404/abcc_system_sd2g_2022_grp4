@@ -38,7 +38,7 @@
                 
             }
 
-        // 会員IDを使って、注文表・注文詳細表・商品表からデータをとってくる
+        // 会員IDを使って、注文表・注文詳細表・商品表から購入履歴を取得する
         public function getBuyHistory($memberId){
             $pdo = $this->dbConnect();
             $sql = "SELECT * FROM orders AS O INNER JOIN order_details AS OD ON O.order_id = OD.order_id 
@@ -51,28 +51,25 @@
             return $ps->fetchAll();
         }
 
+        // 商品購入機能
         public function buyItems($memberId){
             $pdo = $this->dbConnect();
             // 買い物かごテーブルの取得
-            $sql1 = "SELECT * FROM cart AS C INNER JOIN item AS I ON C.item_id = I.item_id WHERE C.member_id = ?";
-            $ps1 = $pdo->prepare($sql1);
-            $ps1->bindValue(1,$memberId,PDO::PARAM_INT);
-            $ps1->execute();
-            $cartTbl = $ps1->fetchAll();
+            $cartTbl = $this->getCart($memberId);
 
             // 注文表に会員IDを登録
-            $sql2 = "INSERT INTO orders(member_id) VALUES(?)";
+            $sql2 = "INSERT INTO orders(member_id,order_date) VALUES(?,CURRENT_DATE())";
             $ps2 = $pdo->prepare($sql2);
             $ps2->bindValue(1,$memberId,PDO::PARAM_INT);
             $ps2->execute();
 
             // 注文詳細表に買い物かごテーブルの情報を登録
-            $sql3 = "INSERT INTO order_details(order_id, item_id, suryo_data, item_size, item_price) VALUES(LAST_INSERT_ID(),?,?,?,?)";
+            $sql3 = "INSERT INTO order_details(order_id, item_id, od_suryo, od_size, od_price) VALUES(LAST_INSERT_ID(),?,?,?,?)";
             $ps3 = $pdo->prepare($sql3);
             foreach($cartTbl as $row){
                 $ps3->bindValue(1,$row['item_id'],PDO::PARAM_INT);
-                $ps3->bindValue(2,$row['suryo_data'],PDO::PARAM_INT);
-                $ps3->bindValue(3,$row['item_size'],PDO::PARAM_STR);
+                $ps3->bindValue(2,$row['cart_suryo'],PDO::PARAM_INT);
+                $ps3->bindValue(3,$row['cart_size'],PDO::PARAM_STR);
                 $ps3->bindValue(4,$row['item_price'],PDO::PARAM_INT);
                 $ps3->execute();
             }

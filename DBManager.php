@@ -43,7 +43,7 @@
             $pdo = $this->dbConnect();
             $sql = "SELECT * FROM orders AS O INNER JOIN order_details AS OD ON O.order_id = OD.order_id 
                                               INNER JOIN item AS I ON OD.item_id = I.item_id WHERE O.member_id = ?
-                                              ORDER BY OD.order_id";
+                                              ORDER BY  O.order_date DESC, OD.order_id";
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1,$memberId,PDO::PARAM_INT);
             $ps->execute();

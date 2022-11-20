@@ -11,6 +11,7 @@
     <title>cart</title>
 </head>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     <?php
         function showHistory($date,$image,$itemName,$suryo,$size,$price){
@@ -65,6 +66,8 @@
         }
     ?>
 
+=======
+>>>>>>> 814c1cc991c768536ff37aa4d837985d747bdcb0
 =======
 >>>>>>> 814c1cc991c768536ff37aa4d837985d747bdcb0
     <title>買い物かご</title>

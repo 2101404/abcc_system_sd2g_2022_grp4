@@ -30,7 +30,7 @@
         $itemId = $_POST['itemId'];
         $tourokubi = date("Y-m-d");
         
-        $url = "item_detail.php?itemid=".$itemId;
+        $url = "item_detail.php?itemId=".$itemId;
 
     ?>
     <div class="text-center my-5"><p>

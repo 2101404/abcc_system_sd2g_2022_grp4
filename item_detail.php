@@ -18,8 +18,8 @@
         require_once "function.php";
         
         // URLから商品IDを取得する
-        if(isset($_GET['itemid'])){
-            $itemId = $_GET['itemid'];
+        if(isset($_GET['itemId'])){
+            $itemId = $_GET['itemId'];
         }else{
             // パラメーターを付けずにページを表示した場合トップページに遷移させる
             header('Location: index.php');

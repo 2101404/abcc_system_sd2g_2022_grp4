@@ -1,8 +1,16 @@
 <?php
     require_once "DBManager.php";
+    require_once "function.php";
+    
+    // ログインしていない場合、ログインページへ遷移。その後商品ページに戻す。
+    $URL="";
+    if(isset($_POST['URL'])){
+        $URL=$_POST['URL'];
+    }
+    $memberId = getMemberIdFromSession(true,$URL);
+    
     $suryo = $_POST['suryo'];
     $size = $_POST['size'];
-    $memberId = $_POST['memId'];
     $itemId = $_POST['itemId'];
     $tourokubi = date("Y-m-d");
     

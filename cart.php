@@ -25,8 +25,8 @@
         <h2 class="my-3">買い物かご</h2>
         
         <?php 
-            // ログインしているユーザーのIDを設定するように後で変える
-            $memberId = 1;
+            require_once "function.php";
+            $memberId = getMemberIdFromSession(true);
 
             $dbm = new DBManager();
             $tbl = $dbm->getCart($memberId);

@@ -19,8 +19,8 @@
         <h2 class="my-3">購入履歴</h2>
         
         <?php 
-            // ログインしているユーザーのIDを設定するように後で変える
-            $memberId = 1;
+            require_once "function.php";
+            $memberId = getMemberIdFromSession();
 
             $dbm = new DBManager();
             $tbl = $dbm->getBuyHistory($memberId);

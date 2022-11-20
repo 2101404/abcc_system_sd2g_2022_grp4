@@ -15,22 +15,24 @@
     <?php include "header.php" ?>
     <div class="container" style="max-width:500px">
         <h2>ログイン</h2>
-        <div class="my-4">
-            <label for="mail">メールアドレス</label>
-            <input type="text" oninput="mailValidate('mail','result')" class="form-control" id="mail" placeholder="メールアドレス">
+        <form action="./logincheck.php" method="post">
+            <div class="my-4">
+                <label for="mail">メールアドレス</label>
+                <input type="text" oninput="mailValidate('mail','result')" class="form-control" name="mail" id="mail" placeholder="メールアドレス">
+                
+            </div>
+            <div id="result"></div>
             
-        </div>
-        <div id="result"></div>
-        
-        <div class="my-5">
-            <label for="pass">パスワード</label>
-            <input type="password"  class="form-control" id="pass" placeholder="パスワード">
-        </div>
-        <div class="text-center">
+            <div class="my-5">
+                <label for="pass">パスワード</label>
+                <input type="password"  class="form-control" name="pass" id="pass" placeholder="パスワード">
+            </div>
+            <div class="text-center">
 
-            <a href="" class="btn btn-outline-primary my-4">ログイン</a><br>
-            <a href="register.php" class="btn btn-outline-primary my-4">新規会員登録</a>
-        </div>
+                <input type="submit" class="btn btn-outline-primary my-4" value="ログイン"><br>
+                <a href="register.php" class="btn btn-outline-primary my-4">新規会員登録</a>
+            </div>
+        </form>
     </div>
 
     <script src="./mailValidate.js"></script>

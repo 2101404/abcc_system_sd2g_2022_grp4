@@ -13,6 +13,12 @@
 <body>
     <!-- ヘッダーの読み込み -->
     <?php include "header.php" ?>
+    <?php 
+        require_once "function.php";
+        // ログインしているか判定する
+        getMemberIdFromSession();
+    ?>
+
     <h3>注文完了</h3>
     <?php
         require_once "DBManager.php";

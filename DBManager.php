@@ -132,5 +132,53 @@
 
             return $ps->fetchAll();
         }
+
+        // 商品絞り込み
+        public function filterItems($size ="", $color="", $price=0, $type="all", $keyword=""){
+            $pdo = $this->dbConnect();
+            if($type=="all"){
+                $sql = "SELECT * FROM item WHERE (item_size REGEXP ? OR item_size REGEXP ?) 
+                                            AND item_color LIKE ? 
+                                            AND item_price BETWEEN ? AND ?
+                                            AND item_name LIKE ?";
+            }else{
+                $sql = "SELECT * FROM item WHERE (item_size REGEXP ? OR item_size REGEXP ?) 
+                                            AND item_color LIKE ? 
+                                            AND item_price BETWEEN ? AND ?
+                                            AND item_name LIKE ?
+                                            AND is_sale = ?";
+            }
+
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1, ",".$size, PDO::PARAM_STR);
+            $ps->bindValue(2, "^".$size, PDO::PARAM_STR);
+            $ps->bindValue(3, "%".$color."%", PDO::PARAM_STR);
+            if($price == 100000){
+                $price1 = 90000; 
+                $price2 = 5000000000000000; //5000兆円欲しい！！！
+            }else if($price == 0){
+                $price1 = 0;
+                $price2 = 5000000000000000; //5000兆円欲しい！！！
+            }else{
+                $price1 = $price - 10000;
+                $price2 = $price;
+            }
+            $ps->bindValue(4, $price1, PDO::PARAM_INT);
+            $ps->bindValue(5, $price2, PDO::PARAM_INT);
+            $ps->bindValue(6,"%".$keyword."%",PDO::PARAM_STR);
+
+            if($type == "normal"){
+                $itemType = false;
+                $ps->bindValue(7, $itemType, PDO::PARAM_BOOL);
+            }else if($type == "sale"){
+                $itemType = true;
+                $ps->bindValue(7, $itemType, PDO::PARAM_BOOL);
+
+            }
+
+            $ps->execute();
+
+            return $ps->fetchAll();
+        }
     }
 ?>

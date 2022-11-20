@@ -41,9 +41,11 @@
                         <div class="row g-0">
 
                             <div class="col-4 col-md-3">
-                                <div class="ratio ratio-1x1">
-                                    <img src="<?php echo $row['item_image']?>"   alt="..." >
-                                </div>
+                                <a href="./item_detail.php?itemId=<?= $row['item_id']?>">
+                                    <div class="ratio ratio-1x1">
+                                        <img src="<?php echo $row['item_image']?>"   alt="..." >
+                                    </div>
+                                </a>
                             </div>
                             
                             <div class="col-8 col-md-9">

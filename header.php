@@ -25,7 +25,7 @@
           <a class="nav-link" href="./cart.php"><i class="bi bi-cart"></i>買い物カゴ</a>
         </li>
         <li class="nav-item">
-          <a id="login" class="nav-link" href="./login.php"><i class="bi bi-door-open"></i><span id="logintxt">ログイン</span></a>
+          <a id="login" class="nav-link" href="./login.php"><i class="bi bi-door-open"></i>ログイン</a>
         </li>
       </ul>
     </div>
@@ -38,8 +38,7 @@
     <script>
       let loginatag = document.getElementById("login");
       loginatag.href ="./logout.php";
-      let logintxt = document.getElementById("logintxt");
-      logintxt.innerHTML = "ログアウト";
+      loginatag.innerHTML = '<i class="bi bi-door-closed-fill"></i>ログアウト';
     </script>
   
 <?php endif; ?>

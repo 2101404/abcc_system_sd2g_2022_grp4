@@ -10,25 +10,16 @@
 
     <title>商品詳細</title>
 </head>
-<body class="my-3" onload="initPopover()">
+<body class="my-3">
     <!-- ヘッダーの読み込み -->
     <?php include "header.php"; ?>
     <?php
         require_once "DBManager.php";
-
-        // セッションスタート
-        session_start();
-        if(isset($_SESSION['member_id'])){
-            $memberId = $_SESSION['member_id'];
-        }else{
-            // 仮で会員IDセットする
-            $memberId = 1;
-        }
-        
+        require_once "function.php";
         
         // URLから商品IDを取得する
-        if(isset($_GET['itemid'])){
-            $itemId = $_GET['itemid'];
+        if(isset($_GET['itemId'])){
+            $itemId = $_GET['itemId'];
         }else{
             // パラメーターを付けずにページを表示した場合トップページに遷移させる
             header('Location: index.php');
@@ -52,7 +43,7 @@
 
     <div class="container">
     <form action="./addcart.php" method="post">
-        <input type="hidden" name="memId" value="<?php echo $memberId ?>">
+        <input type="hidden" name="URL" value="<?php echo getURL(); ?>">
         <input type="hidden" name="itemId" value="<?php echo $itemId ?>">
 
     
@@ -130,7 +121,7 @@
             </div>
 
             <div class="col-12 col-md-6 text-center mb-5">
-                <button type="submit" tabindex="0" class="btn btn-lg btn-primary" role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom" data-bs-content="買い物かごに入れました">買い物かごに入れる</button>
+                <input type="submit" class="btn btn-lg btn-primary" value="買い物かごに入れる">
             </div>
             <div class="col-12 text-center my-5">
                 <button type="button" class="btn btn-lg btn-outline-primary" onclick="history.back()">一つ前に戻る</button>
@@ -151,12 +142,6 @@
                 sumArea.innerHTML = sum; 
             }
 
-            function initPopover(){
-                var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
-                var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-                return new bootstrap.Popover(popoverTriggerEl);
-                });
-            }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

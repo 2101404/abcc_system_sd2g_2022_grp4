@@ -15,14 +15,8 @@
     <?php include "header.php" ?>
     <?php 
         require_once "DBManager.php";
-        session_start(); 
-        if(isset($_SESSION['memberId'])){
-            $memberId = $_SESSION['memberId'];
-        }else{
-            // 仮で会員ID入れてる
-            $memberId = 1;
-            // echo '<script>alert("ログインしてください");location.href="login.php";</script>';
-        }
+        require_once "function.php";
+        $memberId = getMemberIdFromSession();
         
         $dbm = new DBManager();
         $member = $dbm->getMember($memberId);
@@ -38,3 +32,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
+

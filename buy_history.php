@@ -19,8 +19,8 @@
         <h2 class="my-3">購入履歴</h2>
         
         <?php 
-            // ログインしているユーザーのIDを設定するように後で変える
-            $memberId = 1;
+            require_once "function.php";
+            $memberId = getMemberIdFromSession();
 
             $dbm = new DBManager();
             $tbl = $dbm->getBuyHistory($memberId);
@@ -39,17 +39,17 @@
 
                 if($orderId == $row['order_id'] || $cnt == 0){
                     // 注文番号が同じ商品の金額を合計する
-                    $sum += $row['od_price'];
+                    $sum += $row['od_price'] * $row['od_suryo'];
                 }else{
                     // 注文番号の区切り 合計金額の表示と注文日の表示
                     showSum($sum);
                     showDate($row['order_date']);
                     $sum = 0;
-                    $sum += $row['od_price'];
+                    $sum += $row['od_price'] * $row['od_suryo'];
                 }
 
                 // 商品の履歴を表示
-                showHistory($row['item_image'],$row['item_name'],$row['od_suryo'],$row['od_size'],$row['od_price']);
+                showHistory($row['item_id'],$row['item_image'],$row['item_name'],$row['od_suryo'],$row['od_size'],$row['od_price']);
 
                 $orderId = $row['order_id'];
                 $cnt++;
@@ -71,26 +71,41 @@
                      
     </div>
     
-    <?php function showHistory($image,$itemName,$suryo,$size,$price){ ?>
+    <?php function showHistory($itemId,$image,$itemName,$suryo,$size,$price){ ?>
         <!-- 商品のリスト -->
         <div class="col-12">
             <div class="card">
                 <div class="row g-0">
 
                     <div class="col-4 col-md-3">
-                        <div class="ratio ratio-1x1">
-                            <img src="<?=$image?>"   alt="..." >
-                        </div>
+                        <a href="./item_detail.php?itemId=<?= $itemId ?>">
+                            <div class="ratio ratio-1x1">
+                                <img src="<?=$image?>"   alt="..." >
+                            </div>
+                        </a>
                     </div>
 
                     <div class="col-8 col-md-9">
                         <div class="card-body">
-                            <h3 class="card-title"><?=$itemName?></h5>
-                            <p class="card-text fs-4">
-                                <span class="me-3">数量：<?=$suryo?></span>
-                                <span>サイズ：<?=$size?></span>
-                                <span style="float:right;"><?=number_format($price)?>円</span>
-                            </p>
+                            <div class="row">
+                                <a href="./item_detail.php?itemId=<?= $itemId ?>">
+                                    <div class="col-12">
+                                        <p class="card-title"><?=$itemName?></p>
+                                    </div>
+                                </a>
+                                <div class="col-12">
+                                    <p class="card-text fs-4">
+                                        <span class="me-3">数量：<?=$suryo?></span>
+                                        <span>サイズ：<?=$size?></span>
+                                        <span style="position:absolute; right:1rem;"><?=number_format($price)?>円</span>
+                                    </p>
+                                </div>
+                                <div class="col-12">
+                                <p class="card-text fs-4">
+                                        <span style="position:absolute; bottom:1rem;right:1rem;">小計:<?=number_format($suryo * $price)?>円</span>
+                                </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

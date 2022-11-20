@@ -25,11 +25,21 @@
           <a class="nav-link" href="./cart.php"><i class="bi bi-cart"></i>買い物カゴ</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./login.php"><i class="bi bi-door-open"></i>ログイン</a>
+          <a id="login" class="nav-link" href="./login.php"><i class="bi bi-door-open"></i>ログイン</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
+<?php session_start(); ?>
+
+<?php if(isset($_SESSION['memberId']) && isset($_SESSION['password'])): ?>
+    <script>
+      let loginatag = document.getElementById("login");
+      loginatag.href ="./logout.php";
+      loginatag.innerHTML = '<i class="bi bi-door-closed-fill"></i>ログアウト';
+    </script>
+  
+<?php endif; ?>
 

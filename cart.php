@@ -10,41 +10,9 @@
 
     <title>cart</title>
 </head>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
     <?php
-        function showHistory($date,$image,$itemName,$suryo,$size,$price){
-            echo'
-                <!-- 商品のリスト -->
-            <div class="container bg-secondary">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="row g-0">
-                            <div class="col-4 col-md-3">
-                                <div class="ratio ratio-1x1">
-                                    <img src="'.$image.'"   alt="..." >
-                                </div>
-                            </div>
-                            <div class="col-8 col-md-9">
-                                <div class="card-body">
-                                    <p class="card-title">'.$itemName.'</p>
-                                    <p class="text-end my-3 fs-3"> 小計 '.$price*$suryo.'円</p>
-                                    <p class="card-text fs-4">
-                                            <span class="me-3">数量：'.$suryo.'</span>
-                                            <span>サイズ：'.$size.'</span>
-                                            <span style="float:right;">'.$price.'円</span>
-                                    </p>
-                                    <!-- <a href="" style="float:right;">削除</a> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            ';
-
-        }
-       
         function showSum($sum){
             echo' <!-- 合計金額 -->
                     <div class="row">
@@ -58,10 +26,7 @@
         }
     ?>
 
-=======
->>>>>>> 814c1cc991c768536ff37aa4d837985d747bdcb0
-=======
->>>>>>> 814c1cc991c768536ff37aa4d837985d747bdcb0
+
     <title>買い物かご</title>
 </head>
 <body>
@@ -127,19 +92,7 @@
         </div>
                      
     </div>
-    <?php
-        function showSum($sum){
-            echo' <!-- 合計金額 -->
-                    <div class="row">
-                        <div class="col-12">
-                            <p class="text-end my-3 fs-3"> 合計 '.$sum.'円</p>
-                        </div>
-                    </div>    
-                ';
-
-
-        }
-    ?>
+    
 
 
     

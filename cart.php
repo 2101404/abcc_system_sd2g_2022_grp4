@@ -53,31 +53,32 @@
         <div class="row gy-2">
             <?php foreach($tbl as $row): ?>
                 <!-- 商品のリスト -->
-            <div class="container bg-secondary">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="row g-0">
+                <div class="container bg-secondary">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="row g-0">
 
-                            <div class="col-4 col-md-3">
-                                <a href="./item_detail.php?itemId=<?= $row['item_id']?>">
-                                    <div class="ratio ratio-1x1">
-                                        <img src="<?php echo $row['item_image']?>"   alt="..." >
-                                    </div>
-                                </a>
-                            </div>
-                            
-                            <div class="col-8 col-md-9">
-                                <div class="card-body">
-                                    <h3 class="card-title"><?= $row['item_name'] ?></h5>
-                                    <p class="card-text fs-4">
-                                            <span class="me-3">数量：<?= $row['cart_suryo']?></span><br>
-                                            <span>サイズ：<?= $row['cart_size']?></span><br>
-                                            <span style="float:right;"><?= number_format($row['item_price'])?>円</span>
-                                    </p>
-                                    <a href="./cart_delete.php" style="float:right;">削除</a>
+                                <div class="col-4 col-md-3">
+                                    <a href="./item_detail.php?itemId=<?= $row['item_id']?>">
+                                        <div class="ratio ratio-1x1">
+                                            <img src="<?php echo $row['item_image']?>"   alt="..." >
+                                        </div>
+                                    </a>
                                 </div>
-                            </div>
+                                
+                                <div class="col-8 col-md-9">
+                                    <div class="card-body">
+                                        <h3 class="card-title"><?= $row['item_name'] ?></h5>
+                                        <p class="card-text fs-4">
+                                                <span class="me-3">数量：<?= $row['cart_suryo']?></span><br>
+                                                <span>サイズ：<?= $row['cart_size']?></span><br>
+                                                <span style="float:right;"><?= number_format($row['item_price'])?>円</span>
+                                        </p>
+                                        <a href="./cart_delete.php" style="float:right;">削除</a>
+                                    </div>
+                                </div>
 
+                            </div>
                         </div>
                     </div>
                 </div>

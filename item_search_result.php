@@ -57,9 +57,9 @@
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
-              <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
-              <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
-              <p class ="card-listText">￥1234567890(税込)</p>
+              <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/ikeoji.png" width="80%" alt="" ></button>
+              <h2 class = "card-listTitel">イケオジになちゃうスタイリッシュスーツ！</h2>
+              <p class ="card-listText">￥750000(税込)</p>
             </div>
           </div>
         </div>
@@ -69,7 +69,7 @@
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
-                <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/noimage.png" width="80%" alt="" ></button>
+                <button type="button"><img href="./item_detail.php?" class="image-test" src="./imgs/sample/ikeoji.png" width="80%" alt="" ></button>
                 <h2 class = "card-listTitel">洗える ストレッチ 2パンツスーツ</h2>
                 <p class ="card-listText">￥10000(税込)</p>
             </div>

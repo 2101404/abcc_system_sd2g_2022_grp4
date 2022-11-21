@@ -180,5 +180,21 @@
 
             return $ps->fetchAll();
         }
+
+        // ログイン処理
+        public function loginCheck($mail, $password){
+            $pdo = $this->dbConnect();
+            $sql = 'SELECT * FROM member WHERE mail = ?';
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$mail,PDO::PARAM_STR);
+            $ps->execute();
+            $member = $ps->fetch();
+            if($member == true && password_verify($password,$member['pass']) == true){
+                return $member;
+            }else{
+                throw new UnexpectedValueException("メールアドレスまたはパスワードが間違っています。");
+            }
+        }
+
     }
 ?>

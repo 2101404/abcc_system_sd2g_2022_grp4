@@ -17,7 +17,7 @@
         function showHistory($date,$image,$itemName,$suryo,$size,$price){
             echo'
                 <!-- 商品のリスト -->
-                <div name="co"
+            <div class="container bg-secondary">
                 <div class="col-12">
                     <div class="card">
                         <div class="row g-0">
@@ -28,7 +28,8 @@
                             </div>
                             <div class="col-8 col-md-9">
                                 <div class="card-body">
-                                    <h3 class="card-title">'.$itemName.'</h5>
+                                    <p class="card-title">'.$itemName.'</p>
+                                    <p class="text-end my-3 fs-3"> 小計 '.$price*$suryo.'円</p>
                                     <p class="card-text fs-4">
                                             <span class="me-3">数量：'.$suryo.'</span>
                                             <span>サイズ：'.$size.'</span>
@@ -43,21 +44,12 @@
             ';
 
         }
-        function showSum($price,$suryo){
-            echo' <!-- 合計金額 -->
-                    <div class="row">
-                        <div class="col-12">
-                            <p class="text-end my-3 fs-3"> 小計 '.$price*$suryo.'円</p>
-                        </div>
-                    </div>    
-                ';
-
-        }
+       
         function showSum($sum){
             echo' <!-- 合計金額 -->
                     <div class="row">
                         <div class="col-12">
-                            <p class="text-end my-3 fs-3"> 合計 '.$sum.'円</p>
+                            <h3 class="text-end my-3 fs-3"> 合計 '.$sum.'円</h3>
                         </div>
                     </div>    
                 ';
@@ -96,6 +88,7 @@
         <div class="row gy-2">
             <?php foreach($tbl as $row): ?>
                 <!-- 商品のリスト -->
+            <div class="container bg-secondary">
                 <div class="col-12">
                     <div class="card">
                         <div class="row g-0">
@@ -110,11 +103,11 @@
                                 <div class="card-body">
                                     <h3 class="card-title"><?= $row['item_name'] ?></h5>
                                     <p class="card-text fs-4">
-                                            <span class="me-3">数量：<?= $row['cart_suryo']?></span>
-                                            <span>サイズ：<?= $row['cart_size']?></span>
+                                            <span class="me-3">数量：<?= $row['cart_suryo']?></span><br>
+                                            <span>サイズ：<?= $row['cart_size']?></span><br>
                                             <span style="float:right;"><?= number_format($row['item_price'])?>円</span>
                                     </p>
-                                    <a href="" style="float:right;">削除</a>
+                                    <a href="./cart_delete.php" style="float:right;">削除</a>
                                 </div>
                             </div>
 
@@ -126,11 +119,11 @@
         
         
         <div class="text-right my-3">    
-            <a type="button" class="btn btn-outline-primary" href="">注文</a>
+            <a type="button" class="btn btn-outline-primary" href="./order_complete.php">注文</a>
         </div>
         
         <div class="text-center my-3">    
-            <a type="button" class="btn btn-outline-primary" href="">マイページに戻る</a>
+            <a type="button" class="btn btn-outline-primary" href="">トップページに戻る</a>
         </div>
                      
     </div>

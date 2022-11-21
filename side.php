@@ -57,7 +57,7 @@
       </div>
 
   <!-- プライス(価格)の表示 -->
-  <label class="col-sm-7 control-label">価格タイプ</label>
+  <label class="col-sm-8 control-label">価格タイプ</label>
   <ul>
     <div class="form-check">
       <input  type="radio" class="form-check-input" name="rdoname" id="rd1" value="all" <?php if(!isset($_POST['rdoname']) || $_POST['rdoname']=="all") echo 'checked'?>>

@@ -35,18 +35,15 @@
       echo "一致件数：".count($itemTbl)."件";
       foreach($itemTbl as $row){
         echo "<li>商品名：".$row['item_name']."</li>";
-      }  
+      }
     }
     
   ?>
 
-    <h2 class="text-center mt-5 mb-3">検索キーワード:</h2>
-    <h2 class="text-center mt-5 mb-3">検索一致件数:18件</h2>
-
     <!-- セレクトボックスの読み込み -->
     <label for="sortSelect" class="col-sm-4 control-label">並び替え</label>
     <select id="sortSelect" class="form-select mt-1 mb-5" name="num">
-      <option selected>並び替え</option>
+      <option selected></option>
       <option value="1">最新順</option>
       <option value="2">安い順</option>
       <option value="2">高い順</option>

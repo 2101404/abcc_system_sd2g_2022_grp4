@@ -57,7 +57,7 @@
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
-              <a href="./item_detail.php"> <img src="./imgs/sample/ikeoji.png" class="image-test" width="80%" alt=""></a>
+              <a href="./item_detail.php?itemId=5"> <img src="./imgs/sample/ikeoji.png" class="image-test" width="80%" alt=""></a>
               <p class="h5">イケオジになちゃうスタイリッシュスーツ!!</p>
               <p class ="card-listText">￥750000(税込)</p>
             </div>
@@ -69,7 +69,7 @@
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
-              <a href="./item_detail.php"> <img src="./imgs/sample/ikeoji.png" class="image-test" width="80%" alt=""></a>
+              <a href="./item_detail.php?itemId=5"> <img src="./imgs/sample/ikeoji.png" class="image-test" width="80%" alt=""></a>
               <p class ="h5">洗える ストレッチ 2パンツスーツ</p>
               <p class ="card-listText">￥10000(税込)</p>
             </div>
@@ -81,7 +81,7 @@
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
-              <a href="./item_detail.php"> <img src="./imgs/sample/noimage.png" class="image-test" width="80%" alt=""></a>
+              <a href="./item_detail.php?itemId=5"> <img src="./imgs/sample/noimage.png" class="image-test" width="80%" alt=""></a>
               <p class = "h5">就活応援!クリーンでエコなスタイリッシュスーツ!</p>
               <p class ="card-listText">￥10000(税込)</p>
             </div>
@@ -95,7 +95,7 @@
         <div class ="content">
           <div class="card-wrap">
             <div class ="card-list">
-              <a href="./item_detail.php"> <img src="./imgs/sample/ikeoji.png" class="image-test" width="80%" alt=""></a>
+              <a href="./item_detail.php?itemId=5"> <img src="./imgs/sample/ikeoji.png" class="image-test" width="80%" alt=""></a>
               <p class = "h5">リクルートにもオススメのブラックのツーパンツスーツ</p>
               <p class ="card-listText">￥10000(税込)</p>
             </div>

@@ -30,9 +30,6 @@
     <title>買い物かご</title>
 </head>
 <body>
-    
-    <a href="./cart_delete.php">削除</a><br>
-    <a href="./order_confirmation.php">注文</a>
     <?php require_once "DBManager.php"; ?>
 
     <!-- ヘッダーの読み込み -->
@@ -53,7 +50,7 @@
         <div class="row gy-2">
             <?php foreach($tbl as $row): ?>
                 <!-- 商品のリスト -->
-                <div class="container ">
+                <div class="container $gray-400">
                     <div class="col-12">
                         <div class="card bg-secondary">
                             <div class="row g-0">

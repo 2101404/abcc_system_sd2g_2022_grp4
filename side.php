@@ -90,14 +90,16 @@
 
   <!-- ボックスの表示 -->
   <ul>
-
-  </ul>
-
   <button type="submit" class="btn btn-primary" value="filter" name="filter">この条件で絞り込み</button>
   </form>
+  </ul>
 
   <!-- クリアの表示 -->
-  <a type="button" href="<?= $URL ?>" class="btn btn-link mt-2">すべての条件をクリア</a>
+  <ul>
+  <a type="button" href="<?= $URL 
+  ?>" class="btn btn-link mt-2">すべての条件をクリア
+  </a>
+  </ul>
 </aside>
 
 

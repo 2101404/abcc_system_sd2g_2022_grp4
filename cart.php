@@ -53,9 +53,9 @@
         <div class="row gy-2">
             <?php foreach($tbl as $row): ?>
                 <!-- 商品のリスト -->
-                <div class="container bg-secondary">
+                <div class="container ">
                     <div class="col-12">
-                        <div class="card">
+                        <div class="card bg-secondary">
                             <div class="row g-0">
 
                                 <div class="col-4 col-md-3">

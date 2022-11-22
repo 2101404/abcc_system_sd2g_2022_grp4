@@ -1,8 +1,10 @@
 -- 会員テーブル
+-- pass=12345
 INSERT INTO member(mail,pass,sei,mei,hurigana_sei,hurigana_mei,seibetsu,birth,phone_num,jusho)
-VALUES('abc@example.com',12345,'山田','太郎','ヤマダ','タロウ','男','2022-1-1','08012345678','福岡県福岡市');
+VALUES('abc@example.com','$2y$10$wiImLEqiHoGkCH5r7LSSjOkGbQu.hCqPrmXaw/1IDlTXjdLYOV2T6','山田','太郎','ヤマダ','タロウ','男','2022-1-1','08012345678','福岡県福岡市');
+-- pass=67890
 INSERT INTO member(mail,pass,sei,mei,hurigana_sei,hurigana_mei,seibetsu,birth,phone_num,jusho)
-VALUES('def@example.com',67890,'山田','花子','ヤマダ','ハナコ','女','2022-10-3','09012345678','佐賀県佐賀市');
+VALUES('def@example.com','$2y$10$EJOpLUSIvDnibG/GwbMRP.HSVyO/t5X/aZhoYMhDDK2zNDNO6aujS','山田','花子','ヤマダ','ハナコ','女','2022-10-3','09012345678','佐賀県佐賀市');
 
 -- カテゴリーテーブル
 INSERT INTO category(category_name) VALUES('スーツ');

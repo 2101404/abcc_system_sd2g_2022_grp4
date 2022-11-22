@@ -19,14 +19,24 @@
         getMemberIdFromSession();
     ?>
 
-    <h3>注文完了</h3>
+
     <?php
         require_once "DBManager.php";
         $dbm = new DBManager();
         $memberId = 1;
         $dbm->buyItems($memberId);
     ?>
-    <a href="./index.php">トップページ</a>
+
+    <div class="container">
+        <h3 >注文完了</h3>
+        
+        <div class="text-center m-5">
+            <p class="m-5">確定しました。</p>
+            <a class="btn btn-primary" href="./index.php">トップページに戻る</a>
+        </div>
+
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

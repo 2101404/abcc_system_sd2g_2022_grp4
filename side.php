@@ -12,7 +12,7 @@
   $itemCnt = 0;
   // 絞り込みボタンをクリックしている時の処理
   if(isset($_POST['filter'])){
-    echo "<script>alert('絞り込み検索します')</script>";
+    // echo "<script>alert('絞り込み検索します')</script>";
 
     $size = $_POST['size'];
     $color ="黒"; //POSTで取れるようにする
@@ -48,7 +48,7 @@
 
     // キーワードが入力されている場合検索を行う
     if(empty($itemTbl) && !empty($keyword)){
-    echo "<script>alert('キーワード検索します')</script>";
+    // echo "<script>alert('キーワード検索します')</script>";
       
       $dbm = new DBManager();
       $itemTbl = $dbm->searchItems($keyword);

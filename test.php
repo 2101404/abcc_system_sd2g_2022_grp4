@@ -9,4 +9,5 @@
     aaaaa
 
     バッキャロ〜！！
+    echo "<script>alert('')</script>";
 ?>

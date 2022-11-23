@@ -28,11 +28,11 @@
 
     <!-- セレクトボックスの読み込み -->
     <label for="sortSelect" class="col-sm-4 control-label">並び替え</label>
-    <select id="sortSelect" class="form-select mt-1 mb-5" name="num">
+    <select id="sortSelect" class="form-select mt-1 mb-5" name="sort">
       <option selected>並び替え</option>
-      <option value="1">最新順</option>
-      <option value="2">安い順</option>
-      <option value="2">高い順</option>
+      <option value="newst">最新順</option>
+      <option value="lowest">安い順</option>
+      <option value="highest">高い順</option>
     </select>
 
     <a href="./item_detail.php">商品詳細</a>

@@ -122,37 +122,42 @@
             return $ps->fetch();
         }
         
-        // 商品名から商品検索
-        public function searchItem($keyword){
+        
+        // 商品検索と絞り込みと並べ替え
+        public function searchItems($keyword="",$size ="", $color="", $price=0, $type="all", $order="item_registration_date", $direction ="DESC"){
+            // 検索キーワードを空白で分解して配列に入れる
+            $str = preg_replace('/　/', ' ', $keyword);   // 全角スペースを半角スペースに置換
+            $str = preg_replace('/\s+/', ' ', $str); // 連続するスペースをまとめる
+            $strs = explode(" ",$str); //配列にいれる
+    
             $pdo = $this->dbConnect();
-            $sql = "SELECT * FROM item WHERE item_name Like ?";
-            $ps = $pdo->prepare($sql);
-            $ps->bindValue(1,"%".$keyword."%",PDO::PARAM_STR);
-            $ps->execute();
 
-            return $ps->fetchAll();
-        }
 
-        // 商品絞り込み
-        public function filterItems($size ="", $color="", $price=0, $type="all", $keyword=""){
-            $pdo = $this->dbConnect();
-            if($type=="all"){
-                $sql = "SELECT * FROM item WHERE (item_size REGEXP ? OR item_size REGEXP ?) 
-                                            AND item_color LIKE ? 
-                                            AND item_price BETWEEN ? AND ?
-                                            AND item_name LIKE ?";
-            }else{
-                $sql = "SELECT * FROM item WHERE (item_size REGEXP ? OR item_size REGEXP ?) 
-                                            AND item_color LIKE ? 
-                                            AND item_price BETWEEN ? AND ?
-                                            AND item_name LIKE ?
-                                            AND is_sale = ?";
+            // SQL文の組み立て
+            $sql = "SELECT *,CASE is_sale WHEN true THEN item_sale_price ELSE item_price END AS sellingPrice 
+                    FROM item AS I INNER JOIN category AS C ON I.category_id = C.category_id 
+                    WHERE item_size REGEXP :sizeReg 
+                        AND item_color LIKE :color
+
+                        AND CASE is_sale WHEN true THEN item_sale_price ELSE item_price END BETWEEN :price1 AND :price2";
+            // 検索ワードの数だけSQL文の検索を増やす
+            $cnt =0;
+            foreach($strs as $s){
+                $cnt++;
+                $sql = $sql." AND (item_name REGEXP :keyword$cnt OR item_description REGEXP :keyword$cnt OR category_name REGEXP :keyword$cnt)";
             }
+            
+            // 価格タイプによってSQL文を変える
+            if($type!="all"){
+                // 価格タイプが指定されている場合
+                $sql =$sql." AND is_sale = :issale";
+            }
+            $sql =$sql." ORDER BY $order $direction";
+            
 
             $ps = $pdo->prepare($sql);
-            $ps->bindValue(1, ",".$size, PDO::PARAM_STR);
-            $ps->bindValue(2, "^".$size, PDO::PARAM_STR);
-            $ps->bindValue(3, "%".$color."%", PDO::PARAM_STR);
+            $ps->bindValue(':sizeReg', ",$size|^$size", PDO::PARAM_STR);
+            $ps->bindValue(':color', "%".$color."%", PDO::PARAM_STR);
             if($price == 100000){
                 $price1 = 90000; 
                 $price2 = 5000000000000000; //5000兆円欲しい！！！
@@ -163,17 +168,24 @@
                 $price1 = $price - 10000;
                 $price2 = $price;
             }
-            $ps->bindValue(4, $price1, PDO::PARAM_INT);
-            $ps->bindValue(5, $price2, PDO::PARAM_INT);
-            $ps->bindValue(6,"%".$keyword."%",PDO::PARAM_STR);
+            $ps->bindValue(':price1', $price1, PDO::PARAM_INT);
+            $ps->bindValue(':price2', $price2, PDO::PARAM_INT);
+            
+            // 検索ワードの数だけバインド
+            $cnt = 0;
+            foreach($strs as $s){
+                $cnt++;
+                $ps->bindValue(":keyword$cnt",$s,PDO::PARAM_STR);
+            }
 
-            if($type == "normal"){
-                $itemType = false;
-                $ps->bindValue(7, $itemType, PDO::PARAM_BOOL);
-            }else if($type == "sale"){
-                $itemType = true;
-                $ps->bindValue(7, $itemType, PDO::PARAM_BOOL);
-
+            // 価格タイプによってバインドを変える
+            if($type!="all"){
+                // 価格タイプが指定されている場合
+                if($type == "normal"){
+                    $ps->bindValue(':issale', false, PDO::PARAM_BOOL);
+                }else if($type == "sale"){
+                    $ps->bindValue(':issale', true, PDO::PARAM_BOOL);
+                }
             }
 
             $ps->execute();

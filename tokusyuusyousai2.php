@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./css/style.css">
 
-    <title>特集詳細画面２</title>
+    <title>スーツの選び方</title>
 </head>
 <body>
     <!-- ヘッダーの読み込み -->
@@ -16,9 +16,11 @@
 
 <div class ="container">
 
+    <div class ="text-center">
     <img class="img-fluid rounded" src="./imgs/sample/tokusyuu2.png" alt="tokusyuu2">
-    <p>どのサイズを選んだらいいのか分からない。ジャストサイズな着こなしって？そんなお悩みの方にぴったりのスーツの選び方ガイドです。</p>
-
+    <p>どのサイズを選んだらいいのか分からない。ジャストサイズな着こなしって？<br>
+    そんなお悩みの方にぴったりのスーツの選び方ガイドです。</p>
+    </div>
 
     <!-- 1 -->
     <div class="container alert-dark text-center">
@@ -28,9 +30,12 @@
     基本となるサイズが分かれば、そのサイズをベースに好みのシルエットを探す事ができます。</p>
     </div>
 
-    <img class="img-fluid rounded" src="./imgs/sample/ts2-1.png" alt="tag">
-    <img class="img-fluid rounded" src="./imgs/sample/ts2-2.png" alt="size">
+    <div class="container">
+    <div class ="row">
+    <div class ="col-md-6"><img class="img-fluid rounded" src="./imgs/sample/ts2-1.png" alt="tag"></div>
+    <div class ="col-md-6"><img class="img-fluid rounded" src="./imgs/sample/ts2-2.png" alt="size"></div>
 
+    
     <!-- 2 -->
     <div class="container alert-dark text-center">
     <p>-ポイント2-</p>
@@ -39,24 +44,26 @@
     重みが均等だと着心地が軽い</p>
     </div>
 
-    <img class="img-fluid rounded" src="./imgs/sample/ts1-2.jpg" alt="kata">
-
-    <h4>肩</h4>
+    <div class="container">
+    <div class ="row">
+        <div class ="col-md-6"><img class="img-fluid rounded" src="./imgs/sample/ts1-2.jpg" alt="kata"></div>
+        <div class ="col-md-6"><h4>肩</h4>
     <p>ジャケットの肩山と肩のトップ位置がちょうど<br>
     合っている状態で、ジャケットの肩をつまんで<br>
     1㎝程度のゆとりがあるのが適正サイズです。<br>
     それ以上つまめると大きく、ジャケットの肩が<br>
     落ちてしまうのでだらしのない印象になります。<br>
-    つまめる余裕がない場合は小さく、動きにくくなります。</p>
+    つまめる余裕がない場合は小さく、<br>
+    動きにくくなります。</p>
+        </div>
+    </div>
 
-    <!-- movie -->
-    <iframe width="560" height="315" src="https://youtu.be/8kH0P3Ka6L0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+
+    <!-- 戻るボタン -->
+		<div class="text-center mt-5 mb-5">
+            <a type="button" href="./index.php?" class="btn btn-lg btn-outline-primary mt-5">トップページに戻る</a>
+		</div>
         
-    <!-- b -->
-    <button class = "btn btn-light btn-lg" >トップページに戻る</button>
-
-</div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

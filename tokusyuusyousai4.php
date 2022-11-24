@@ -65,7 +65,7 @@
     </div>
     <div class = "col-md-6"><img class="img-fluid rounded" src="./imgs/sample/new4-1.jpg" alt="1"></div>
 
-    <!--button-->
+    <!--商品見るボタン-->
     <div class="text-center mt-5 mb-5">
             <a type="button" href="./item_detail.php?" class="btn btn-lg btn-outline-primary mt-5">商品を見る</a>
 		</div>
@@ -83,7 +83,7 @@
     </div>
     <div class = "col-md-6"><img class="img-fluid rounded" src="./imgs/sample/new4-7.jpg" alt="7"></div>
 
-    <!--button-->
+    <!--商品見るボタン-->
     <div class="text-center mt-5 mb-5">
             <a type="button" href="./item_detail.php?" class="btn btn-lg btn-outline-primary mt-5">商品を見る</a>
 		</div>

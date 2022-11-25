@@ -131,7 +131,7 @@
         // 買い物かごに入っている1つの商品を削除
         public function deleteCartItem($memberId,$itemId){
             $pdo = $this->dbConnect();
-            $sql = "DELETE FROM cart WHERE $memberId = ? AND $itemId = ?" ;
+            $sql = "DELETE FROM cart WHERE member_id = ? AND item_id = ?" ;
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1,$memberId,PDO::PARAM_INT);
             $ps->bindValue(2,$itemId,PDO::PARAM_INT);

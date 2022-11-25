@@ -31,28 +31,34 @@
     ?>
     <div class="row gy-2">
         <?php foreach($tbl as $row): ?>
-            <!-- 商品のリスト -->
-            <div class="container">
-                <div class="col-12">
-                    <div class="card bg-secondary">
-                        <div class="row g-0">
+                <div class="col-12" >
+                    <!-- カード -->
+                    <div class="card item-card h-100" >
+                        <div class="row g-0" style="max-height:200px">
 
-                            <div class="col-4 col-md-3">
+                            <!-- 商品画像 -->
+                            <div class="col-4 col-md-3 h-100" >
                                 <a href="./item_detail.php?itemId=<?= $row['item_id']?>">
-                                    <div class="ratio ratio-1x1">
-                                        <img src="<?php echo $row['item_image']?>"   alt="..." >
-                                    </div>
+                                    <!-- <div class="ratio ratio-1x1"> -->
+                                        <img style="width:100%;height:100%;object-fit:cover;" src="<?php echo $row['item_image']?>"   alt="..." >
+                                    <!-- </div> -->
                                 </a>
                             </div>
                             
+                            <!-- 商品名とか -->
                             <div class="col-8 col-md-9">
                                 <div class="card-body">
-                                    <h3 class="card-title"><?= $row['item_name'] ?></h5>
-                                    <p class="card-text fs-5">
-                                            <span class="me-3">数量：<?= $row['cart_suryo']?></span><br>
+                                    <h5 class="card-title"><?= $row['item_name'] ?></h5>
+                                    <span style="float:right;"><?= number_format($row['item_price'])?>円</span><br>
+
+                                    <p class="card-text">
+                                            <span>数量：<?= $row['cart_suryo']?></span>
                                             <span>サイズ：<?= $row['cart_size']?></span><br>
-                                            <span style="float:right;"><?= number_format($row['item_price'])?>円</span><br>
-                                            <a href="./cart_delete.php" style="float:right;">削除</a>
+                                            <span style="float:right;"><?="小計　". number_format($row['item_price'])?>円</span><br>
+                                            <form action="./cart_delete.php" method="post" class="text-end" style="position:absolute;bottom:3%;right:1%;">
+                                                <input type="submit"  style="border:none" name="delete" value="削除">
+                                                <input type="hidden" name="itemId" value="<?=$row['item_id']?>">
+                                            </form>
                                     </p>
                                 </div>
                             </div>
@@ -60,13 +66,12 @@
                     </div>
                 </div>
 
-            </div>        
         <?php endforeach;?>
     </div>
         
     
     
-    <div class="text-right my-3">    
+    <div class="text-end my-3">    
         <a type="button" class="btn btn-outline-primary" href="./order_complete.php">注文</a>
     </div>
     

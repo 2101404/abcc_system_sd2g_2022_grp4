@@ -54,7 +54,7 @@ a{
 }
 
 .item-card{
-    background-color: lightgrey;
+    background-color: rgb(240, 240, 240);
 }
 /* 買い物かご、注文確認、購入履歴で使用 */
 .list-area{

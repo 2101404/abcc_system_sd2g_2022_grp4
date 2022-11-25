@@ -15,7 +15,11 @@
     <!-- ヘッダーの読み込み -->
     <?php include "header.php" ?>
 
-    <!-- php-->
+    <div class="mt-5 d-grid gap-2 text-center">
+        <a href="register.php">
+            
+        </a>
+    </div>
 
     <!-- ボタン-->
     <div class="mt-5 d-grid gap-2 text-center">
@@ -26,7 +30,7 @@
     </div>
 
     <div class="mt-5 d-grid gap-2 text-center">
-        <a href="register3.php">
+        <a href="register.php">
             <button type="button" class="btn btn-outline-dark col-6">登録する</button>
         </a>
     </div>

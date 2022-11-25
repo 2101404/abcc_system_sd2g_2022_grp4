@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -19,63 +18,80 @@
     <p>◎...必須項目</p>
 
     <div class="mb-3">
-    <label action="register2.php" class="form_log">◎メールアドレス</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="メールアドレス">
+    <label class="mb-3">◎メールアドレス</label>
+    <input type="text" class="mb-3" placeholder="メールアドレス" name="meil">
+    </div>
+
+    <th><input type="text" maxlength="100" placeholder="山田太郎" id="name">
+<th id="name_chk" style="display: none; color: red;">名前が漢字になっていません</th>
+</tr>
+<tr>
+
+    <div class="mb-3">
+    <label class="mb-3">◎パスワード　＊半角数字、英字のみ</label>
+    <input type="password" class="mb-3" placeholder="パスワード" name="pass">
     </div>
 
     <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">◎パスワード　＊半角数字、英字のみ</label>
-    <input type="password" class="form_log" id="exampleInputPassword1" placeholder="パスワード">
+    <label class="mb-3">◎パスワード　（確認用）</label>
+    <input type="password" class="mb-3" placeholder="上記と同様のパスワード" name="pass2">
     </div>
 
     <div class="mb-3">
-    <label for="inputPassword5" class="form-label">◎パスワード　（確認用）</label>
-    <input type="password" class="form_log" id="exampleInputPassword1" placeholder="上記と同様のパスワード">
-    </div>
-
-    <div class="mb-3">
-    <label action="register2.php" class="form_log">◎氏名　＊全角のみ</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="例：山田">
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="例：太郎">
+    <label class="mb-3">◎氏名　＊全角のみ</label>
+    <input type="text" class="form-control" placeholder="例：山田" name="myouj">
+    <input type="text" class="form-control" placeholder="例：太郎" name="namae">
     </div>
 
     <div class="form-check">
     <p>◎性別</p>
-    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+    <input class="form-check-input" type="radio" name="exampleRadios">
     <label class="form-check-label" for="exampleRadios1">男性</label>
     </div>
 
     <div class="form-check">
-    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+    <input class="form-check-input" type="radio" name="exampleRadios">
     <label class="form-check-label" for="exampleRadios2">女性</label>
     </div>
 
     <div class="form-check">
-    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+    <input class="form-check-input" type="radio" name="exampleRadios">
     <label class="form-check-label" for="exampleRadios3">未指定</label>
     </div>
 
     <p>◎生年月日</p>
-    <select class="form-select" aria-label="Default select example">
+    <select class="mb-3" aria-label="Default select example" name="">
     <option selected>2024</option>
     <option value="1">2023</option>
     <option value="2">2022</option>
     <option value="3">2021</option>
+    <p></p>
+    </select>
+    <select class="mb-3" aria-label="Default select example" name="">
+    <option selected>2024</option>
+    <option value="1">2023</option>
+    <option value="2">2022</option>
+    <option value="3">2021</option>
+    <p></p>
+    </select>
+    <select class="mb-3" aria-label="Default select example" name="">
+    <option selected>2024</option>
+    <p></p>
     </select>
 
     <div class="mb-3">
-    <label action="register2.php" class="form_log">◎電話番号　＊ハイフンなし半角</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="例：080123456789">
+    <label class="mb-3">◎電話番号　＊ハイフンなし半角</label>
+    <input type="text" class="mb-3" name="tel" placeholder="例：080123456789">
     </div>
 
     <div class="mb-3">
-    <label action="register2.php" class="form_log">◎住所</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="例：福岡県福岡市〇〇区1-1-1">
+    <label class="mb-3">◎住所</label>
+    <input type="text" class="mb-3" name="juusyo" placeholder="例：福岡県福岡市〇〇区1-1-1">
     </div>
 
     <div class="mb-3">
-    <label action="register2.php" class="form_log">◎建物名・部屋番号</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="例：〇〇ビル 101号室">
+    <label class="mb-3">◎建物名・部屋番号</label>
+    <input type="text" class="mb-3" name="tatemono" placeholder="例：〇〇ビル 101号室">
     </div>
 
     <div class="mt-5 d-grid gap-2 text-center">

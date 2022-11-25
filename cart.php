@@ -33,36 +33,14 @@
         <?php foreach($tbl as $row): ?>
             <!-- 商品のリスト -->
             <div class="container">
-                <div class="col-14">
+                <div class="col-12">
                     <div class="card bg-secondary">
                         <div class="row g-0">
 
-<<<<<<< HEAD
-                            <div class="col-4 col-md-3">
+                            <div class="col-4 col-md-1">
                                 <a href="./item_detail.php?itemId=<?= $row['item_id']?>">
                                     <div class="ratio ratio-1x1">
                                         <img src="<?php echo $row['item_image']?>"   alt="..." >
-=======
-            $dbm = new DBManager();
-            $tbl = $dbm->getCart($memberId);
-            
-            $sum = 0;
-        ?>
-        <div class="row gy-2">
-            <?php foreach($tbl as $row): ?>
-                    <!-- 商品のリスト -->
-                    <div class="container ">
-                        <div class="col-12">
-                            <div class="card item-card">
-                                <div class="row g-0">
-
-                                    <div class="col-4 col-md-3">
-                                        <a href="./item_detail.php?itemId=<?= $row['item_id']?>">
-                                            <div class="ratio ratio-1x1">
-                                                <img src="<?php echo $row['item_image']?>"   alt="..." >
-                                            </div>
-                                        </a>
->>>>>>> 1b09cd2904e06c3003a94883310a12396181492e
                                     </div>
                                 </a>
                             </div>
@@ -78,21 +56,12 @@
                                     <a href="./cart_delete.php" style="float:right;">削除</a>
                                 </div>
                             </div>
-<<<<<<< HEAD
-        
-            <?php endforeach;?>
-=======
                         </div>
-                    </div>
-                <?php endforeach;?>
-            </div>
-            
-        </div>
-        
-        <div class="text-right my-3">    
-            <a type="button" class="btn btn-outline-primary" href="./order_complete.php">注文</a>
->>>>>>> 1b09cd2904e06c3003a94883310a12396181492e
-        </div>
+                </div>
+
+            </div>        
+        <?php endforeach;?>
+    </div>
         
     
     

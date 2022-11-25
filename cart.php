@@ -69,7 +69,7 @@
                                         <p class="card-text fs-4">
                                                 <span class="me-3">数量：<?= $row['cart_suryo']?></span><br>
                                                 <span>サイズ：<?= $row['cart_size']?></span><br>
-                                                <span style="float:right;"><?= number_format($row['item_price'])?>円</span>
+                                                <span style="float:right;"><?= number_format($row['item_price'])?>円</span><br>
                                         </p>
                                         <a href="./cart_delete.php" style="float:right;">削除</a>
                                     </div>
@@ -88,7 +88,7 @@
         </div>
         
         <div class="text-center my-3">    
-            <a type="button" class="btn btn-outline-primary" href="">トップページに戻る</a>
+            <a type="button" class="btn btn-outline-primary" href="index.php">トップページに戻る</a>
         </div>
                      
     </div>

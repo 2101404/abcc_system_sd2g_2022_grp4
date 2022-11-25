@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./css/style.css">
 
-    <title>買い物かご削除完了</title>
+    <title>買い物かご</title>
 </head>
 <body>
     <!-- ヘッダーの読み込み -->
@@ -22,14 +22,13 @@
         if(isset($_POST['delete'])){
             $itemId = $_POST['delete'];
         }
-        echo "<script>alert('$itemId')</script>";
         $dbm = new DBManager();
         $dbm->deleteCartItem($memberId,$itemId);
 
     ?>
 
     <div class="container">
-        <h3>買い物かご削除完了</h3>
+        <h3>買い物かご</h3>
         <div class="text-center">
 
             <p class="text-center m-5">削除しました。</p>

@@ -36,47 +36,40 @@
         <?php foreach($cart as $row): ?>
             <?php $sum += $row['shoukei']; $cnt += $row['cart_suryo']; ?>
             <div class="col-12">
-                <div class="card">
-                    <div class="row g-0">
+                    <!-- カード -->
+                    <div class="card item-card h-100" >
+                        <div class="row g-0" >
 
-                        <div class="col-4 col-md-3">
                             <!-- 商品画像 -->
-                            <a href="./item_detail.php?itemId=<?= $row['item_id'] ?>">
-                                <div class="ratio ratio-1x1">
-                                    <img src="<?=$row['item_image']?>"   alt="..." >
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-8 col-md-9">
-                            <div class="card-body">
-                                <div class="row">
-                                    <!-- 商品名 -->
-                                    <a href="./item_detail.php?itemId=<?=  $row['item_id'] ?>">
-                                        <div class="col-12">
-                                            <p class="card-title"><?= $row['item_name']?></p>
-                                        </div>
-                                    </a>
-                                    <div class="col-12">
-                                        <!-- 数量・サイズ・金額 -->
-                                        <p class="card-text fs-4">
-                                            <span class="me-3">数量：<?=$row['cart_suryo']?></span>
-                                            <span>サイズ：<?=$row['cart_size']?></span>
-                                            <span style="position:absolute; right:1rem;"><?=number_format($row['sellingPrice'])?>円</span>
-                                        </p>
-                                    </div>
-                                    <div class="col-12">
-                                    <!-- 小計 -->
-                                    <p class="card-text fs-4">
-                                            <span style="position:absolute; bottom:1rem;right:1rem;">小計:<?=number_format($row['shoukei'])?>円</span>
+                            <div class="col-4 col-md-3 h-100" >
+                                <a href="./item_detail.php?itemId=<?= $row['item_id']?>">
+                                    <!-- <div class="ratio ratio-1x1"> -->
+                                        <img  src="<?php echo $row['item_image']?>"   alt="..." >
+                                    <!-- </div> -->
+                                </a>
+                            </div>
+                            
+                            <!-- 商品名とか -->
+                            <div class="col-8 col-md-9">
+                                <div class="card-body">
+                                    <p class="card-title fs-4">
+                                        <a href="./item_detail.php?itemId=<?=$row['item_id']?>">
+                                            <?= $row['item_name'] ?>
+                                        </a>
+                                        <span class="fs-5" style="float:right;"><?= number_format($row['sellingPrice'])?>円</span>
                                     </p>
-                                    </div>
+
+                                    <p class="card-text">
+                                            <span>数量：<?= $row['cart_suryo']?></span><br>
+                                            <span>サイズ：<?= $row['cart_size']?></span><br>
+                                            <span style="float:right;"><?="小計　". number_format($row['shoukei'])?>円</span><br>
+                                    </p>
                                 </div>
                             </div>
-                        </div>
 
+                            
+                        </div>
                     </div>
-                </div>
             </div>
         <?php endforeach; ?>
         </div>

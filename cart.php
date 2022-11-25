@@ -37,7 +37,7 @@
                     <div class="card bg-secondary">
                         <div class="row g-0">
 
-                            <div class="col-4 col-md-1">
+                            <div class="col-4 col-md-3">
                                 <a href="./item_detail.php?itemId=<?= $row['item_id']?>">
                                     <div class="ratio ratio-1x1">
                                         <img src="<?php echo $row['item_image']?>"   alt="..." >
@@ -48,15 +48,16 @@
                             <div class="col-8 col-md-9">
                                 <div class="card-body">
                                     <h3 class="card-title"><?= $row['item_name'] ?></h5>
-                                    <p class="card-text fs-4">
+                                    <p class="card-text fs-5">
                                             <span class="me-3">数量：<?= $row['cart_suryo']?></span><br>
                                             <span>サイズ：<?= $row['cart_size']?></span><br>
                                             <span style="float:right;"><?= number_format($row['item_price'])?>円</span><br>
+                                            <a href="./cart_delete.php" style="float:right;">削除</a>
                                     </p>
-                                    <a href="./cart_delete.php" style="float:right;">削除</a>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </div>
 
             </div>        

@@ -52,3 +52,7 @@ a{
     object-fit: contain;
 
 }
+
+.item-card{
+    background-color: lightgrey;
+}

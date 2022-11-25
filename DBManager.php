@@ -100,10 +100,14 @@
             $ps->execute();
         }
 
-        // 買い物かごを取得
+        // 買い物かごを取得(買い物かご表の列名以外にsellingPriceで販売価格 shoukeiで小計が取得できる)
         public function getCart($memberId){
             $pdo = $this->dbConnect();
-            $sql = "SELECT * FROM cart AS C INNER JOIN item AS I ON C.item_id = I.item_id WHERE C.member_id = ?";
+            $sql = "SELECT *,CASE is_sale WHEN true THEN item_sale_price 
+                                          WHEN false THEN item_price END AS sellingPrice,
+                             CASE is_sale WHEN true THEN item_sale_price * cart_suryo 
+                                          WHEN false THEN item_price *cart_suryo END AS shoukei
+                    FROM cart AS C INNER JOIN item AS I ON C.item_id = I.item_id WHERE C.member_id = ?";
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1,$memberId,PDO::PARAM_INT);
             $ps->execute();
@@ -203,5 +207,21 @@
 
             return $ps->fetchAll();
         }
+
+        // ログイン処理
+        public function loginCheck($mail, $password){
+            $pdo = $this->dbConnect();
+            $sql = 'SELECT * FROM member WHERE mail = ?';
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$mail,PDO::PARAM_STR);
+            $ps->execute();
+            $member = $ps->fetch();
+            if($member == true && password_verify($password,$member['pass']) == true){
+                return $member;
+            }else{
+                throw new UnexpectedValueException("メールアドレスまたはパスワードが間違っています。");
+            }
+        }
+
     }
 ?>

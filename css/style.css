@@ -56,3 +56,7 @@ a{
 .item-card{
     background-color: lightgrey;
 }
+/* 買い物かご、注文確認、購入履歴で使用 */
+.list-area{
+    max-width:800px;
+}

@@ -8,18 +8,33 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./css/style.css">
 
-    <title>会員情報確認</title>
+    <title>お客様情報</title>
 </head>
 <body>
     <!-- ヘッダーの読み込み -->
     <?php include "header.php" ?>
     <?php 
+        require_once "DBManager.php";
         require_once "function.php";
         // ログインしているか判定する
-        getMemberIdFromSession();
+        $memberId = getMemberIdFromSession();
+        $dbm = new DBManager();
+        $member = $dbm->getMember($memberId);
     ?>
+    <div class="container">
+        <h3>お客様情報</h3>
+        <div>
+            <p><b>氏名</b></p>
+            <p><?=$member['sei']." ".$member['mei'] ?></p>
+            <p ><b>カナ氏名</b></p>
+            <p><?=$member['hurigana_sei']." ".$member['hurigana_mei'] ?></p>
+            <p><?=date("Y年 n月j日",strtotime($member['birth'])) ?></p>
+            <p><?=$member['mail'] ?></p>
+            <p><?=$member['phone_num'] ?></p>
+            <p><?=$member['jusho'] ?></p>
+        </div>
 
-    <h3>会員情報確認</h3>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

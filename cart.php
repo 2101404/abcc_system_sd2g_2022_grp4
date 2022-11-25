@@ -11,12 +11,11 @@
     <title>買い物かご</title>
 </head>
 <body>
-    
     <?php require_once "DBManager.php"; ?>
 
     <!-- ヘッダーの読み込み -->
     <?php include "header.php"; ?>
-    <div class="container" style="max-width:800px">
+    <div class="container list-area">
 
         <h2 class="my-3">買い物かご</h2>
         
@@ -29,7 +28,13 @@
             
             $sum = 0;
         ?>
-        
+        <div class="row gy-2">
+            <?php foreach($tbl as $row): ?>
+                <!-- 商品のリスト -->
+                <div class="container gray-400">
+                    <div class="col-12">
+                        <div class="card bg-secondary">
+                            <div class="row g-0">
 
             <div class="row gy-2">
                 <?php foreach($tbl as $row): ?>

@@ -30,14 +30,6 @@
         ?>
         <div class="row gy-2">
             <?php foreach($tbl as $row): ?>
-                <!-- 商品のリスト -->
-                <div class="container gray-400">
-                    <div class="col-12">
-                        <div class="card bg-secondary">
-                            <div class="row g-0">
-
-            <div class="row gy-2">
-                <?php foreach($tbl as $row): ?>
                     <!-- 商品のリスト -->
                     <div class="container ">
                         <div class="col-12">
@@ -74,7 +66,7 @@
                 <?php endforeach;?>
             </div>
             
-        
+        </div>
         
         <div class="text-right my-3">    
             <a type="button" class="btn btn-outline-primary" href="./order_complete.php">注文</a>

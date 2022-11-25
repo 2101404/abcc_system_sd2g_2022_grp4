@@ -22,11 +22,6 @@
     <input type="text" class="mb-3" placeholder="メールアドレス" name="meil">
     </div>
 
-    <th><input type="text" maxlength="100" placeholder="山田太郎" id="name">
-<th id="name_chk" style="display: none; color: red;">名前が漢字になっていません</th>
-</tr>
-<tr>
-
     <div class="mb-3">
     <label class="mb-3">◎パスワード　＊半角数字、英字のみ</label>
     <input type="password" class="mb-3" placeholder="パスワード" name="pass">

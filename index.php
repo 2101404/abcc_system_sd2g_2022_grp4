@@ -152,8 +152,8 @@
 						</div>
 						<div class="carousel-item">
 							<!-- リンク入れる -->
-							<a href="./tokusyuusyousai3.php">
-								<img src="imgs/sample/tokusyuu3.jpg"  alt="..." >
+							<a href="./tokusyuusyousai4.php">
+								<img src="imgs/sample/tokusyuu4.png"  alt="..." >
 							</a>
 						</div>
 					</div>

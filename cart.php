@@ -34,7 +34,7 @@
 
     <!-- ヘッダーの読み込み -->
     <?php include "header.php"; ?>
-    <div class="container" style="max-width:800px">
+    <div class="container list-area">
 
         <h2 class="my-3">買い物かご</h2>
         

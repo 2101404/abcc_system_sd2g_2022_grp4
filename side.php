@@ -90,10 +90,38 @@
 
     <!-- カラーの表示 -->
     <label class="col-sm-4 control-label">カラー</label>
-    <div class="col-sm-8">
-    <ul>
-    <a type="button" href="./item_search_result.php?" class="btn">🔴🔵🟡⚪️🟢⚫️🟣🟠</a>
-    </ul>
+    <div class="d-flex">
+      <input type="checkbox" id="check1" name="colors" value="aqua">
+      <label for="check1" style="background-color: aqua;"></label>
+
+      <input type="checkbox" id="check2" name="colors" value="red">
+      <label for="check2" style="background-color: red;"></label>
+
+      <input type="checkbox" id="check3" name="colors" value="blue">
+      <label for="check3" style="background-color: blue;"></label>
+
+      <input type="checkbox" id="check4" name="colors" value="yellow">
+      <label for="check4" style="background-color: yellow;"></label>
+
+      <input type="checkbox" id="check5" name="colors" value="green">
+      <label for="check5" style="background-color: green;"></label>
+    </div>
+    <div class="d-flex">
+      <input type="checkbox" id="check6" name="colors" value="black">
+      <label for="check6" style="background-color:black;"></label>
+
+      <input type="checkbox" id="check7" name="colors" value="white">
+      <label for="check7" style="background-color: white;"></label>
+
+      <input type="checkbox" id="check8" name="colors" value="orange">
+      <label for="check8" style="background-color: orange;"></label>
+
+      <input type="checkbox" id="check9" name="colors" value="darkgray">
+      <label for="check9" style="background-color:darkgray;"></label>
+
+      <input type="checkbox" id="check10" name="colors" value="brown">
+      <label for="check10" style="background-color:brown;"></label>
+    </div>
 
     <!-- 価格の表示 -->
     <div class="form-group">
@@ -147,6 +175,7 @@
   <?php $URL = getURL(); ?>
   <a type="button" href="<?= $URL ?>" class="btn btn-link mt-2">すべての条件をクリア</a>
 </aside>
+
 
 
 

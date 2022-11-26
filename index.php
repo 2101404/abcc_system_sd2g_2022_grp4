@@ -86,7 +86,7 @@
 			<div class="row">
 				<?php
 					$itemImg =['./imgs/category/suit01.jpg','./imgs/category/jacket01.jpg','./imgs/category/shoes01.jpg','./imgs/category/tie01.jpg','./imgs/category/bag03.png','./imgs/category/belt03.png','./imgs/category/coat01.jpg','./imgs/category/socks01.png',];
-					$text =['スーツ','ジャケット','シューズ','ネクタイ','バッグ','ベルト','コート','靴下',];
+					$text =['スーツ','ジャケット','靴','ネクタイ','バッグ','ベルト','コート','靴下',];
 					$itemLink =['','','','','','','','',];
 					showCategory($itemLink,$itemImg,$text);
 				?>
@@ -99,7 +99,7 @@
 			<div class="row">
 			<?php
 					$itemImg =['./imgs/category/setup01.png','./imgs/category/skirt01.png','./imgs/category/pants01.png','./imgs/category/shoes02.png','./imgs/category/bag02.png','./imgs/category/belt04.png','./imgs/category/coat02.png','./imgs/category/socks01.png',];
-					$text =['セットアップ','スカート','パンツ','シューズ','バッグ','ベルト','コート','靴下',];
+					$text =['セットアップ','スカート','パンツ','靴','バッグ','ベルト','コート','靴下',];
 					$itemLink =['','','','','','','','',];
 					showCategory($itemLink,$itemImg,$text);
 				?>

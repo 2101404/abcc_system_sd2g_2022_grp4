@@ -11,8 +11,14 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
       <!-- 検索 -->
+      <?php
+        $placeholder = ""; 
+        if(isset($_GET['keyword'])){
+          $placeholder = $_GET['keyword'];
+        }
+      ?>
       <form class="d-flex" action="./item_search_result.php" method="get">
-          <input class="form-control me-2" type="search" placeholder="商品を検索" aria-label="検索" name="keyword">
+          <input class="form-control me-2" type="search" placeholder="商品を検索" aria-label="検索" name="keyword" id="searchBox" value="<?=$placeholder?>">
           <input class="btn btn-outline-success" type="submit" value="検索">
       </form>
 

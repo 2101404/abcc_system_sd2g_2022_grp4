@@ -128,7 +128,7 @@
         
         
         // 商品検索と絞り込みと並べ替え
-        public function searchItems($keyword="",$size ="", $color="", $price=0, $type="all", $order="item_registration_date", $direction ="DESC"){
+        public function searchItems($keyword="",$category="all", $size ="", $color="", $price=0, $type="all", $order="item_registration_date", $direction ="DESC"){
             // 検索キーワードを空白で分解して配列に入れる
             $str = preg_replace('/　/', ' ', $keyword);   // 全角スペースを半角スペースに置換
             $str = preg_replace('/\s+/', ' ', $str); // 連続するスペースをまとめる
@@ -136,7 +136,7 @@
     
             $pdo = $this->dbConnect();
 
-
+            
             // SQL文の組み立て
             $sql = "SELECT *,CASE is_sale WHEN true THEN item_sale_price ELSE item_price END AS sellingPrice 
                     FROM item AS I INNER JOIN category AS C ON I.category_id = C.category_id 
@@ -156,6 +156,12 @@
                 // 価格タイプが指定されている場合
                 $sql =$sql." AND is_sale = :issale";
             }
+
+            //カテゴリー別表示の場合 
+            if($category != "all"){
+                $sql = $sql." AND I.category_id = (SELECT category_id FROM category WHERE category_name = :category)";
+            }
+
             $sql =$sql." ORDER BY $order $direction";
             
 
@@ -190,6 +196,11 @@
                 }else if($type == "sale"){
                     $ps->bindValue(':issale', true, PDO::PARAM_BOOL);
                 }
+            }
+
+            // カテゴリー別表示の場合にバインド
+            if($category != "all"){
+                $ps->bindValue(':category',$category,PDO::PARAM_STR);
             }
 
             $ps->execute();

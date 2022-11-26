@@ -8,9 +8,19 @@
   if(isset($_GET['keyword'])){
     $keyword = $_GET['keyword'];
   }
+
+  //URLにカテゴリー名がセットされていれば取得する
+  $category = "all";
+  if(isset($_GET['category'])){
+    $category = $_GET['category'];
+  }
+
+
   $itemTbl=[];
   $itemCnt = 0;
-  // 絞り込みボタンをクリックしている時の処理
+
+
+  // 絞り込みボタンをクリックした場合検索する
   if(isset($_POST['filter'])){
     // echo "<script>alert('絞り込み検索します')</script>";
 
@@ -43,16 +53,21 @@
         break;
     }
     $dbm = new DBManager();
-    $itemTbl = $dbm->searchItems($keyword,$size,$color,$price,$type,$order1,$order2);
-  }else {
+    $itemTbl = $dbm->searchItems($keyword,$category,$size,$color,$price,$type,$order1,$order2);
 
+  }else if(empty($itemTbl) && !empty($keyword)){
     // キーワードが入力されている場合検索を行う
-    if(empty($itemTbl) && !empty($keyword)){
     // echo "<script>alert('キーワード検索します')</script>";
-      
-      $dbm = new DBManager();
-      $itemTbl = $dbm->searchItems($keyword);
-    }
+    $dbm = new DBManager();
+    $itemTbl = $dbm->searchItems($keyword);
+
+  }else if(empty($itemTbl) && !empty($category)){
+    // カテゴリー別表示
+    // echo "<script>alert('カテゴリー表示します')</script>";
+    $dbm = new DBManager();
+    $itemTbl = $dbm->searchItems("",$category);
+
+    
   }
    $itemCnt = count($itemTbl);
 ?>

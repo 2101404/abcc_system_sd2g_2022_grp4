@@ -60,8 +60,7 @@
         <div class ="col-md-6"><img class="img-fluid rounded" src="./imgs/sample/nekutai1.jpg" alt="1"></div>
         <div class ="col-md-6">
     <p>正三角形に近く、結び目がかなり大きくなります。襟明き角度の広いワイドカラーや<br>
-    襟が大きいシャツに最適です。また、顔や体型が大きめの人は自然にバランスがとれるのでオススメ。
-    </p>
+    襟が大きいシャツに最適です。また、顔や体型が大きめの人は自然にバランスがとれるのでオススメ。</p>
         </div>
     </div>
 
@@ -76,8 +75,7 @@
         <div class ="col-md-6"><img class="img-fluid rounded" src="./imgs/sample/nekutai3.jpg" alt="3"></div>
         <div class ="col-md-6">
     <p>縦に長い結び目が特徴。プレーンノットよりも一回り大きくなり、横から見たときに厚みが出ます。<br>
-    プレーンノットの次に簡単な結び方なので、慣れたらチャレンジしてみましょう。
-    </p>
+    プレーンノットの次に簡単な結び方なので、慣れたらチャレンジしてみましょう。</p>
         </div>
     </div>
 

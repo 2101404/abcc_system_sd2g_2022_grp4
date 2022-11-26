@@ -26,7 +26,7 @@
             <!-- メールアドレス -->
             <div class="my-4">
                 <label class="mb-2" for="meil"><span class="requiredItem">◎</span>メールアドレス</label>
-                <input type="email" class="mb-3 form-control" placeholder="メールアドレス" name="meil" id="meil">
+                <input type="email" class="mb-3 form-control" placeholder="メールアドレス" name="mail" id="mail">
             </div>
 
             <!-- パスワード -->
@@ -47,7 +47,7 @@
                 <div class="row gy-1">
                     <!-- 名字 -->
                     <div class="col-12 col-md-6">
-                        <input type="text" class="form-control"  placeholder="例：山田" name="myouj">
+                        <input type="text" class="form-control"  placeholder="例：山田" name="myouji">
                     </div>
                     
                     <!-- 名前 -->
@@ -57,26 +57,42 @@
                 </div>
             </div>
 
+            <!-- フリガナ -->
+            <div class="my-4">
+                <label class="mb-2"><span class="requiredItem">◎</span>フリガナ　＊全角のみ</label>
+                <div class="row gy-1">
+                    <!-- 名字 -->
+                    <div class="col-12 col-md-6">
+                        <input type="text" class="form-control"  placeholder="例：ヤマダ" name="h_myouji">
+                    </div>
+                    
+                    <!-- 名前 -->
+                    <div class="col-12 col-md-6">
+                        <input type="text" class="form-control" placeholder="例：タロウ" name="h_namae">
+                    </div>
+                </div>
+            </div>
+
             <!-- 性別 -->
             <div class="row gy-1 my-4">
                 <p class="m-0"><span class="requiredItem">◎</span>性別</p>
                 <div class="col-12 col-md-2">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="seibetuRadios" id="male">
+                        <input class="form-check-input" type="radio" name="seibetuRadios" id="male" value="男性">
                         <label class="form-check-label" for="male">男性</label>
                     </div>
                 </div>
 
                 <div class="col-12 col-md-2">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="seibetuRadios" id="female">
+                        <input class="form-check-input" type="radio" name="seibetuRadios" id="female" value="女性">
                         <label class="form-check-label" for="female">女性</label>
                     </div>
                 </div>
 
                 <div class="col-12 col-md-2">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="seibetuRadios" id="unspecified" checked>
+                        <input class="form-check-input" type="radio" name="seibetuRadios" id="unspecified" value="未指定" checked>
                         <label class="form-check-label" for="unspecified">未指定</label>
                     </div>
                 </div>
@@ -86,7 +102,7 @@
             <p class="my-2"><span class="requiredItem">◎</span>生年月日</p>
             <div class="input-group mb-3">
                 <!-- 年 -->
-                <select class=" form-select" aria-label="Default select example" name="" id="year">
+                <select class=" form-select" aria-label="Default select example" name="year" id="year">
                     <?php for($i=1922; $i<=2007; $i++): ?>
                         <?php if($i == 2000):?>
                             <option value="<?=$i;?>" selected><?=$i;?></option>
@@ -100,7 +116,7 @@
                     
 
                 <!-- 月 -->
-                <select class="form-select" aria-label="Default select example" name="" id="month">
+                <select class="form-select" aria-label="Default select example" name="month" id="month">
                     <?php for($i=1; $i<=12; $i++): ?>
                         <option value="<?=$i;?>"><?=$i;?></option>
                     <?php endfor;?>
@@ -110,7 +126,7 @@
 
 
                 <!-- 日 -->
-                <select class="form-select" aria-label="Default select example" name="" id="day">
+                <select class="form-select" aria-label="Default select example" name="day" id="day">
                     <?php for($i=1; $i<=31; $i++): ?>
                         <option value="<?=$i;?>"><?=$i;?></option>
                     <?php endfor;?>
@@ -139,7 +155,7 @@
             </div>
 
             <div class="mt-5 text-center">
-                    <input type="submit" class="btn btn-outline-dark col-6" value="新規会員登録">
+                    <input type="submit" class="btn btn-outline-dark col-6" value="新規会員登録" name="submit">
             </div>
         </form>
 

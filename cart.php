@@ -8,90 +8,102 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./css/style.css">
 
-    <title>cart</title>
-</head>
     <title>買い物かご</title>
 </head>
 <body>
+  
+<?php require_once "DBManager.php"; ?>
+
+<!-- ヘッダーの読み込み -->
+<?php include "header.php"; ?>
+<div class="container list-area">
+
+    <h2 class="my-3">買い物かご</h2>
     
-    <a href="./cart_delete.php">削除</a><br>
-    <a href="./order_confirmation.php">注文</a>
-    <?php require_once "DBManager.php"; ?>
+    <?php 
+        require_once "function.php";
+        $memberId = getMemberIdFromSession(true);
 
-    <!-- ヘッダーの読み込み -->
-    <?php include "header.php"; ?>
-    <div class="container list-area">
-
-        <h2 class="my-3">買い物かご</h2>
+        $dbm = new DBManager();
+        $tbl = $dbm->getCart($memberId);
         
-        <?php 
-            require_once "function.php";
-            $memberId = getMemberIdFromSession(true);
-
-            $dbm = new DBManager();
-            $tbl = $dbm->getCart($memberId);
+        $sum = 0;
+    ?>
+    <div class="row gy-2">
+        <?php foreach($tbl as $row): ?>
+        <?php $sum += $row['shoukei']; ?>
             
-            $sum = 0;
-        ?>
-        <div class="row gy-2">
-            <?php foreach($tbl as $row): ?>
-                <!-- 商品のリスト -->
-                <div class="col-12">
-                    <div class="card">
-                        <div class="row g-0">
+                <div class="col-12" >
+                    <!-- カード -->
+                    <div class="card item-card h-100" >
+                        <div class="row g-0" >
 
-                            <div class="col-4 col-md-3">
+                            <!-- 商品画像 -->
+                            <div class="col-4 col-md-3 h-100" >
                                 <a href="./item_detail.php?itemId=<?= $row['item_id']?>">
-                                    <div class="ratio ratio-1x1">
-                                        <img src="<?php echo $row['item_image']?>"   alt="..." >
-                                    </div>
+                                    <!-- <div class="ratio ratio-1x1"> -->
+                                        <img  src="<?php echo $row['item_image']?>"   alt="..." >
+                                    <!-- </div> -->
                                 </a>
                             </div>
                             
+                            <!-- 商品名とか -->
                             <div class="col-8 col-md-9">
                                 <div class="card-body">
-                                    <h3 class="card-title"><?= $row['item_name'] ?></h5>
-                                    <p class="card-text fs-4">
-                                            <span class="me-3">数量：<?= $row['cart_suryo']?></span>
-                                            <span>サイズ：<?= $row['cart_size']?></span>
-                                            <span style="float:right;"><?= number_format($row['item_price'])?>円</span>
+                                    <p class="card-title fs-4">
+                                        <a href="./item_detail.php?itemId=<?=$row['item_id']?>">
+                                            <?= $row['item_name'] ?>
+                                        </a>
+                                        <span class="fs-5" style="float:right;"><?= number_format($row['sellingPrice'])?>円</span>
                                     </p>
-                                    <a href="" style="float:right;">削除</a>
+
+                                    <p class="card-text">
+                                            <span>数量：<?= $row['cart_suryo']?></span><br>
+                                            <span>サイズ：<?= $row['cart_size']?></span><br>
+                                            <span style="float:right;"><?="小計　". number_format($row['shoukei'])?>円</span><br>
+                                            <form action="./cart_delete.php" method="post" class="text-end" style="position:absolute;bottom:3%;right:1%;">
+                                                <input type="submit"  name="delete" value="削除">
+                                                <input type="hidden" name="itemId" value="<?=$row['item_id']?>">
+                                            </form>
+                                    </p>
                                 </div>
                             </div>
 
+                            
                         </div>
                     </div>
                 </div>
-            <?php endforeach;?>
-        </div>
-        
-        
-        <div class="text-right my-3">    
-            <a type="button" class="btn btn-outline-primary" href="">注文</a>
-        </div>
-        
-        <div class="text-center my-3">    
-            <a type="button" class="btn btn-outline-primary" href="">マイページに戻る</a>
-        </div>
-                     
+
+        <?php endforeach;?>
     </div>
-    <?php
-        function showSum($sum){
-            echo' <!-- 合計金額 -->
-                    <div class="row">
-                        <div class="col-12">
-                            <p class="text-end my-3 fs-3"> 合計 '.$sum.'円</p>
-                        </div>
-                    </div>    
-                ';
 
+    <?php if(!empty($tbl)):?>
+        <!-- 合計金額 -->
+        <div class="row">
+            <div class="col-12">
+                <p class="text-end my-3 fs-5"> 合計  <?=number_format($sum)?>円</p>
+            </div>
+        </div>      
 
-        }
-    ?>
+        <div class="text-end my-3">    
+            <a type="button" class="btn btn-outline-primary" href="./order_confirmation.php">注文</a>
+        </div>
 
+        
+    <?php else:?>
+        <p class="text-center">買い物かごに商品が何も入っていません。</p>
 
+    <?php endif;?>
     
+    
+    
+    
+    <div class="text-center my-5">    
+        <a type="button" class="btn btn-outline-primary" href="index.php">トップページに戻る</a>
+    </div>
+                 
+</div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

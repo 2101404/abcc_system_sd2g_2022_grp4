@@ -115,6 +115,32 @@
             return $ps->fetchAll();
         }
 
+        // 買い物かごに入っている1つの商品を取得
+        public function getCartItem($memberId,$itemId){
+            $pdo = $this->dbConnect();
+            $sql = "SELECT *,CASE is_sale WHEN true THEN item_sale_price 
+                                          WHEN false THEN item_price END AS sellingPrice,
+                             CASE is_sale WHEN true THEN item_sale_price * cart_suryo 
+                                          WHEN false THEN item_price *cart_suryo END AS shoukei FROM cart AS C INNER JOIN item AS I ON C.item_id = I.item_id WHERE C.member_id = ? AND C.item_id = ?" ;
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$memberId,PDO::PARAM_INT);
+            $ps->bindValue(2,$itemId,PDO::PARAM_INT);
+            $ps->execute();
+            
+            return $ps->fetch();
+
+        }
+
+        // 買い物かごに入っている1つの商品を削除
+        public function deleteCartItem($memberId,$itemId){
+            $pdo = $this->dbConnect();
+            $sql = "DELETE FROM cart WHERE member_id = ? AND item_id = ?" ;
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(1,$memberId,PDO::PARAM_INT);
+            $ps->bindValue(2,$itemId,PDO::PARAM_INT);
+            $ps->execute();
+        }
+
         // 会員情報取得
         public function getMember($memberId){
             $pdo = $this->dbConnect();

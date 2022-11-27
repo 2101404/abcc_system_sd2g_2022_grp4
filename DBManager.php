@@ -154,12 +154,20 @@
         
         
         // 商品検索と絞り込みと並べ替え
-        public function searchItems($keyword="",$category="all", $size ="", $color="", $price=0, $type="all", $order="item_registration_date", $direction ="DESC"){
+        public function searchItems($keyword="",$category="all", $size ="", $color=[], $price=0, $type="all", $order="item_registration_date", $direction ="DESC"){
             // 検索キーワードを空白で分解して配列に入れる
             $str = preg_replace('/　/', ' ', $keyword);   // 全角スペースを半角スペースに置換
             $str = preg_replace('/\s+/', ' ', $str); // 連続するスペースをまとめる
             $strs = explode(" ",$str); //配列にいれる
     
+            $colorRegexp ="";
+            if(!empty($color)){
+                foreach($color as $c){
+                    $colorRegexp = $colorRegexp."|".$c;
+                }
+                $colorRegexp = substr($colorRegexp,1);
+            }
+
             $pdo = $this->dbConnect();
 
             
@@ -167,7 +175,7 @@
             $sql = "SELECT *,CASE is_sale WHEN true THEN item_sale_price ELSE item_price END AS sellingPrice 
                     FROM item AS I INNER JOIN category AS C ON I.category_id = C.category_id 
                     WHERE item_size REGEXP :sizeReg 
-                        AND item_color LIKE :color
+                        AND item_color REGEXP :color
 
                         AND CASE is_sale WHEN true THEN item_sale_price ELSE item_price END BETWEEN :price1 AND :price2";
             // 検索ワードの数だけSQL文の検索を増やす
@@ -193,7 +201,7 @@
 
             $ps = $pdo->prepare($sql);
             $ps->bindValue(':sizeReg', ",$size|^$size", PDO::PARAM_STR);
-            $ps->bindValue(':color', "%".$color."%", PDO::PARAM_STR);
+            $ps->bindValue(':color',$colorRegexp, PDO::PARAM_STR);
             if($price == 100000){
                 $price1 = 90000; 
                 $price2 = 5000000000000000; //5000兆円欲しい！！！

@@ -13,7 +13,15 @@
 
 <body>
     <!-- ヘッダーの読み込み -->
-    <?php include "header.php" ?>
+    <?php include "header.php";?>
+    <?php 
+        require_once "DBManager.php";
+        $dbm = new DBManager();
+        if(isset($_POST)){
+            $dbm->insertmember($_POST['mail'],$_POST['pass'],$_POST['myouji'],$_POST['namae'],$_POST['hmyouji'],$_POST['hnamae'],$_POST['seibetsu'],$_POST['birth'],$_POST['tel'],$_POST['juusyo']);
+            
+        }
+    ?>
 
     <div class="mt-5 pb-5">
     <h2 class="center-block text-center">登録しました</h2>

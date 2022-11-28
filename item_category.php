@@ -4,56 +4,103 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/style1.css">
 
   <title>カテゴリー別商品</title>
 </head>
 <body>
+<?php require_once "DBManager.php";?>
   <!-- ヘッダーの読み込み -->
   <?php include "header.php" ?>
-  <!-- サイドバーの読み込み -->
-  <?php include "side.php" ?>
+  
+  <!-- スマホ表示用絞り込み -->
+  <div class="offcanvas-md offcanvas-end"  tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
+
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasResponsiveLabel"></h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#offcanvasResponsive" aria-label="閉じる"></button>
+    </div>
+    <div class="offcanvas-body p-0">
+      <!-- サイドバーの読み込み -->
+      <?php include "side.php"?>
+    </div>
+  
+  </div>
+
 
   <div id="container"class="container-fluid">
-    <h2 class="mt-5 mb-3">カテゴリー別商品</h2>
-    <h3 class="mt-2 mb-3">
+
+    <h3>
       <?php 
         $category = $_GET['category'];
-        echo "カテゴリー名:$category";
+        echo "「{$category}」商品一覧";
       ?>
     </h3>
+    <p class=" mb-3">検索結果:<?=$itemCnt?>件</p>
 
 
-    <!-- セレクトボックスの読み込み -->
-    <label for="sortSelect" class="col-sm-4 control-label">並び替え</label>
-    <select id="sortSelect" class="form-select mt-1 mb-5" name="sort" onchange="sortby(this.value)">
-      <option value="newest" <?php if(!isset($_POST['order']) || $_POST['order']=="newst") echo 'selected'?>>最新順</option>
-      <option value="lowest" <?php if(isset($_POST['order']) && $_POST['order']=="lowest") echo 'selected'?>>安い順</option>
-      <option value="highest" <?php if(isset($_POST['order']) && $_POST['order']=="highest") echo 'selected'?>>高い順</option>
-    </select>
+    <label for="sortSelect" class=" control-label">並び順</label>
+    <div class="row mb-3"  >
+      <!-- セレクトボックスの読み込み -->
+      <div class="col">
+        <select id="sortSelect" class="form-select " name="sort" onchange="sortby(this.value)">
+          <option value="newest" <?php if(!isset($_POST['order']) || $_POST['order']=="newst") echo 'selected'?>>最新順</option>
+          <option value="lowest" <?php if(isset($_POST['order']) && $_POST['order']=="lowest") echo 'selected'?>>安い順</option>
+          <option value="highest" <?php if(isset($_POST['order']) && $_POST['order']=="highest") echo 'selected'?>>高い順</option>
+        </select>
+
+      </div>
+      <div class="col-4">
+        <!-- スマホ表示用絞り込みボタン -->
+        <div class="text-end ">
+          <button class="btn btn-outline-primary d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">絞り込み</button>
+        </div>
+
+      </div>
+
+    </div>
+
     
+    
+    <div class="border-bottom my-3"></div>
     
     <!-- カード -->
-    <div class="row">
+    <div class="row gy-3">
       <!-- ループで回して商品情報を表示 -->
-      <?php foreach($itemTbl as $row):?>
-        <div class="col-6 col-md-3">
+      <?php foreach($itemTbl as $row):?>  
+        <div class="col-6  col-md-4 col-lg-3">
 
-          <div class="card h-100 p-2">
+          <div class="card p-2" style="height:360px">
             
-            <div class="image-area h-50">
+            <div class="image-area">
               <a href="./item_detail.php?itemId=<?=$row['item_id']?>">
-                <img class="w-100 h-100 rounded-3" style="object-fit:cover"  src="<?=$row['item_image']?>" alt="" >
+                <img class="rounded-3" width=100%  src="<?=$row['item_image']?>" alt="" >
               </a>
             </div>
 
             <div class ="content">
               <div class="card-wrap">
+                <div class="card-body p-1">
                 <div class ="card-list">
-                  <h2 class = "card-Title "><?=$row['item_name']?></h2>
-                  <p class ="card-listText text-center">￥<?=number_format($row['sellingPrice'])?>(税込)</p>
+                  
+
+                  <h3 class="card-Title my-2">
+                    <?php 
+                        
+                        //30日以内に登録された商品にNEWをつける(2592000秒=30日)
+                        if(strtotime(date("Y-m-d")) -strtotime( $row['item_registration_date'])  <= 2592000){
+                            echo '<div class="badge bg-danger">new</div>';
+                        }
+                        
+                    ?>
+                    <?=$row['item_name']?>
+                  </h3>
+                  <p class ="card-text card-listText">￥<?=number_format($row['sellingPrice'])?>(税込)</p>
+                </div>
+
                 </div>
               </div>
             </div>
@@ -80,15 +127,6 @@
     </div>
 
   </div>
-  <script>
-    // 並び替えする
-    function sortby(order){
-      let tag = document.getElementById("order"); //サイドバーのinputタグを取得
-      tag.value = order;
-      let btn = document.getElementById("filter"); //絞り込みボタンを取得
-      btn.click();//ボタンクリックしたときと同じ動作
-    }
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>

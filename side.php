@@ -24,8 +24,15 @@
   if(isset($_POST['filter'])){
     // echo "<script>alert('絞り込み検索します')</script>";
 
-    $size = $_POST['size'];
-    $color ="黒"; //POSTで取れるようにする
+    // $size = $_POST['size'];
+    $size="";
+    if(isset($_POST['colors'])){
+      $color = $_POST['colors']; 
+    }else{
+      $color = "";
+    }
+    
+
     $price = (int)$_POST['price'];
     $type = $_POST['rdoname'];
     $keyword =$_POST['txt1'];
@@ -71,52 +78,77 @@
   }
    $itemCnt = count($itemTbl);
 ?>
+
 <!-- サイドバーの表示 -->
-<aside id="sub">
+<aside id="sub" >
   <h2 class="text-center mt-5 mb-3">絞り込み</h2>
 
   <form name="sortForm"method="post">
 
     <!-- サイズの表示 -->
-    <label class="col-sm-4 control-label">サイズ</label>
-    <div class="col-sm-8">
-      <select class="form-select" name="size">
+    <!-- <label class=" control-label">サイズ</label>
+      <select class="form-select mb-3" name="size">
       <option value="" <?php if(!isset($_POST['size']) || $_POST['size']=="") echo 'selected'?>></option>
       <option value="S" <?php if(isset($_POST['size']) && $_POST['size']=="S") echo 'selected'?>>S</option>
       <option value="M" <?php if(isset($_POST['size']) && $_POST['size']=="M") echo 'selected'?>>M</option>
       <option value="L" <?php if(isset($_POST['size']) && $_POST['size']=="L") echo 'selected'?>>L</option>
-      </select>
-    </div>
+      </select> -->
 
     <!-- カラーの表示 -->
-    <label class="col-sm-4 control-label">カラー</label>
-    <div class="col-sm-8">
-    <ul>
-    <a type="button" href="./item_search_result.php?" class="btn">🔴🔵🟡⚪️🟢⚫️🟣🟠</a>
-    </ul>
+    <label class="control-label">カラー</label>
+    <div class="d-flex">
+      <input type="checkbox" id="check1" name="colors[]" value="black">
+      <label for="check1" style="background-color: black;"></label>
+
+      <input type="checkbox" id="check2" name="colors[]" value="gray">
+      <label for="check2" style="background-color: gray;"></label>
+
+      <input type="checkbox" id="check3" name="colors[]" value="white">
+      <label for="check3" style="background-color: white;"></label>
+
+      <input type="checkbox" id="check4" name="colors[]" value="navy">
+      <label for="check4" style="background-color: navy;"></label>
+
+      <input type="checkbox" id="check5" name="colors[]" value="brown">
+      <label for="check5" style="background-color: brown;"></label>
+    </div>
+    <div class="d-flex mb-3">
+      <input type="checkbox" id="check6" name="colors[]" value="beige">
+      <label for="check6" style="background-color:burlywood;"></label>
+
+      <input type="checkbox" id="check7" name="colors[]" value="green">
+      <label for="check7" style="background-color:green;"></label>
+
+      <input type="checkbox" id="check8" name="colors[]" value="orange">
+      <label for="check8" style="background-color: orange;"></label>
+
+      <input type="checkbox" id="check9" name="colors[]" value="red">
+      <label for="check9" style="background-color:red;"></label>
+
+      <input type="checkbox" id="check10" name="colors[]" value="yellow">
+      <label for="check10" style="background-color:yellow;"></label>
+    </div>
 
     <!-- 価格の表示 -->
-    <div class="form-group">
-          <label class="col-sm-4 control-label">価格</label>
-          <div class="col-sm-8">
-            <select class="from-select" name="price">
-                <option value="" <?php if(!isset($_POST['price']) || $_POST['price']=="") echo 'selected'?>>選択してください。</option>
-                <option value="10000" <?php if(isset($_POST['price']) && $_POST['price']=="10000") echo 'selected'?>>～10,000円</option>
-                <option value="20000" <?php if(isset($_POST['price']) && $_POST['price']=="20000") echo 'selected'?>>10,000～20,000円</option>
-                <option value="30000" <?php if(isset($_POST['price']) && $_POST['price']=="30000") echo 'selected'?>>20,000～30,000円</option>
-                <option value="40000" <?php if(isset($_POST['price']) && $_POST['price']=="40000") echo 'selected'?>>30,000～40,000円</option>
-                <option value="50000" <?php if(isset($_POST['price']) && $_POST['price']=="50000") echo 'selected'?>>40,000～50,000円</option>
-                <option value="60000" <?php if(isset($_POST['price']) && $_POST['price']=="60000") echo 'selected'?>>50,000～60,000円</option>
-                <option value="70000" <?php if(isset($_POST['price']) && $_POST['price']=="70000") echo 'selected'?>>60,000～70,000円</option>
-                <option value="80000" <?php if(isset($_POST['price']) && $_POST['price']=="80000") echo 'selected'?>>70,000～80,000円</option>
-                <option value="90000" <?php if(isset($_POST['price']) && $_POST['price']=="90000") echo 'selected'?>>80,000～90,000円</option>
-                <option value="100000" <?php if(isset($_POST['price']) && $_POST['price']=="100000") echo 'selected'?>>90,000～</option>
-            </select>
-          </div>
-        </div>
+    <div class="form-group mb-3">
+      <label class="control-label" for="price">価格</label>
+        <select class="form-select" name="price" id="price">
+            <option value="" <?php if(!isset($_POST['price']) || $_POST['price']=="") echo 'selected'?>>選択してください。</option>
+            <option value="10000" <?php if(isset($_POST['price']) && $_POST['price']=="10000") echo 'selected'?>>～10,000円</option>
+            <option value="20000" <?php if(isset($_POST['price']) && $_POST['price']=="20000") echo 'selected'?>>10,000～20,000円</option>
+            <option value="30000" <?php if(isset($_POST['price']) && $_POST['price']=="30000") echo 'selected'?>>20,000～30,000円</option>
+            <option value="40000" <?php if(isset($_POST['price']) && $_POST['price']=="40000") echo 'selected'?>>30,000～40,000円</option>
+            <option value="50000" <?php if(isset($_POST['price']) && $_POST['price']=="50000") echo 'selected'?>>40,000～50,000円</option>
+            <option value="60000" <?php if(isset($_POST['price']) && $_POST['price']=="60000") echo 'selected'?>>50,000～60,000円</option>
+            <option value="70000" <?php if(isset($_POST['price']) && $_POST['price']=="70000") echo 'selected'?>>60,000～70,000円</option>
+            <option value="80000" <?php if(isset($_POST['price']) && $_POST['price']=="80000") echo 'selected'?>>70,000～80,000円</option>
+            <option value="90000" <?php if(isset($_POST['price']) && $_POST['price']=="90000") echo 'selected'?>>80,000～90,000円</option>
+            <option value="100000" <?php if(isset($_POST['price']) && $_POST['price']=="100000") echo 'selected'?>>90,000～</option>
+        </select>
+    </div>
 
     <!-- プライス(価格)の表示 -->
-    <label class="col-sm-8 control-label">価格タイプ</label>
+    <label class="control-label ">価格タイプ</label>
     <ul>
       <div class="form-check">
         <input  type="radio" class="form-check-input" name="rdoname" id="rd1" value="all" <?php if(!isset($_POST['rdoname']) || $_POST['rdoname']=="all") echo 'checked'?>>
@@ -136,17 +168,38 @@
 
     
     
-      
-    <input type="text"  class="form-control" id="txt1" name="txt1" value="<?php if(isset($_POST['txt1'])){echo $_POST['txt1'];}else{echo $keyword;} ?>" placeholder="キーワード">
+    <!-- キーワード -->
+    <input type="text"  class="form-control my-4" id="txt1" name="txt1" value="<?php if(isset($_POST['txt1'])){echo $_POST['txt1'];}else{echo $keyword;} ?>" placeholder="キーワード">
+
+    <!-- 並び順(隠し値) -->
     <input type="hidden" name="order" id="order">
-    <button type="submit" class="btn btn-primary" id=filter value="filter" name="filter">この条件で絞り込み</button>
+
+    <!-- 絞り込みボタン  -->
+    <div class="text-center mt-5">
+      <button type="submit" class="btn btn-primary" style="text-align:center" id=filter value="filter" name="filter">この条件で絞り込み</button>
+    </div>
   </form>
   
 
   <!-- クリアの表示 -->
   <?php $URL = getURL(); ?>
-  <a type="button" href="<?= $URL ?>" class="btn btn-link mt-2">すべての条件をクリア</a>
+  <div class="text-center">
+    <a type="button" href="<?= $URL ?>" class="btn btn-link mt-2">すべての条件をクリア</a>
+  </div>
 </aside>
+
+<script>
+    // 並び替えする
+    function sortby(order){
+      let tag = document.getElementById("order"); //サイドバーのinputタグを取得
+      tag.value = order;
+      let btn = document.getElementById("filter"); //絞り込みボタンを取得
+      btn.click();//絞り込みボタンクリックしたときと同じ動作
+    }
+</script>
+
+
+
 
 
 

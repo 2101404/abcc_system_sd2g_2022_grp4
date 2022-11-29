@@ -45,20 +45,20 @@
 			<div class="carousel-inner text-center">
 				<div class="carousel-item active">
 					<!-- リンク入れる -->
-					<a href="./item_detail.php?itemId=5">
-						<img src="imgs/sample/carousel01.webp" class="w-100" alt="...">
+					<a href="./item_category.php?category=セット">
+						<img src="imgs/top/top1.jpg" class="w-100" alt="...">
+					</a>
+				</div>
+				<div class="carousel-item">
+					<!-- リンク入れる -->
+					<a href="./item_search_result.php?keyword=洗える スーツ">
+						<img src="imgs/top/top3.png" class="w-100" alt="...">
 					</a>
 				</div>
 				<div class="carousel-item">
 					<!-- リンク入れる -->
 					<a href="./item_detail.php">
-						<img src="imgs/sample/suit8.jpg" class="w-100" alt="...">
-					</a>
-				</div>
-				<div class="carousel-item">
-					<!-- リンク入れる -->
-					<a href="./item_detail.php">
-						<img src="imgs/sample/suit9.jpg" class="w-100" alt="..." style="object-position:0% 0%">
+						<img src="imgs/sample/suit9.jpg" class="w-100" alt="...">
 					</a>
 				</div>
 			</div>
@@ -139,19 +139,19 @@
 
 					<div class="carousel-inner text-center tokushu">
 						<div class="carousel-item active">
-							<!-- リンク入れる -->
+							
 							<a href="./tokusyuusyousai1.php">
 								<img src="imgs/sample/tokusyuu1.png"  alt="...">
 							</a>
 						</div>
 						<div class="carousel-item">
-							<!-- リンク入れる -->
+							
 							<a href="./tokusyuusyousai2.php">
 								<img src="imgs/sample/tokusyuu2.png"  alt="...">
 							</a>
 						</div>
 						<div class="carousel-item">
-							<!-- リンク入れる -->
+							
 							<a href="./tokusyuusyousai4.php">
 								<img src="imgs/sample/tokusyuu4.png"  alt="..." >
 							</a>
@@ -175,7 +175,6 @@
 
 		<!-- 特集ボタン -->
 		<div class="text-center mt-5 mb-5">
-			<!-- 後でリンク先入れる -->
 			<a type="button" href="./tokusyuuitiran.php"class="btn btn-lg btn-outline-primary">特集一覧へ</a>
 		</div>
 

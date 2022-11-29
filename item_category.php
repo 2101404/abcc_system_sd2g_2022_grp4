@@ -64,20 +64,20 @@
     </div>
 
     
-    
+    <!-- 区切りの線 -->
     <div class="border-bottom my-3"></div>
     
     <!-- カード -->
     <div class="row gy-3">
       <!-- ループで回して商品情報を表示 -->
       <?php foreach($itemTbl as $row):?>  
-        <div class="col-6  col-md-4 col-lg-3">
+        <div class="col-6  col-md-4 col-lg-3" style="height:360px">
 
-          <div class="card p-2" style="height:360px">
+          <div class="card p-2 h-100" >
             
             <div class="image-area">
               <a href="./item_detail.php?itemId=<?=$row['item_id']?>">
-                <img class="rounded-3" width=100%  src="<?=$row['item_image']?>" alt="" >
+                <img class="rounded-3" width=100%  src="<?='./imgs/items/'.$row['item_image']?>" alt="" >
               </a>
             </div>
 
@@ -87,7 +87,7 @@
                 <div class ="card-list">
                   
 
-                  <h3 class="card-Title my-2">
+                  <h3 class="card-Title my-2 texttr">
                     <?php 
                         
                         //30日以内に登録された商品にNEWをつける(2592000秒=30日)
@@ -96,9 +96,14 @@
                         }
                         
                     ?>
-                    <?=$row['item_name']?>
+                    <a href="./item_detail.php?itemId=<?=$row['item_id']?>">
+                      <?=$row['item_name']?>
+                    </a>
                   </h3>
-                  <p class ="card-text card-listText">￥<?=number_format($row['sellingPrice'])?>(税込)</p>
+                  <div class="card-text">
+                    <p class ="card-listText">￥<?=number_format($row['sellingPrice'])?>(税込)</p>
+
+                  </div>
                 </div>
 
                 </div>

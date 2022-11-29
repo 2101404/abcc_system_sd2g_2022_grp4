@@ -41,32 +41,41 @@
                         <div class="row g-0" >
 
                             <!-- 商品画像 -->
-                            <div class="col-4 col-md-3 h-100" >
+                            <div class="col-3 col-md-3 h-100" >
                                 <a href="./item_detail.php?itemId=<?= $row['item_id']?>">
                                     <!-- <div class="ratio ratio-1x1"> -->
-                                        <img  src="<?php echo $row['item_image']?>"   alt="..." >
+                                        <img src="<?='./imgs/items/'.$row['item_image']?>"  alt="..." >
                                     <!-- </div> -->
                                 </a>
                             </div>
                             
                             <!-- 商品名とか -->
-                            <div class="col-8 col-md-9">
-                                <div class="card-body">
-                                    <p class="card-title fs-4">
-                                        <a href="./item_detail.php?itemId=<?=$row['item_id']?>">
-                                            <?= $row['item_name'] ?>
-                                        </a>
-                                        <span class="fs-5" style="float:right;"><?= number_format($row['sellingPrice'])?>円</span>
-                                    </p>
+                            <div class="col-9 col-md-9 h-100">
+                                <div class="card-body py-1 h-100">
+                                    <div class="row">
+                                        <div class="card-Title">
+                                            <div class="col-12 text-truncate">
+                                                <a href="./item_detail.php?itemId=<?=$row['item_id']?>">
+                                                    <?= $row['item_name'] ?>
+                                                </a>
+                                            </div>
+                                        </div>
 
-                                    <p class="card-text">
-                                            <span>数量：<?= $row['cart_suryo']?></span><br>
-                                            <span>サイズ：<?= $row['cart_size']?></span><br>
-                                            <span style="float:right;"><?="小計　". number_format($row['shoukei'])?>円</span><br>
-                                    </p>
+                                            <div class="col-12">
+                                                <span class="" style="float:right;"><?= number_format($row['sellingPrice'])?>円</span>
+
+                                            </div>
+
+                                    </div>
+                                    <div class="card-text">
+                                            <span>数量:<?= $row['cart_suryo']?></span>
+                                            <span>　サイズ:<?= $row['cart_size']?></span><br>
+
+                                                <span style="float:right;"><?="小計 ". number_format($row['shoukei'])?>円</span><br>
+
+                                    </div>
                                 </div>
                             </div>
-
                             
                         </div>
                     </div>

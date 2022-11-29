@@ -20,7 +20,7 @@
         // ログインしているか判定する
         $memberId = getMemberIdFromSession();
         $dbm = new DBManager();
-        $member = $dbm->getMember($memberId);
+        $member = $dbm->getMemberById($memberId);
     ?>
     <div class="container">
         <h3>お客様情報</h3>

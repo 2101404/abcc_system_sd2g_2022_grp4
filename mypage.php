@@ -19,7 +19,7 @@
         $memberId = getMemberIdFromSession();
         
         $dbm = new DBManager();
-        $member = $dbm->getMember($memberId);
+        $member = $dbm->getMemberById($memberId);
     ?>
 
     <div class="container text-center mt-5">

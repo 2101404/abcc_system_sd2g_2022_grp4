@@ -24,7 +24,7 @@
 
             $dbm = new DBManager();
             $tbl = $dbm->getBuyHistory($memberId);
-            echo "<div class=\"row gy-1\">";
+            echo '<div class="row gy-2">';
             
             $sum = 0;
             $orderId = 0;
@@ -72,46 +72,54 @@
     </div>
     
     <?php function showHistory($itemId,$image,$itemName,$suryo,$size,$price){ ?>
-        <!-- 商品のリスト -->
-        <div class="col-12">
-            <div class="card">
-                <div class="row g-0">
+                    <!-- カード -->
+                    <div class="col-12">
 
-                    <div class="col-4 col-md-3">
-                        <a href="./item_detail.php?itemId=<?= $itemId ?>">
-                            <div class="ratio ratio-1x1">
-                                <img src="<?=$image?>"   alt="..." >
-                            </div>
-                        </a>
-                    </div>
+                    
+                    <div class="card item-card h-100" >
+                        <div class="row g-0" >
 
-                    <div class="col-8 col-md-9">
-                        <div class="card-body">
-                            <div class="row">
-                                <a href="./item_detail.php?itemId=<?= $itemId ?>">
-                                    <div class="col-12">
-                                        <p class="card-title"><?=$itemName?></p>
-                                    </div>
+                            <!-- 商品画像 -->
+                            <div class="col-3 col-md-3 h-100" >
+                                <a href="./item_detail.php?itemId=<?=$itemId?>">
+                                    <!-- <div class="ratio ratio-1x1"> -->
+                                        <img src="<?='./imgs/items/'.$image?>"  alt="..." >
+                                    <!-- </div> -->
                                 </a>
-                                <div class="col-12">
-                                    <p class="card-text fs-4">
-                                        <span class="me-3">数量：<?=$suryo?></span>
-                                        <span>サイズ：<?=$size?></span>
-                                        <span style="position:absolute; right:1rem;"><?=number_format($price)?>円</span>
-                                    </p>
-                                </div>
-                                <div class="col-12">
-                                <p class="card-text fs-4">
-                                        <span style="position:absolute; bottom:1rem;right:1rem;">小計:<?=number_format($suryo * $price)?>円</span>
-                                </p>
+                            </div>
+                            
+                            <!-- 商品名とか -->
+                            <div class="col-9 col-md-9 h-100">
+                                <div class="card-body py-1 h-100">
+                                    
+                                        <div class="row">
+                                        <div class="card-Title">
+                                            <div class="col-12 text-truncate">
+                                                <a href="./item_detail.php?itemId=<?=$itemId?>">
+                                                    <?=$itemName?>
+                                                </a>
+                                            </div>
+                                        </div>
+                                            <div class="col-12">
+                                                <span class="" style="float:right;"><?= number_format($price)?>円</span>
+
+                                            </div>
+
+                                        </div>
+                                    
+                                    <div class="card-text">
+                                            <span>数量:<?=$suryo?></span>
+                                            <span>　サイズ:<?=$size?></span><br>
+
+                                                <span style="float:right;"><?="小計 ". number_format($suryo * $price)?>円</span><br>
+
+                                    </div>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
-
-                </div>
-            </div>
-        </div>
+                    </div>
     <?php } ?>
 
     <?php function showSum($sum){ ?>

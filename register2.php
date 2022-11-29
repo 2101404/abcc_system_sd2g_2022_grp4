@@ -28,8 +28,15 @@
     <!-- ヘッダーの読み込み -->
     <?php include "header.php" ?>
     <?php
+        require_once "DBManager.php";
         if(isset($_POST)){
             $post = $_POST;
+            $dbm = new DBManager();
+            $member = $dbm->getMemberByMail($post['mail']);
+            if(!empty($member)){
+                echo "<script>alert('このメールアドレスは既に登録されています。別のメールアドレスを使用してください。');history.back();</script>";
+
+            }
 
         }else{
             echo "<script>alert('エラー:ポストされていません')</script>";

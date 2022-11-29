@@ -32,7 +32,7 @@
 
             <!-- パスワード -->
             <div class="my-4">
-                <label class="mb-2" for="pass"><span class="requiredItem">◎</span>パスワード　＊半角数字、英字のみ</label>
+                <label class="mb-2" for="pass"><span class="requiredItem">◎</span>パスワード　＊8文字以上24文字以下 半角英数字のみ</label>
                 <input type="password" class="mb-3 form-control" placeholder="パスワード" name="pass" id="pass">
                 <div class="error" id="errorPass"></div>
 
@@ -210,11 +210,13 @@
             if(isOK){
                 errorDiv.innerHTML ="";
             }else{
-                errorDiv.innerHTML ="メールアドレスが不正な形式です";
+                errorDiv.innerHTML ="メールアドレスの形式で入力してください";
             }
 
             return isOK;
         }
+
+        
 
         function validationPass(){
             const regex = /^[a-zA-Z0-9.?/-]{8,24}$/;
@@ -224,7 +226,7 @@
             if(isOK){
                 errorDiv.innerHTML ="";
             }else{
-                errorDiv.innerHTML ="パスワードが不正です";
+                errorDiv.innerHTML ="8文字以上24文字以下 半角英数字で入力してください";
             }
 
             return isOK;

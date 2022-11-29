@@ -40,7 +40,7 @@
         // サイズを配列に入れる
         $sizes = explode(",",$item['item_size']);
     ?>
-
+    
     <div class="container">
     <form action="./addcart.php" method="post">
         <input type="hidden" name="URL" value="<?php echo getURL(); ?>">
@@ -57,11 +57,12 @@
             </ol>
         </nav>        
 
+        
         <!-- 商品詳細ここから -->
         <div class="row gy-3">
             <!-- 商品画像 -->
             <div class="col-12 col-md-6">
-                <img src=<?php echo $item['item_image'];?> alt="" width="100%" style="max-height:400px;object-fit:contain;">
+                <img src="<?='./imgs/items/'.$item['item_image']?>" alt="" width="100%" style="max-height:400px;object-fit:contain;">
 
             </div>
             <!-- 商品名・金額・サイズ・数量 -->

@@ -14,11 +14,13 @@ a{
 
 .category{
     max-width:1000px; 
-    margin-left:auto; 
-    margin-right:auto;
+    width:80%;
+    margin: 0 auto;
+    
 }
 
 .frame{
+    
     background-color:#f1f1f1;
     
 }
@@ -32,19 +34,11 @@ a{
 
 .carousel-item img{
     max-width: 2000px;
+    height:45vw;
+    max-height:700px;
     object-fit:cover;
 }
 
-@media (min-width: 320px){
-    .carousel-item img{
-        height: 200px;
-    }
-}
-@media (min-width: 768px){
-    .carousel-item img{
-        height: 500px;
-    }
-}
 
 .tokushu img{
     width: 100%;
@@ -55,10 +49,11 @@ a{
 
 .item-card{
     background-color: rgb(240, 240, 240);
+    min-width: 290px;
 }
 
 .item-card > div{
-    max-height:200px;
+    max-height:150px;
 }
 
 .item-card  input[type=submit]{
@@ -75,4 +70,11 @@ a{
 /* 買い物かご、注文確認、購入履歴で使用 */
 .list-area{
     max-width:800px;
+}
+
+.card-Title{
+	font-size:1rem;
+	font-weight:bold;
+	text-align: left;
+	
 }

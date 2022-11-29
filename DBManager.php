@@ -19,7 +19,6 @@
             return $result;
         }
         
-        //新規登録画面
 
         // 会員登録
         public function insertmember(
@@ -141,8 +140,8 @@
             $ps->execute();
         }
 
-        // 会員情報取得
-        public function getMember($memberId){
+        // 会員IDから会員情報取得
+        public function getMemberById($memberId){
             $pdo = $this->dbConnect();
             $sql = "SELECT * FROM member WHERE member_id = ?";
             $ps = $pdo->prepare($sql);
@@ -244,17 +243,24 @@
 
         // ログイン処理
         public function loginCheck($mail, $password){
+            $member = $this->getMemberByMail($mail);
+            if($member == true && password_verify($password,$member['pass']) == true){
+                return $member;
+            }else{
+                throw new UnexpectedValueException("メールアドレスまたはパスワードが間違っています。");
+            }
+        }
+
+        // メールアドレスから会員の情報取得
+        public function getMemberByMail($mail){
             $pdo = $this->dbConnect();
             $sql = 'SELECT * FROM member WHERE mail = ?';
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1,$mail,PDO::PARAM_STR);
             $ps->execute();
             $member = $ps->fetch();
-            if($member == true && password_verify($password,$member['pass']) == true){
-                return $member;
-            }else{
-                throw new UnexpectedValueException("メールアドレスまたはパスワードが間違っています。");
-            }
+
+            return $member;
         }
 
     }

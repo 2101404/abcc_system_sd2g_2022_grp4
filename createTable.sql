@@ -16,7 +16,7 @@ CREATE TABLE member (
     seibetsu VARCHAR(50) NOT NULL,
     birth DATE NOT NULL,
     phone_num VARCHAR(11) NOT NULL,
-    jusho VARCHAR(50) NOT NULL,
+    jusho VARCHAR(100) NOT NULL,
     PRIMARY KEY(member_id)
 );
 
@@ -30,9 +30,9 @@ CREATE TABLE item (
     item_id INT AUTO_INCREMENT NOT NULL,
     category_id INT NOT NULL,
     item_image VARCHAR(50) NOT NULL,
-    item_name VARCHAR(50) NOT NULL,
-    item_description VARCHAR(300) NOT NULL,
-    item_color VARCHAR(10) NOT NULL,
+    item_name VARCHAR(100) NOT NULL,
+    item_description VARCHAR(1000) NOT NULL,
+    item_color VARCHAR(100) NOT NULL,
     item_price INT NOT NULL,
     item_size VARCHAR(191) NOT NULL,
     is_sale BOOLEAN NOT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE cart (
     item_id INT NOT NULL,
     cart_suryo INT NOT NULL,
     cart_tourokubi DATE NOT NULL,
-    cart_size VARCHAR(3) NOT NULL,
+    cart_size VARCHAR(191) NOT NULL,
     PRIMARY KEY(member_id,item_id),
     FOREIGN KEY(member_id) REFERENCES member(member_id),
     FOREIGN KEY(item_id) REFERENCES item(item_id)
@@ -65,7 +65,7 @@ CREATE TABLE order_details(
     order_id INT NOT NULL,
     item_id INT NOT NULL,
     od_suryo INT NOT NULL,
-    od_size VARCHAR(3) NOT NULL,
+    od_size VARCHAR(191) NOT NULL,
     od_price INT NOT NULL,
     PRIMARY KEY(order_id,item_id),
     FOREIGN KEY(order_id) REFERENCES orders(order_id),

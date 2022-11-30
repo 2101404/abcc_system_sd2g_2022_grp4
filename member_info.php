@@ -23,7 +23,7 @@
     ?>
     <div class="container">
         <h3>お客様情報</h3>
-        <div class="container alert-dark text-left w-75 h-50">
+        <div class="container alert-dark text-left w-75">
         <div>
             <p><b>氏名</b></p>
             <p><?=$member['sei']." ".$member['mei'] ?></p>

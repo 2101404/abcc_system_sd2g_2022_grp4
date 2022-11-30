@@ -21,7 +21,7 @@
             $itemId = $_GET['itemId'];
         }else{
             // パラメーターを付けずにページを表示した場合トップページに遷移させる
-            header('Location: index.php');
+            echo "<script>location.href='./index.php'</script>";
             exit("パラメーターが設定されていません");
         }
         

@@ -1,3 +1,4 @@
+<?php include "header.php" ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -11,8 +12,7 @@
     <title>商品追加</title>
 </head>
 <body>
-    <!-- ヘッダーの読み込み -->
-    <?php include "header.php" ?>
+    
 
     <?php
         require_once "DBManager.php";

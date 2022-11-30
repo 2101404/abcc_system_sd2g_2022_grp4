@@ -1,3 +1,4 @@
+<?php include "header.php" ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -11,8 +12,6 @@
     <title>なし</title>
 </head>
 <body>
-    <!-- ヘッダーの読み込み -->
-    <?php include "header.php" ?>
 
 <div class ="container">
 

@@ -1,3 +1,4 @@
+<?php include "header.php" ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -13,8 +14,6 @@
 </head>
 <body>
 <?php require_once "DBManager.php";?>
-  <!-- ヘッダーの読み込み -->
-  <?php include "header.php" ?>
   
   <!-- スマホ表示用絞り込み -->
   <div class="offcanvas-md offcanvas-end"  tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">

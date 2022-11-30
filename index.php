@@ -1,3 +1,4 @@
+<?php include "header.php" ?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -29,8 +30,7 @@
 
 
 <body>
-	<!-- ヘッダーの読み込み -->
-	<?php include "header.php" ?>
+	
 
 	<div class="container-fluid p-0">
 

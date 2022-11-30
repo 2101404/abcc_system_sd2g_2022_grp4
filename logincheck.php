@@ -1,6 +1,6 @@
 <?php
-    require_once "DBManager.php";
     session_start();
+    require_once "DBManager.php";
     try{
         $dbm = new DBManager();
 

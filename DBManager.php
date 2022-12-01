@@ -153,7 +153,7 @@
         
         
         // 商品検索と絞り込みと並べ替え
-        public function searchItems($keyword="",$category="all", $size ="", $color=[], $price=0, $type="all", $order="item_registration_date", $direction ="DESC"){
+        public function searchItems($page="1",$keyword="",$category="all", $size ="", $color=[], $price=0, $type="all", $order="item_registration_date", $direction ="DESC"){
             // 検索キーワードを空白で分解して配列に入れる
             $str = preg_replace('/　/', ' ', $keyword);   // 全角スペースを半角スペースに置換
             $str = preg_replace('/\s+/', ' ', $str); // 連続するスペースをまとめる
@@ -195,7 +195,99 @@
                 $sql = $sql." AND I.category_id = (SELECT category_id FROM category WHERE category_name = :category)";
             }
 
-            $sql =$sql." ORDER BY $order $direction";
+            $sql =$sql." ORDER BY $order $direction , item_id";
+            
+            $sql =$sql." LIMIT :start , 20";
+            
+
+            $ps = $pdo->prepare($sql);
+            $ps->bindValue(':sizeReg', ",$size|^$size", PDO::PARAM_STR);
+            $ps->bindValue(':color',$colorRegexp, PDO::PARAM_STR);
+            if($price == 100000){
+                $price1 = 90000; 
+                $price2 = 5000000000000000; //5000兆円欲しい！！！
+            }else if($price == 0){
+                $price1 = 0;
+                $price2 = 5000000000000000; //5000兆円欲しい！！！
+            }else{
+                $price1 = $price - 10000;
+                $price2 = $price;
+            }
+            $ps->bindValue(':price1', $price1, PDO::PARAM_INT);
+            $ps->bindValue(':price2', $price2, PDO::PARAM_INT);
+            
+            // 検索ワードの数だけバインド
+            $cnt = 0;
+            foreach($strs as $s){
+                $cnt++;
+                $ps->bindValue(":keyword$cnt",$s,PDO::PARAM_STR);
+            }
+
+            // 価格タイプによってバインドを変える
+            if($type!="all"){
+                // 価格タイプが指定されている場合
+                if($type == "normal"){
+                    $ps->bindValue(':issale', false, PDO::PARAM_BOOL);
+                }else if($type == "sale"){
+                    $ps->bindValue(':issale', true, PDO::PARAM_BOOL);
+                }
+            }
+
+            // カテゴリー別表示の場合にバインド
+            if($category != "all"){
+                $ps->bindValue(':category',$category,PDO::PARAM_STR);
+            }
+
+            $ps->bindValue(":start", ($page-1)*20, PDO::PARAM_INT);
+
+            $ps->execute();
+
+            return $ps->fetchAll();
+        }
+
+        // 商品検索の件数カウント
+        public function countSearchItems($keyword="",$category="all", $size ="", $color=[], $price=0, $type="all"){
+            // 検索キーワードを空白で分解して配列に入れる
+            $str = preg_replace('/　/', ' ', $keyword);   // 全角スペースを半角スペースに置換
+            $str = preg_replace('/\s+/', ' ', $str); // 連続するスペースをまとめる
+            $strs = explode(" ",$str); //配列にいれる
+    
+            $colorRegexp ="";
+            if(!empty($color)){
+                foreach($color as $c){
+                    $colorRegexp = $colorRegexp."|".$c;
+                }
+                $colorRegexp = substr($colorRegexp,1);
+            }
+
+            $pdo = $this->dbConnect();
+
+            
+            // SQL文の組み立て
+            $sql = "SELECT COUNT(*) AS 'cnt'
+                    FROM item AS I INNER JOIN category AS C ON I.category_id = C.category_id 
+                    WHERE item_size REGEXP :sizeReg 
+                    AND item_color REGEXP :color
+                    AND CASE is_sale WHEN true THEN item_sale_price ELSE item_price END BETWEEN :price1 AND :price2";
+            // 検索ワードの数だけSQL文の検索を増やす
+            $cnt =0;
+            foreach($strs as $s){
+                $cnt++;
+                $sql = $sql." AND (item_name REGEXP :keyword$cnt OR item_description REGEXP :keyword$cnt OR category_name REGEXP :keyword$cnt)";
+            }
+            
+            // 価格タイプによってSQL文を変える
+            if($type!="all"){
+                // 価格タイプが指定されている場合
+                $sql =$sql." AND is_sale = :issale";
+            }
+
+            //カテゴリー別表示の場合 
+            if($category != "all"){
+                $sql = $sql." AND I.category_id = (SELECT category_id FROM category WHERE category_name = :category)";
+            }
+
+           
             
 
             $ps = $pdo->prepare($sql);
@@ -237,9 +329,15 @@
             }
 
             $ps->execute();
-
-            return $ps->fetchAll();
+            $cnt = 0;
+            foreach($ps->fetchAll() as $row){
+                $cnt = $row['cnt'];
+            }
+            return $cnt;
         }
+        
+        
+
 
         // ログイン処理
         public function loginCheck($mail, $password){

@@ -252,19 +252,25 @@
 
         // 商品検索の件数カウント
         public function countSearchItems($keyword="",$category="all", $size ="", $color=[], $price=0, $type="all"){
-            // 検索キーワードを空白で分解して配列に入れる
-            $str = preg_replace('/　/', ' ', $keyword);   // 全角スペースを半角スペースに置換
-            $str = preg_replace('/\s+/', ' ', $str); // 連続するスペースをまとめる
-            $strs = explode(" ",$str); //配列にいれる
+            if(empty($keyword)){
+                $strs = ["."];
+            }else{
+                // 検索キーワードをキーワードごとに配列に入れる
+                $str = preg_replace('/　/', ' ', $keyword);   // 全角スペースを半角スペースに置換
+                $str = preg_replace('/\s+/', ' ', $str); // 連続するスペースをまとめる
+                $strs = explode(" ",$str); //配列にいれる
+
+            }
     
-            $colorRegexp ="";
-            if(!empty($color)){
+            if(empty($color)){
+                $colorRegexp =".";
+            }else{
+                $colorRegexp = "";
                 foreach($color as $c){
                     $colorRegexp = $colorRegexp."|".$c;
                 }
                 $colorRegexp = substr($colorRegexp,1);
             }
-
             $pdo = $this->dbConnect();
 
             

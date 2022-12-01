@@ -1,3 +1,4 @@
+<?php include "header.php";?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -12,8 +13,7 @@
 </head>
 
 <body>
-    <!-- ヘッダーの読み込み -->
-    <?php include "header.php";?>
+    
     <?php 
         require_once "DBManager.php";
         $dbm = new DBManager();

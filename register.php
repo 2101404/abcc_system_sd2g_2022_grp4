@@ -1,3 +1,4 @@
+<?php include "header.php" ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -13,8 +14,6 @@
 </head>
 
 <body>
-    <!-- ヘッダーの読み込み -->
-    <?php include "header.php" ?>
 
     <div class="container" style="max-width: 800px;">
         <h2>新規会員登録</h2>

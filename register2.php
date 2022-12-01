@@ -1,3 +1,4 @@
+<?php include "header.php" ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -25,8 +26,6 @@
 </head>
 
 <body>
-    <!-- ヘッダーの読み込み -->
-    <?php include "header.php" ?>
     <?php
         require_once "DBManager.php";
         if(isset($_POST)){
@@ -75,7 +74,8 @@
                 <input type="text" readonly class="form-control-plaintext" name="seibetsu" value="<?=$post['seibetuRadios']?>">
 
                 <label>生年月日</label>
-                <input type="text" readonly class="form-control-plaintext" name="birth" value="<?=$post['year']."年".$post['month']."月".$post['day']."日"?>">
+                <input type="text" readonly class="form-control-plaintext" value="<?=$post['year']."年".$post['month']."月".$post['day']."日"?>">
+                <input type="hidden" name="birth" value="<?=$post['year']."-".$post['month']."-".$post['day']?>">
 
                 <label>電話番号</label>
                 <input type="text" readonly class="form-control-plaintext" name="tel" value="<?=$post['tel']?>">

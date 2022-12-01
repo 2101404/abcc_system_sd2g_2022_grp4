@@ -1,3 +1,4 @@
+<?php include "header.php" ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -11,8 +12,6 @@
 
 </head>
 <body>
-    <!-- ヘッダーの読み込み -->
-    <?php include "header.php" ?>
     <div class="container" style="max-width:500px">
         <h2>ログイン</h2>
         <form action="./logincheck.php" method="post">

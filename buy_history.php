@@ -1,3 +1,4 @@
+<?php include "header.php";?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -12,8 +13,6 @@
 </head>
 <body>
     <?php require_once "DBManager.php"; ?>
-    <!-- ヘッダーの読み込み -->
-    <?php include "header.php"; ?>
     <div class="container list-area">
 
         <h2 class="my-3">購入履歴</h2>

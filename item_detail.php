@@ -1,3 +1,4 @@
+<?php include "header.php";?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -11,8 +12,6 @@
     <title>商品詳細</title>
 </head>
 <body class="my-3">
-    <!-- ヘッダーの読み込み -->
-    <?php include "header.php"; ?>
     <?php
         require_once "DBManager.php";
         require_once "function.php";
@@ -22,7 +21,7 @@
             $itemId = $_GET['itemId'];
         }else{
             // パラメーターを付けずにページを表示した場合トップページに遷移させる
-            header('Location: index.php');
+            echo "<script>location.href='./index.php'</script>";
             exit("パラメーターが設定されていません");
         }
         

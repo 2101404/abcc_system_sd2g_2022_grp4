@@ -1,3 +1,4 @@
+<?php include "header.php" ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -11,8 +12,6 @@
     <title>スーツ特集</title>
 </head>
 <body>
-    <!-- ヘッダーの読み込み -->
-    <?php include "header.php" ?>
 
 <div class ="container">
     <div class ="text-center">
@@ -67,7 +66,7 @@
 
     <!--商品見るボタン-->
     <div class="text-center mt-5 mb-5">
-            <a type="button" href="./item_detail.php?" class="btn btn-lg btn-outline-primary mt-5">商品を見る</a>
+            <a type="button" href="./item_search_result.php?keyword=就活 メンズ スーツ" class="btn btn-lg btn-outline-primary mt-5">商品を見る</a>
 		</div>
 </div>
 </div>
@@ -85,7 +84,7 @@
 
     <!--商品見るボタン-->
     <div class="text-center mt-5 mb-5">
-            <a type="button" href="./item_detail.php?" class="btn btn-lg btn-outline-primary mt-5">商品を見る</a>
+            <a type="button" href="./item_search_result.php?keyword=就活 レディス スーツ" class="btn btn-lg btn-outline-primary mt-5">商品を見る</a>
 		</div>
 </div>
 </div>

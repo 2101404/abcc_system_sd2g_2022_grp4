@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
   <div class="container-fluid">
     <!-- タイトル -->
@@ -38,7 +39,6 @@
   </div>
 </nav>
 
-<?php session_start(); ?>
 
 <?php if(isset($_SESSION['memberId']) && isset($_SESSION['password'])): ?>
     <script>

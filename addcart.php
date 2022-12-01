@@ -1,3 +1,4 @@
+<?php include "header.php" ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -11,8 +12,7 @@
     <title>商品追加</title>
 </head>
 <body>
-    <!-- ヘッダーの読み込み -->
-    <?php include "header.php" ?>
+    
 
     <?php
         require_once "DBManager.php";
@@ -43,7 +43,7 @@
 
             $dbm = new DBManager();
             $dbm->addToCart($memberId,$itemId,$suryo,$tourokubi,$size);
-            header('Location: '.$url);
+            echo "<script>location.href='$url'</script>";
         }catch(PDOException $ex){
             echo "買い物かごに入れることが出来ませんでした。<br>
             買い物かごに同じ商品を入れていないか確認してください。";

@@ -1,9 +1,10 @@
 <?php 
+    if(session_id() == ""){
+        session_start();
+    }
     // ログインしているか判定する
     function isLogin(){
-        if(session_id() == ""){
-            session_start();
-        }
+        
         if(isset($_SESSION['memberId']) && isset($_SESSION['password'])){
             return true;
         }else{

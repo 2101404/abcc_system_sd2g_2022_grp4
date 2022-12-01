@@ -41,9 +41,9 @@
       <!-- セレクトボックスの読み込み -->
       <div class="col">
         <select id="sortSelect" class="form-select " name="sort" onchange="sortby(this.value)">
-          <option value="newest" <?php if(!isset($_POST['order']) || $_POST['order']=="newst") echo 'selected'?>>最新順</option>
-          <option value="lowest" <?php if(isset($_POST['order']) && $_POST['order']=="lowest") echo 'selected'?>>安い順</option>
-          <option value="highest" <?php if(isset($_POST['order']) && $_POST['order']=="highest") echo 'selected'?>>高い順</option>
+          <option value="newest" <?php if(!isset($_GET['order']) || $_GET['order']=="newst") echo 'selected'?>>最新順</option>
+          <option value="lowest" <?php if(isset($_GET['order']) && $_GET['order']=="lowest") echo 'selected'?>>安い順</option>
+          <option value="highest" <?php if(isset($_GET['order']) && $_GET['order']=="highest") echo 'selected'?>>高い順</option>
         </select>
 
       </div>
@@ -110,12 +110,80 @@
     </div>
 
     <!-- ページボタン -->
-    
-      <a type="button" href="./item_search_result.php?" class="btn btn-link mt-5">1</a>
-      <a type="button" href="./item_search_result.php?" class="btn btn-link mt-5">2</a>
-      <a type="button" href="./item_search_result.php?" class="btn btn-link mt-5">3</a>
-      <a type="button" href="./item_search_result.php?" class="btn btn-link mt-5">4</a>
-    
+    <nav aria-label="Page navigation example" >
+      <ul class="pagination justify-content-center my-3">
+
+      <?php 
+        require_once "function.php";
+        if(isset($_GET['page'])){
+          $nowPage = $_GET['page'];
+        }else{
+          $nowPage = 1;
+        }
+        $URL = getURL();
+        $prevPage = $nowPage - 1;
+        $outputURL = preg_replace('/page=.*&|&page=.*$/','',$URL);
+        $outputURL = $outputURL."&page=$prevPage";
+
+      ?>
+
+      <!-- 1ページ目のとき選択できなくする -->
+      <?php if(1 == $nowPage) :?>
+        <li class="page-item disabled">
+          <a class="page-link" href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+      <?php else:?>
+        <li class="page-item">
+          <a class="page-link" href="<?=$outputURL?>" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+      <?php endif?>
+
+      
+      <?php for($i=1; $i <= $totalPage; $i++) :?>
+        
+        <?php
+          $outputURL = preg_replace('/page=.*&|&page=.*$/','',$URL);
+          $outputURL = $outputURL."&page=$i";
+        ?>
+
+        <!-- ページ番号が同じ時ボタンに色をつける -->
+        <?php if($i == $nowPage) :?>
+          <li class="page-item active"><a class="page-link" href="<?=$outputURL?>"><?=$i?></a></li>
+        <?php else:?>
+          <li class="page-item"><a class="page-link" href="<?=$outputURL?>"><?=$i?></a></li>
+        <?php endif?>
+
+      <?php endfor; ?>
+
+      <?php
+        $nextPage = $nowPage + 1;
+        $outputURL = preg_replace('/page=.*&|&page=.*$/','',$URL);
+        $outputURL = $outputURL."&page=$nextPage";
+      ?>
+
+
+      <!-- 最後のページのとき選択できなくする -->
+      <?php if($totalPage == $nowPage) :?>
+        <li class="page-item disabled">
+          <a class="page-link" href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      <?php else:?>
+        <li class="page-item">
+          <a class="page-link" href="<?=$outputURL?>" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      <?php endif?>
+
+      </ul>
+    </nav>
+
 
     <!-- 戻るボタン -->
     <div class="text-center mt-5 mb-5">

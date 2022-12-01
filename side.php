@@ -3,129 +3,139 @@
   require_once "DBManager.php";
   require_once "function.php";
 
-  // URLから検索キーワードの取得
+  // 初期値を入れる
+  $page = 1;
   $keyword = "";
+  $category = "all";
+  $size = "";
+  $color = [];
+  $price = 0;
+  $type = "all";
+  $order="item_registration_date";
+  $direction ="DESC";
+
+  // URLから検索キーワードの取得
   if(isset($_GET['keyword'])){
     $keyword = $_GET['keyword'];
   }
 
   //URLにカテゴリー名がセットされていれば取得する
-  $category = "all";
   if(isset($_GET['category'])){
     $category = $_GET['category'];
   }
 
+  // URLからpageの取得
+  if(isset($_GET['page'])){
+    $page = $_GET['page'];
+  }
 
   $itemTbl=[];
   $itemCnt = 0;
 
-
   // 絞り込みボタンをクリックした場合検索する
-  if(isset($_POST['filter'])){
-    // echo "<script>alert('絞り込み検索します')</script>";
+  if(isset($_GET['filter'])){
 
-    // $size = $_POST['size'];
-    $size="";
-    if(isset($_POST['colors'])){
-      $color = $_POST['colors']; 
+    if(isset($_GET['colors'])){
+      $color = $_GET['colors']; 
     }else{
-      $color = "";
+      $color = [];
     }
     
 
-    $price = (int)$_POST['price'];
-    $type = $_POST['rdoname'];
-    $keyword =$_POST['txt1'];
+    $price = (int)$_GET['price'];
+    $type = $_GET['rdoname'];
+    $keyword =$_GET['txt1'];
 
     // 並び順の指定によってセットする変数を変える
-    $orderby = $_POST['order'];
+    $orderby = $_GET['order'];
    
     switch ($orderby) {
       case 'newest':
-        $order1 = 'item_registration_date';
-        $order2 = 'DESC';
+        $order = 'item_registration_date';
+        $direction = 'DESC';
         break;
       case 'highest':
-        $order1 = 'sellingPrice';
-        $order2 = 'DESC';
+        $order = 'sellingPrice';
+        $direction = 'DESC';
         break;
       case 'lowest':
-        $order1 = 'sellingPrice';
-        $order2 = 'ASC';
+        $order = 'sellingPrice';
+        $direction = 'ASC';
         break;
       
       default:
-        $order1 = 'item_registration_date';
-        $order2 = 'DESC';
+        $order = 'item_registration_date';
+        $direction = 'DESC';
         break;
     }
-    $dbm = new DBManager();
-    $itemTbl = $dbm->searchItems($keyword,$category,$size,$color,$price,$type,$order1,$order2);
-
-  }else if(empty($itemTbl) && !empty($keyword)){
-    // キーワードが入力されている場合検索を行う
-    // echo "<script>alert('キーワード検索します')</script>";
-    $dbm = new DBManager();
-    $itemTbl = $dbm->searchItems($keyword);
-
-  }else if(empty($itemTbl) && !empty($category)){
-    // カテゴリー別表示
-    // echo "<script>alert('カテゴリー表示します')</script>";
-    $dbm = new DBManager();
-    $itemTbl = $dbm->searchItems("",$category);
-
-    
   }
-   $itemCnt = count($itemTbl);
+  // echo "<script>alert('page:$page key:$keyword category:$category size:$size price:$price type:$type order:$order direction:$direction')</script>";
+
+  $dbm = new DBManager();
+  $itemTbl = $dbm->searchItems($page,$keyword,$category,$size,$color,$price,$type,$order,$direction);
+  $cnt = $dbm->countSearchItems($keyword,$category,$size,$color,$price,$type);
+
+  $itemCnt = $cnt;
+  $totalPage = ceil($cnt/20); // 総件数÷1ページに表示する件数 を切り上げたものが総ページ数
+  
+  function isCheckColor($value){
+    if(isset($_GET['colors'])){
+      if(in_array($value,$_GET['colors'])){
+        echo "checked";
+      }
+      
+    }
+      
+  }
 ?>
 
 <!-- サイドバーの表示 -->
 <aside id="sub" >
   <h2 class="text-center mt-5 mb-3">絞り込み</h2>
 
-  <form name="sortForm"method="post">
+  <form name="sortForm"method="get">
 
     <!-- サイズの表示 -->
     <!-- <label class=" control-label">サイズ</label>
       <select class="form-select mb-3" name="size">
-      <option value="" <?php if(!isset($_POST['size']) || $_POST['size']=="") echo 'selected'?>></option>
-      <option value="S" <?php if(isset($_POST['size']) && $_POST['size']=="S") echo 'selected'?>>S</option>
-      <option value="M" <?php if(isset($_POST['size']) && $_POST['size']=="M") echo 'selected'?>>M</option>
-      <option value="L" <?php if(isset($_POST['size']) && $_POST['size']=="L") echo 'selected'?>>L</option>
+      <option value="" <?php if(!isset($_GET['size']) || $_GET['size']=="") echo 'selected'?>></option>
+      <option value="S" <?php if(isset($_GET['size']) && $_GET['size']=="S") echo 'selected'?>>S</option>
+      <option value="M" <?php if(isset($_GET['size']) && $_GET['size']=="M") echo 'selected'?>>M</option>
+      <option value="L" <?php if(isset($_GET['size']) && $_GET['size']=="L") echo 'selected'?>>L</option>
       </select> -->
 
     <!-- カラーの表示 -->
     <label class="control-label">カラー</label>
     <div class="d-flex">
-      <input type="checkbox" id="check1" name="colors[]" value="black">
+      <input type="checkbox" id="check1" name="colors[]" value="black" <?php isCheckColor("black")?>>
       <label for="check1" style="background-color: black;"></label>
 
-      <input type="checkbox" id="check2" name="colors[]" value="gray">
+      <input type="checkbox" id="check2" name="colors[]" value="gray" <?php isCheckColor("gray")?>>
       <label for="check2" style="background-color: gray;"></label>
 
-      <input type="checkbox" id="check3" name="colors[]" value="white">
+      <input type="checkbox" id="check3" name="colors[]" value="white" <?php isCheckColor("white")?>>
       <label for="check3" style="background-color: white;"></label>
 
-      <input type="checkbox" id="check4" name="colors[]" value="navy">
+      <input type="checkbox" id="check4" name="colors[]" value="navy" <?php isCheckColor("navy")?>>
       <label for="check4" style="background-color: navy;"></label>
 
-      <input type="checkbox" id="check5" name="colors[]" value="brown">
+      <input type="checkbox" id="check5" name="colors[]" value="brown" <?php isCheckColor("brown")?>>
       <label for="check5" style="background-color: brown;"></label>
     </div>
     <div class="d-flex mb-3">
-      <input type="checkbox" id="check6" name="colors[]" value="beige">
+      <input type="checkbox" id="check6" name="colors[]" value="beige" <?php isCheckColor("beige")?>>
       <label for="check6" style="background-color:burlywood;"></label>
 
-      <input type="checkbox" id="check7" name="colors[]" value="green">
+      <input type="checkbox" id="check7" name="colors[]" value="green" <?php isCheckColor("green")?>>
       <label for="check7" style="background-color:green;"></label>
 
-      <input type="checkbox" id="check8" name="colors[]" value="orange">
+      <input type="checkbox" id="check8" name="colors[]" value="orange" <?php isCheckColor("orange")?>>
       <label for="check8" style="background-color: orange;"></label>
 
-      <input type="checkbox" id="check9" name="colors[]" value="red">
+      <input type="checkbox" id="check9" name="colors[]" value="red" <?php isCheckColor("red")?>>
       <label for="check9" style="background-color:red;"></label>
 
-      <input type="checkbox" id="check10" name="colors[]" value="yellow">
+      <input type="checkbox" id="check10" name="colors[]" value="yellow" <?php isCheckColor("yellow")?>>
       <label for="check10" style="background-color:yellow;"></label>
     </div>
 
@@ -133,17 +143,17 @@
     <div class="form-group mb-3">
       <label class="control-label" for="price">価格</label>
         <select class="form-select" name="price" id="price">
-            <option value="" <?php if(!isset($_POST['price']) || $_POST['price']=="") echo 'selected'?>>選択してください。</option>
-            <option value="10000" <?php if(isset($_POST['price']) && $_POST['price']=="10000") echo 'selected'?>>～10,000円</option>
-            <option value="20000" <?php if(isset($_POST['price']) && $_POST['price']=="20000") echo 'selected'?>>10,000～20,000円</option>
-            <option value="30000" <?php if(isset($_POST['price']) && $_POST['price']=="30000") echo 'selected'?>>20,000～30,000円</option>
-            <option value="40000" <?php if(isset($_POST['price']) && $_POST['price']=="40000") echo 'selected'?>>30,000～40,000円</option>
-            <option value="50000" <?php if(isset($_POST['price']) && $_POST['price']=="50000") echo 'selected'?>>40,000～50,000円</option>
-            <option value="60000" <?php if(isset($_POST['price']) && $_POST['price']=="60000") echo 'selected'?>>50,000～60,000円</option>
-            <option value="70000" <?php if(isset($_POST['price']) && $_POST['price']=="70000") echo 'selected'?>>60,000～70,000円</option>
-            <option value="80000" <?php if(isset($_POST['price']) && $_POST['price']=="80000") echo 'selected'?>>70,000～80,000円</option>
-            <option value="90000" <?php if(isset($_POST['price']) && $_POST['price']=="90000") echo 'selected'?>>80,000～90,000円</option>
-            <option value="100000" <?php if(isset($_POST['price']) && $_POST['price']=="100000") echo 'selected'?>>90,000～</option>
+            <option value="" <?php if(!isset($_GET['price']) || $_GET['price']=="") echo 'selected'?>>選択してください。</option>
+            <option value="10000" <?php if(isset($_GET['price']) && $_GET['price']=="10000") echo 'selected'?>>～10,000円</option>
+            <option value="20000" <?php if(isset($_GET['price']) && $_GET['price']=="20000") echo 'selected'?>>10,000～20,000円</option>
+            <option value="30000" <?php if(isset($_GET['price']) && $_GET['price']=="30000") echo 'selected'?>>20,000～30,000円</option>
+            <option value="40000" <?php if(isset($_GET['price']) && $_GET['price']=="40000") echo 'selected'?>>30,000～40,000円</option>
+            <option value="50000" <?php if(isset($_GET['price']) && $_GET['price']=="50000") echo 'selected'?>>40,000～50,000円</option>
+            <option value="60000" <?php if(isset($_GET['price']) && $_GET['price']=="60000") echo 'selected'?>>50,000～60,000円</option>
+            <option value="70000" <?php if(isset($_GET['price']) && $_GET['price']=="70000") echo 'selected'?>>60,000～70,000円</option>
+            <option value="80000" <?php if(isset($_GET['price']) && $_GET['price']=="80000") echo 'selected'?>>70,000～80,000円</option>
+            <option value="90000" <?php if(isset($_GET['price']) && $_GET['price']=="90000") echo 'selected'?>>80,000～90,000円</option>
+            <option value="100000" <?php if(isset($_GET['price']) && $_GET['price']=="100000") echo 'selected'?>>90,000～</option>
         </select>
     </div>
 
@@ -151,17 +161,17 @@
     <label class="control-label ">価格タイプ</label>
     <ul>
       <div class="form-check">
-        <input  type="radio" class="form-check-input" name="rdoname" id="rd1" value="all" <?php if(!isset($_POST['rdoname']) || $_POST['rdoname']=="all") echo 'checked'?>>
+        <input  type="radio" class="form-check-input" name="rdoname" id="rd1" value="all" <?php if(!isset($_GET['rdoname']) || $_GET['rdoname']=="all") echo 'checked'?>>
         <label class="form-check-label" for="rd1">すべてのアイテム</label>
       </div>
 
       <div class="form-check">
-        <input  type="radio" class="form-check-input" name="rdoname" id="rd2" value="normal" <?php if(isset($_POST['rdoname']) && $_POST['rdoname']=="normal") echo 'checked'?>>
+        <input  type="radio" class="form-check-input" name="rdoname" id="rd2" value="normal" <?php if(isset($_GET['rdoname']) && $_GET['rdoname']=="normal") echo 'checked'?>>
         <label class="form-check-label" for="rd2">通常商品</label>
       </div>
 
       <div class="form-check">
-        <input  type="radio" class="form-check-input" name="rdoname" id="rd3" value="sale" <?php if(isset($_POST['rdoname'])  && $_POST['rdoname']=="sale") echo 'checked'?>>
+        <input  type="radio" class="form-check-input" name="rdoname" id="rd3" value="sale" <?php if(isset($_GET['rdoname'])  && $_GET['rdoname']=="sale") echo 'checked'?>>
         <label class="form-check-label" for="rd3">セール商品</label>
       </div>
     </ul>
@@ -169,10 +179,14 @@
     
     
     <!-- キーワード -->
-    <input type="text"  class="form-control my-4" id="txt1" name="txt1" value="<?php if(isset($_POST['txt1'])){echo $_POST['txt1'];}else{echo $keyword;} ?>" placeholder="キーワード">
+    <input type="text"  class="form-control my-4" id="txt1" name="txt1" value="<?php if(isset($_GET['txt1'])){echo $_GET['txt1'];}else{echo $keyword;} ?>" placeholder="キーワード">
 
     <!-- 並び順(隠し値) -->
     <input type="hidden" name="order" id="order">
+    
+    <!-- カテゴリー(隠し値) -->
+    <input type="hidden" name="category" value="<?= $category?>">
+
 
     <!-- 絞り込みボタン  -->
     <div class="text-center mt-5">
@@ -187,6 +201,7 @@
     <a type="button" href="<?= $URL ?>" class="btn btn-link mt-2">すべての条件をクリア</a>
   </div>
 </aside>
+
 
 <script>
     // 並び替えする

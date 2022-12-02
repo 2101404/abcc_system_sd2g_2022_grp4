@@ -20,7 +20,6 @@
         $memberId = getMemberIdFromSession();
 
         $dbm = new DBManager();
-        $itemId = 0;
         if(isset($_POST['delete'])){
             $itemId = $_POST['itemId'];
         }

@@ -70,13 +70,14 @@
     }
   }
   // echo "<script>alert('page:$page key:$keyword category:$category size:$size price:$price type:$type order:$order direction:$direction')</script>";
-
+  $SHOWLIMIT = 48;
   $dbm = new DBManager();
-  $itemTbl = $dbm->searchItems($page,$keyword,$category,$size,$color,$price,$type,$order,$direction);
+  $itemTbl = $dbm->searchItems($page,$keyword,$category,$size,$color,$price,$type,$order,$direction,$SHOWLIMIT);
   $cnt = $dbm->countSearchItems($keyword,$category,$size,$color,$price,$type);
 
+  
   $itemCnt = $cnt;
-  $totalPage = ceil($cnt/20); // 総件数÷1ページに表示する件数 を切り上げたものが総ページ数
+  $totalPage = ceil($cnt / $SHOWLIMIT); // 総件数÷1ページに表示する件数 を切り上げたものが総ページ数
   
   function isCheckColor($value){
     if(isset($_GET['colors'])){

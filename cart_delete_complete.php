@@ -17,7 +17,6 @@
         require_once "DBManager.php";
         // ログインしているか判定する
         $memberId = getMemberIdFromSession();
-        $itemId = 0;
         if(isset($_POST['delete'])){
             $itemId = $_POST['delete'];
         }

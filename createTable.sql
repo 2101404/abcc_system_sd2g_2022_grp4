@@ -49,7 +49,7 @@ CREATE TABLE cart (
     cart_suryo INT NOT NULL,
     cart_tourokubi DATE NOT NULL,
     cart_size VARCHAR(191) NOT NULL,
-    PRIMARY KEY(member_id,item_id),
+    PRIMARY KEY(member_id,item_id,cart_size),
     FOREIGN KEY(member_id) REFERENCES member(member_id),
     FOREIGN KEY(item_id) REFERENCES item(item_id)
 );

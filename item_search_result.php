@@ -33,7 +33,11 @@
   <div id="container"class="container-fluid">
     
     <h3>「<?=$keyword?>」の検索結果  </h3>
-    <p class=" mb-3">検索結果:<?=$itemCnt?>件</p>
+    <p class=" mb-3">
+      検索結果:<?=$itemCnt?>件
+      <?php if($itemCnt < $SHOWLIMIT) ?>
+    </p>
+
     
     <label for="sortSelect" class=" control-label">並び順</label>
     <div class="row mb-3"  >

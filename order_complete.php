@@ -15,14 +15,13 @@
     <?php 
         require_once "function.php";
         // ログインしているか判定する
-        getMemberIdFromSession();
+        $memberId = getMemberIdFromSession();
     ?>
 
 
     <?php
         require_once "DBManager.php";
         $dbm = new DBManager();
-        $memberId = 1;
         $dbm->buyItems($memberId);
     ?>
 

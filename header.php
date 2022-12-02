@@ -18,7 +18,7 @@
           $placeholder = $_GET['keyword'];
         }
       ?>
-      <form class="d-flex m-0" action="./item_search_result.php" method="get">
+      <form class="d-flex m-0 " action="./item_search_result.php" method="get">
           <input class="form-control me-2" type="search" placeholder="商品を検索" aria-label="検索" name="keyword" id="searchBox" value="<?=$placeholder?>">
           <input class="btn btn-outline-success" type="submit" value="検索">
       </form>

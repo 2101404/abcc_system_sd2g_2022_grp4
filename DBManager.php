@@ -153,7 +153,7 @@
         
         
         // 商品検索と絞り込みと並べ替え
-        public function searchItems($page=1,$keyword="",$category="all", $size ="", $color=[], $price=0, $type="all", $order="item_registration_date", $direction ="DESC"){
+        public function searchItems($page=1,$keyword="",$category="all", $size ="", $color=[], $price=0, $type="all", $order="item_registration_date", $direction ="DESC", $limit=48){
             if(empty($keyword)){
                 $strs = ["."];
             }else{
@@ -202,7 +202,7 @@
 
             $sql =$sql." ORDER BY $order $direction , item_id";
             
-            $sql =$sql." LIMIT :start , 20";
+            $sql =$sql." LIMIT :start , :limit";
             
 
             $ps = $pdo->prepare($sql);
@@ -243,7 +243,8 @@
                 $ps->bindValue(':category',$category,PDO::PARAM_STR);
             }
 
-            $ps->bindValue(":start", ($page-1)*20, PDO::PARAM_INT);
+            $ps->bindValue(":start", ($page-1)*$limit, PDO::PARAM_INT);
+            $ps->bindValue(":limit", $limit, PDO::PARAM_INT);
 
             $ps->execute();
 

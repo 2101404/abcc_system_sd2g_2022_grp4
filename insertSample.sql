@@ -7,17 +7,28 @@ INSERT INTO member(mail,pass,sei,mei,hurigana_sei,hurigana_mei,seibetsu,birth,ph
 VALUES('def@example.com','$2y$10$EJOpLUSIvDnibG/GwbMRP.HSVyO/t5X/aZhoYMhDDK2zNDNO6aujS','山田','花子','ヤマダ','ハナコ','女','2022-10-3','09012345678','佐賀県佐賀市');
 
 -- カテゴリーテーブル
-INSERT INTO category(category_name) VALUES('スーツ');
-INSERT INTO category(category_name) VALUES('バッグ');
-INSERT INTO category(category_name) VALUES('ベルト');
-INSERT INTO category(category_name) VALUES('コート');
-INSERT INTO category(category_name) VALUES('ジャケット');
-INSERT INTO category(category_name) VALUES('パンツ');
-INSERT INTO category(category_name) VALUES('セットアップ');
-INSERT INTO category(category_name) VALUES('靴');
-INSERT INTO category(category_name) VALUES('スカート');
-INSERT INTO category(category_name) VALUES('靴下');
-INSERT INTO category(category_name) VALUES('ネクタイ');
+INSERT INTO category(category_name) VALUES('メンズスーツ');
+INSERT INTO category(category_name) VALUES('メンズベルト');
+INSERT INTO category(category_name) VALUES('メンズバッグ');
+INSERT INTO category(category_name) VALUES('メンズ靴');
+INSERT INTO category(category_name) VALUES('メンズコート');
+INSERT INTO category(category_name) VALUES('メンズネクタイ');
+INSERT INTO category(category_name) VALUES('メンズジャケット');
+INSERT INTO category(category_name) VALUES('メンズ靴下');
+INSERT INTO category(category_name) VALUES('メンズワイシャツ');
+INSERT INTO category(category_name) VALUES('メンズその他');
+INSERT INTO category(category_name) VALUES('レディーススーツ');
+INSERT INTO category(category_name) VALUES('レディースベルト');
+INSERT INTO category(category_name) VALUES('レディースバッグ');
+INSERT INTO category(category_name) VALUES('レディース靴');
+INSERT INTO category(category_name) VALUES('レディースコート');
+INSERT INTO category(category_name) VALUES('レディースジャケット');
+INSERT INTO category(category_name) VALUES('レディーススカート');
+INSERT INTO category(category_name) VALUES('レディースパンツ');
+INSERT INTO category(category_name) VALUES('レディースストッキング');
+INSERT INTO category(category_name) VALUES('レディースセットアップ');
+INSERT INTO category(category_name) VALUES('レディースブラウス');
+INSERT INTO category(category_name) VALUES('レディースその他');
 
 -- 商品テーブル
 INSERT INTO item(category_id, item_image, item_name, item_description, item_color, item_price, item_size, is_sale, item_sale_price, item_registration_date)

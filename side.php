@@ -94,7 +94,7 @@
 <aside id="sub" >
   <h2 class="text-center mt-5 mb-3">絞り込み</h2>
 
-  <form name="sortForm"method="get">
+  <form name="sortForm"method="get" id="sortForm">
 
     <!-- サイズの表示 -->
     <!-- <label class=" control-label">サイズ</label>
@@ -108,35 +108,35 @@
     <!-- カラーの表示 -->
     <label class="control-label">カラー</label>
     <div class="d-flex">
-      <input type="checkbox" id="check1" name="colors[]" value="black" <?php isCheckColor("black")?>>
+      <input type="checkbox" id="check1" name="colors[]" value="ブラック" <?php isCheckColor("ブラック")?>>
       <label for="check1" style="background-color: black;"></label>
 
-      <input type="checkbox" id="check2" name="colors[]" value="gray" <?php isCheckColor("gray")?>>
+      <input type="checkbox" id="check2" name="colors[]" value="グレー" <?php isCheckColor("グレー")?>>
       <label for="check2" style="background-color: gray;"></label>
 
-      <input type="checkbox" id="check3" name="colors[]" value="white" <?php isCheckColor("white")?>>
+      <input type="checkbox" id="check3" name="colors[]" value="ホワイト" <?php isCheckColor("ホワイト")?>>
       <label for="check3" style="background-color: white;"></label>
 
-      <input type="checkbox" id="check4" name="colors[]" value="navy" <?php isCheckColor("navy")?>>
+      <input type="checkbox" id="check4" name="colors[]" value="ネイビー" <?php isCheckColor("ネイビー")?>>
       <label for="check4" style="background-color: navy;"></label>
 
-      <input type="checkbox" id="check5" name="colors[]" value="brown" <?php isCheckColor("brown")?>>
+      <input type="checkbox" id="check5" name="colors[]" value="ブラウン" <?php isCheckColor("ブラウン")?>>
       <label for="check5" style="background-color: brown;"></label>
     </div>
     <div class="d-flex mb-3">
-      <input type="checkbox" id="check6" name="colors[]" value="beige" <?php isCheckColor("beige")?>>
+      <input type="checkbox" id="check6" name="colors[]" value="ベージュ" <?php isCheckColor("ベージュ")?>>
       <label for="check6" style="background-color:burlywood;"></label>
 
-      <input type="checkbox" id="check7" name="colors[]" value="green" <?php isCheckColor("green")?>>
+      <input type="checkbox" id="check7" name="colors[]" value="グリーン" <?php isCheckColor("グリーン")?>>
       <label for="check7" style="background-color:green;"></label>
 
-      <input type="checkbox" id="check8" name="colors[]" value="orange" <?php isCheckColor("orange")?>>
+      <input type="checkbox" id="check8" name="colors[]" value="オレンジ" <?php isCheckColor("オレンジ")?>>
       <label for="check8" style="background-color: orange;"></label>
 
-      <input type="checkbox" id="check9" name="colors[]" value="red" <?php isCheckColor("red")?>>
+      <input type="checkbox" id="check9" name="colors[]" value="レッド" <?php isCheckColor("レッド")?>>
       <label for="check9" style="background-color:red;"></label>
 
-      <input type="checkbox" id="check10" name="colors[]" value="yellow" <?php isCheckColor("yellow")?>>
+      <input type="checkbox" id="check10" name="colors[]" value="イエロー" <?php isCheckColor("イエロー")?>>
       <label for="check10" style="background-color:yellow;"></label>
     </div>
 
@@ -199,7 +199,7 @@
   <!-- クリアの表示 -->
   <?php $URL = getURL(); ?>
   <div class="text-center">
-    <a type="button" href="<?= $URL ?>" class="btn btn-link mt-2">すべての条件をクリア</a>
+    <button type="button" onclick="clearFilter()" class="btn btn-link mt-2">すべての条件をクリア</button>
   </div>
 </aside>
 
@@ -211,6 +211,27 @@
       tag.value = order;
       let btn = document.getElementById("filter"); //絞り込みボタンを取得
       btn.click();//絞り込みボタンクリックしたときと同じ動作
+    }
+
+    // 絞り込み条件のクリア
+    function clearFilter(){
+      // カラーのクリア
+      let checktag = document.getElementsByName('colors[]');
+      for(let i=0; i<checktag.length; i++){
+        checktag[i].checked = false;
+      }
+
+      // 価格のクリア
+      let selectTag = document.getElementById('price');
+      selectTag.selectedIndex = 0
+
+      // 価格タイプのクリア
+      let typeTag = document.getElementById('rd1');
+      typeTag.checked = true;
+
+      // キーワードのクリア
+      let inputTag = document.getElementById('txt1');
+      inputTag.value = "";
     }
 </script>
 

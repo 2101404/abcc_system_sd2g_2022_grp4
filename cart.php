@@ -73,6 +73,7 @@
                                                 <form action="./cart_delete.php" method="post" class="text-end my-2" >
                                                     <input type="submit"  name="delete" value="削除">
                                                     <input type="hidden" name="itemId" value="<?=$row['item_id']?>">
+                                                    <input type="hidden" name="size" value="<?=$row['cart_size']?>">
                                                 </form>
 
                                     </div>
@@ -95,7 +96,7 @@
         </div>      
 
         <div class="text-end my-3">    
-            <a type="button" class="btn btn-outline-primary" href="./order_confirmation.php">注文</a>
+            <a type="button" class="btn btn-primary" href="./order_confirmation.php">注文</a>
         </div>
 
         

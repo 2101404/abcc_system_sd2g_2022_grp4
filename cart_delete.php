@@ -22,8 +22,9 @@
         $dbm = new DBManager();
         if(isset($_POST['delete'])){
             $itemId = $_POST['itemId'];
+            $size = $_POST['size'];
         }
-        $row = $dbm->getCartItem($memberId,$itemId);
+        $row = $dbm->getCartItem($memberId,$itemId,$size);
     ?>
 
     <div class="container list-area">
@@ -81,10 +82,14 @@
         </div>
 
         <form action="./cart_delete_complete.php" method="post" class="text-center">
-            <input type="submit" class="btn btn-primary m-3" value="削除する">
-            <input type="hidden" name="delete" value="<?=$itemId?>">
+            <input type="submit" class="btn btn-primary m-3" name="delete" value="削除する">
+            <input type="hidden" name="itemId" value="<?=$itemId?>">
+            <input type="hidden" name="size" value="<?=$size?>">
 
         </form>
+        <div class="text-center m-3">
+            <a class="btn btn-outline-primary" href="./cart.php">戻る</a>
+        </div>
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

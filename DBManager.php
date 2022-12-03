@@ -8,7 +8,9 @@
         // 商品IDで商品の情報を取ってくる
         public function getItemById($id){
             $pdo = $this->dbConnect();
-            $sql = "SELECT * FROM item AS I INNER JOIN category AS C ON I.category_id = C.category_id WHERE item_id = ?";
+            $sql = "SELECT *,CASE is_sale WHEN true THEN item_sale_price WHEN false THEN item_price END AS sellingPrice
+                    FROM item AS I INNER JOIN category AS C ON I.category_id = C.category_id WHERE item_id = ?";
+
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1,$id,PDO::PARAM_INT);
             $ps->execute();
@@ -69,7 +71,7 @@
                 $ps3->bindValue(1,$row['item_id'],PDO::PARAM_INT);
                 $ps3->bindValue(2,$row['cart_suryo'],PDO::PARAM_INT);
                 $ps3->bindValue(3,$row['cart_size'],PDO::PARAM_STR);
-                $ps3->bindValue(4,$row['item_price'],PDO::PARAM_INT);
+                $ps3->bindValue(4,$row['sellingPrice'],PDO::PARAM_INT);
                 $ps3->execute();
             }
 

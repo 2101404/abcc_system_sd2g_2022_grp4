@@ -74,7 +74,7 @@
                 ?>
                 <h5 class="text-muted text-start">カテゴリ【<?php echo $item['category_name']; ?>】</h5>
                 <h3><?php echo $item['item_name']; ?></h3>
-                <p class="my-5 fs-3 text-end">￥<span class="fs-3" id="price"><?php echo number_format($item['item_price']); ?></span></p>
+                <p class="my-5 fs-3 text-end">￥<span class="fs-3" id="price"><?php echo number_format($item['sellingPrice']); ?></span></p>
                 <div class="text-start my-4">
 
                     <label for="size">サイズ</label>
@@ -106,7 +106,7 @@
             </div>
 
         </div>
-        <p class="text-end fs-4  my-3">選択内容：商品価格<span id="sum"><?php echo number_format($item['item_price']) ?> </span>円</p>
+        <p class="text-end fs-4  my-3">選択内容：商品価格<span id="sum"><?php echo number_format($item['sellingPrice']) ?> </span>円</p>
 
         <h6 class="text-muted mt-4">【商品説明】</h3>
             <p class="m-0">
@@ -134,8 +134,7 @@
             function calcPrice(){
                 let suryo = document.getElementById("suryo").value;
                 suryo = parseInt(suryo);
-                let price = document.getElementById("price").innerHTML;
-                price = parseInt(<?php echo $item['item_price'] ?>);
+                let price = parseInt(<?php echo $item['sellingPrice'] ?>);
 
                 let sum = (price * suryo).toLocaleString();
                 let sumArea = document.getElementById("sum");

@@ -94,7 +94,7 @@
 <aside id="sub" >
   <h2 class="text-center mt-5 mb-3">絞り込み</h2>
 
-  <form name="sortForm"method="get">
+  <form name="sortForm"method="get" id="sortForm">
 
     <!-- サイズの表示 -->
     <!-- <label class=" control-label">サイズ</label>
@@ -199,7 +199,7 @@
   <!-- クリアの表示 -->
   <?php $URL = getURL(); ?>
   <div class="text-center">
-    <a type="button" href="<?= $URL ?>" class="btn btn-link mt-2">すべての条件をクリア</a>
+    <button type="button" onclick="clearFilter()" class="btn btn-link mt-2">すべての条件をクリア</button>
   </div>
 </aside>
 
@@ -211,6 +211,27 @@
       tag.value = order;
       let btn = document.getElementById("filter"); //絞り込みボタンを取得
       btn.click();//絞り込みボタンクリックしたときと同じ動作
+    }
+
+    // 絞り込み条件のクリア
+    function clearFilter(){
+      // カラーのクリア
+      let checktag = document.getElementsByName('colors[]');
+      for(let i=0; i<checktag.length; i++){
+        checktag[i].checked = false;
+      }
+
+      // 価格のクリア
+      let selectTag = document.getElementById('price');
+      selectTag.selectedIndex = 0
+
+      // 価格タイプのクリア
+      let typeTag = document.getElementById('rd1');
+      typeTag.checked = true;
+
+      // キーワードのクリア
+      let inputTag = document.getElementById('txt1');
+      inputTag.value = "";
     }
 </script>
 

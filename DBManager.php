@@ -89,6 +89,7 @@
         // 買い物かごに商品を入れる
         public function addToCart($memberId, $itemId, $suryo, $torokubi, $size){
             $pdo = $this->dbConnect();
+            $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             $sql = "INSERT INTO cart VALUES(?,?,?,?,?)";
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1,$memberId,PDO::PARAM_INT);
@@ -115,15 +116,18 @@
         }
 
         // 買い物かごに入っている1つの商品を取得
-        public function getCartItem($memberId,$itemId){
+        public function getCartItem($memberId,$itemId,$size){
             $pdo = $this->dbConnect();
             $sql = "SELECT *,CASE is_sale WHEN true THEN item_sale_price 
                                           WHEN false THEN item_price END AS sellingPrice,
                              CASE is_sale WHEN true THEN item_sale_price * cart_suryo 
-                                          WHEN false THEN item_price *cart_suryo END AS shoukei FROM cart AS C INNER JOIN item AS I ON C.item_id = I.item_id WHERE C.member_id = ? AND C.item_id = ?" ;
+                                          WHEN false THEN item_price *cart_suryo END AS shoukei FROM cart AS C INNER JOIN item AS I ON C.item_id = I.item_id 
+                                          WHERE C.member_id = ? AND C.item_id = ? AND C.cart_size = ?";
+
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1,$memberId,PDO::PARAM_INT);
             $ps->bindValue(2,$itemId,PDO::PARAM_INT);
+            $ps->bindValue(3,$size,PDO::PARAM_STR);
             $ps->execute();
             
             return $ps->fetch();
@@ -131,12 +135,13 @@
         }
 
         // 買い物かごに入っている1つの商品を削除
-        public function deleteCartItem($memberId,$itemId){
+        public function deleteCartItem($memberId,$itemId,$size){
             $pdo = $this->dbConnect();
-            $sql = "DELETE FROM cart WHERE member_id = ? AND item_id = ?" ;
+            $sql = "DELETE FROM cart WHERE member_id = ? AND item_id = ? AND cart_size = ?" ;
             $ps = $pdo->prepare($sql);
             $ps->bindValue(1,$memberId,PDO::PARAM_INT);
             $ps->bindValue(2,$itemId,PDO::PARAM_INT);
+            $ps->bindValue(3,$size,PDO::PARAM_STR);
             $ps->execute();
         }
 

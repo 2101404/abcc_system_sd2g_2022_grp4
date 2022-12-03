@@ -67,7 +67,7 @@ CREATE TABLE order_details(
     od_suryo INT NOT NULL,
     od_size VARCHAR(191) NOT NULL,
     od_price INT NOT NULL,
-    PRIMARY KEY(order_id,item_id),
+    PRIMARY KEY(order_id,item_id,od_size),
     FOREIGN KEY(order_id) REFERENCES orders(order_id),
     FOREIGN KEY(item_id) REFERENCES item(item_id)
 );

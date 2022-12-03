@@ -45,7 +45,7 @@
 			<div class="carousel-inner text-center">
 				<div class="carousel-item active">
 					<!-- リンク入れる -->
-					<a href="./item_category.php?category=セット">
+					<a href="./item_search_result.php?keyword=セット商品">
 						<img src="imgs/top/top1.jpg" class="w-100" alt="...">
 					</a>
 				</div>
@@ -77,7 +77,7 @@
 		<!-- セット商品一覧のボタン -->
 		<div class="text-center">
 			<!-- 後でリンク先確認 -->
-			<a type="button" href="./item_category.php?category=セット商品" class="btn btn-lg btn-outline-primary mt-5">セット商品一覧へ</a>
+			<a type="button" href="./item_search_result.php?keyword=セット商品" class="btn btn-lg btn-outline-primary mt-5">セット商品一覧へ</a>
 		</div>
 
 		<!-- メンズカテゴリー -->

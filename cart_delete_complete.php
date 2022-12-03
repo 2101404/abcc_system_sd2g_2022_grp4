@@ -18,10 +18,11 @@
         // ログインしているか判定する
         $memberId = getMemberIdFromSession();
         if(isset($_POST['delete'])){
-            $itemId = $_POST['delete'];
+            $itemId = $_POST['itemId'];
+            $size = $_POST['size'];
         }
         $dbm = new DBManager();
-        $dbm->deleteCartItem($memberId,$itemId);
+        $dbm->deleteCartItem($memberId,$itemId,$size);
 
     ?>
 

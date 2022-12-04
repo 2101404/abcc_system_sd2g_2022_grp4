@@ -13,7 +13,11 @@
   <title>商品検索結果</title>
 </head>
 <body>
-  <?php require_once "DBManager.php";?>
+  <?php 
+    require_once "DBManager.php";
+    require_once "function.php";
+    $_SESSION['itemListPage'] = getURL();
+  ?>
   
   <!-- スマホ表示用絞り込み -->
   <div class="offcanvas-md offcanvas-end"  tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
@@ -190,7 +194,6 @@
 
     <!-- 戻るボタン -->
     <div class="text-center mt-5 mb-5">
-      <!-- 後でリンク先入れる -->
             <a type="button" href="./index.php?" class="btn btn-lg btn-outline-primary mt-5">トップページに戻る</a>
     </div>
 

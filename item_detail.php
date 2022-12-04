@@ -124,7 +124,7 @@
                 <input type="submit" class="btn btn-lg btn-primary" value="買い物かごに入れる">
             </div>
             <div class="col-12 text-center my-5">
-                <button type="button" class="btn btn-lg btn-outline-primary" onclick="history.back()">一つ前に戻る</button>
+                <a href="<?=$_SESSION['itemListPage']?>" class="btn btn-lg btn-outline-primary">一つ前に戻る</a>
             </div>
         </div>
 

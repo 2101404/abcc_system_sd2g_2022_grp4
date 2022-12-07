@@ -17,7 +17,6 @@
         <form action="./logincheck.php" method="post">
             <div class="my-4">
                 <label for="mail">メールアドレス</label>
-                <!-- <input type="text"  class="form-control" name="mail" id="mail" placeholder="メールアドレス" value="abc@example.com"> -->
                 <input type="text"  class="form-control" name="mail" id="mail" placeholder="メールアドレス" >
                 
             </div>
@@ -25,7 +24,6 @@
             
             <div class="my-5">
                 <label for="pass">パスワード</label>
-                <!-- <input type="password"  class="form-control" name="pass" id="pass" placeholder="パスワード" value="12345"> -->
                 <input type="password"  class="form-control" name="pass" id="pass" placeholder="パスワード" >
             </div>
             <div class="text-center">
@@ -36,7 +34,6 @@
         </form>
     </div>
 
-    <script src="./mailValidate.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

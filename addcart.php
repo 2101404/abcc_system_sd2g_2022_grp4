@@ -37,12 +37,13 @@
         
     <?php
         try{
-            if($size == ""){
+            if($size == "" || $size == "首回り 桁丈"){
                 throw new UnexpectedValueException("サイズを選択してください");
             }
 
             $dbm = new DBManager();
             $dbm->addToCart($memberId,$itemId,$suryo,$tourokubi,$size);
+            $_SESSION['isAddedItem'] = true;
             echo "<script>location.href='$url'</script>";
         }catch(PDOException $ex){
             echo "買い物かごに入れることが出来ませんでした。<br>

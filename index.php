@@ -12,8 +12,8 @@
 	<title>TopPage</title>
 
 	<?php
-		function showCategory($itemLink,$itemImg,$text){
-			for ($i=0; $i < 9; $i++) { 
+		function showCategory($loop,$itemLink,$itemImg,$text){
+			for ($i=0; $i < $loop; $i++) { 
 				echo'	<div class="col-6 col-md-3">
 							<a href="./item_category.php?category='.$itemLink[$i].'">
 								<div class="ratio ratio-1x1">
@@ -88,10 +88,10 @@
 		<div class=" p-3 frame category" >
 			<div class="row">
 				<?php
-					$itemImg =['./imgs/category/suit01.jpg','./imgs/category/jacket01.jpg','./imgs/category/shoes01.jpg','./imgs/category/tie01.jpg','./imgs/category/bag03.png','./imgs/category/belt03.png','./imgs/category/coat01.jpg','./imgs/category/socks01.png','./imgs/category/shirt01.jpg'];
-					$text =['スーツ','ジャケット','靴','ネクタイ','バッグ','ベルト','コート','靴下','ワイシャツ'];
-					$itemLink =['メンズスーツ','メンズジャケット','メンズ靴','メンズネクタイ','メンズバッグ','メンズベルト','メンズコート','メンズ靴下','メンズワイシャツ'];
-					showCategory($itemLink,$itemImg,$text);
+					$itemImg =['./imgs/category/suit01.jpg','./imgs/category/shoes01.jpg','./imgs/category/tie01.jpg','./imgs/category/bag03.png','./imgs/category/belt03.png','./imgs/category/coat01.jpg','./imgs/category/socks01.png','./imgs/category/shirt01.jpg'];
+					$text =['スーツ','靴','ネクタイ','バッグ','ベルト','コート','靴下','ワイシャツ'];
+					$itemLink =['メンズスーツ','メンズ靴','メンズネクタイ','メンズバッグ','メンズベルト','メンズコート','メンズ靴下','メンズワイシャツ'];
+					showCategory(8,$itemLink,$itemImg,$text);
 				?>
 			</div>
 		</div>
@@ -101,10 +101,10 @@
 		<div class=" p-3 frame category">
 			<div class="row">
 			<?php
-					$itemImg =['./imgs/category/setup01.png','./imgs/category/skirt01.png','./imgs/category/pants01.png','./imgs/category/shoes02.png','./imgs/category/bag02.png','./imgs/category/belt04.png','./imgs/category/coat02.png','./imgs/category/category002.jpg','./imgs/category/blouse01.jpg'];
-					$text =['セットアップ','スカート','パンツ','靴','バッグ','ベルト','コート','ストッキング','ブラウス'];
-					$itemLink =['レディースセットアップ','レディーススカート','レディースパンツ','レディース靴','レディースバッグ','レディースベルト','レディースコート','レディースストッキング','レディースブラウス'];
-					showCategory($itemLink,$itemImg,$text);
+					$itemImg =['./imgs/category/suit003.jpg','./imgs/category/skirt01.png','./imgs/category/pants01.png','./imgs/category/shoes02.png','./imgs/category/bag02.png','./imgs/category/belt04.png','./imgs/category/coat02.png','./imgs/category/category002.jpg','./imgs/category/blouse01.jpg'];
+					$text =['スーツ','スカート','パンツ','靴','バッグ','ベルト','コート','ストッキング','ブラウス'];
+					$itemLink =['レディーススーツ','レディーススカート','レディースパンツ','レディース靴','レディースバッグ','レディースベルト','レディースコート','レディースストッキング','レディースブラウス'];
+					showCategory(9,$itemLink,$itemImg,$text);
 				?>
 
 			</div>

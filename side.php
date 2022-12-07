@@ -154,7 +154,7 @@
             <option value="70000" <?php if(isset($_GET['price']) && $_GET['price']=="70000") echo 'selected'?>>60,000～70,000円</option>
             <option value="80000" <?php if(isset($_GET['price']) && $_GET['price']=="80000") echo 'selected'?>>70,000～80,000円</option>
             <option value="90000" <?php if(isset($_GET['price']) && $_GET['price']=="90000") echo 'selected'?>>80,000～90,000円</option>
-            <option value="100000" <?php if(isset($_GET['price']) && $_GET['price']=="100000") echo 'selected'?>>90,000～</option>
+            <option value="100000" <?php if(isset($_GET['price']) && $_GET['price']=="100000") echo 'selected'?>>90,000円～</option>
         </select>
     </div>
 

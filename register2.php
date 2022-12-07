@@ -46,29 +46,23 @@
     <form action="./register3.php" method="post" >
 
         <div class="row m-3 p-3" >
-            <div class="col-3"></div>
+            <div class="col-1"></div>
             <div class="col p-4" style="background-color:rgb(245,245,245);">
                 <label>メールアドレス</label>
                 <input type="text" readonly class="form-control-plaintext" id="mail" name="mail" value="<?=$post['mail']?>">
                 <div class="row g-0">
                     <label>氏名</label>
-                    <div class="col-2">
-                        <input type="text" readonly class="form-control-plaintext" name="myouji" value="<?=$post['myouji']?>">
-                    </div>
-                    <div class="col-2">
-                        <input type="text" readonly class="form-control-plaintext" name="namae" value="<?=$post['namae']?>">
+                        <input type="text" readonly class="form-control-plaintext"  value="<?=$post['myouji']." ".$post['namae']?>">
+                        <input type="hidden" class="form-control-plaintext" name="myouji" value="<?=$post['myouji']?>">
+                        <input type="hidden"  class="form-control-plaintext" name="namae" value="<?=$post['namae']?>">
 
-                    </div>
                 </div>
                 <div class="row g-0">
                     <label>フリガナ</label>
-                    <div class="col-2">
-                        <input type="text" readonly class="form-control-plaintext" name="hmyouji" value="<?=$post['h_myouji']?>">
-                    </div>
-                    <div class="col-2">
-                        <input type="text" readonly class="form-control-plaintext" name="hnamae" value="<?=$post['h_namae']?>">
+                        <input type="text" readonly class="form-control-plaintext"  value="<?=$post['h_myouji']." ".$post['h_namae']?>">
+                        <input type="hidden" class="form-control-plaintext" name="hmyouji" value="<?=$post['h_myouji']?>">
+                        <input type="hidden"  class="form-control-plaintext" name="hnamae" value="<?=$post['h_namae']?>">
 
-                    </div>
                 </div>
                 <label>性別</label>
                 <input type="text" readonly class="form-control-plaintext" name="seibetsu" value="<?=$post['seibetuRadios']?>">
@@ -85,7 +79,7 @@
 
                 <input type="hidden" name="pass" value="<?=$post['pass']?>">
             </div>
-            <div class="col-3"></div>
+            <div class="col-1"></div>
 
             
 

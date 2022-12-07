@@ -85,26 +85,26 @@
             <div class="row gy-1 my-4">
                 <p class="m-0"><span class="requiredItem">◎</span>性別</p>
                 <div class="col-12 col-md-2">
-    <div class="form-check">
+                    <div class="form-check">
                         <input class="form-check-input" type="radio" name="seibetuRadios" id="male" value="男性">
                         <label class="form-check-label" for="male">男性</label>
                     </div>
-    </div>
+                </div>
 
                 <div class="col-12 col-md-2">
-    <div class="form-check">
+                    <div class="form-check">
                         <input class="form-check-input" type="radio" name="seibetuRadios" id="female" value="女性">
                         <label class="form-check-label" for="female">女性</label>
                     </div>
-    </div>
+                </div>
 
                 <div class="col-12 col-md-2">
-    <div class="form-check">
+                    <div class="form-check">
                         <input class="form-check-input" type="radio" name="seibetuRadios" id="unspecified" value="未指定" checked>
                         <label class="form-check-label" for="unspecified">未指定</label>
                     </div>
                 </div>
-    </div>
+            </div>
 
             <!-- 生年月日 -->
             <p class="my-2"><span class="requiredItem">◎</span>生年月日</p>
@@ -119,7 +119,7 @@
                         <?php endif;?>
 
                     <?php endfor;?>
-    </select>
+                </select>
                 <label class="input-group-text" for="year">年</label>
                     
 
@@ -128,8 +128,7 @@
                     <?php for($i=1; $i<=12; $i++): ?>
                         <option value="<?=$i;?>"><?=$i;?></option>
                     <?php endfor;?>
-    <p></p>
-    </select>
+                </select>
                 <label class="input-group-text" for="month">月</label>
 
 
@@ -139,15 +138,14 @@
                         <option value="<?=$i;?>"><?=$i;?></option>
                     <?php endfor;?>
 
-    <p></p>
-    </select>
+                </select>
                 <label class="input-group-text" for="day">日</label>
                 
             </div>
             <div class="error mb-3" id="errorDate"></div>
 
             <!-- 電話番号 -->
-    <div class="mb-3">
+            <div class="mb-3">
                 <label for="tel" class="my-2"><span class="requiredItem">◎</span>電話番号　＊ハイフンなし半角</label>
                 <input type="text" class="form-control mb-3" name="tel" id="tel" placeholder="例：08012345678">
                 <div class="error" id="errorTel"></div>
@@ -155,7 +153,7 @@
             </div>
 
             <!-- 住所 -->
-    <div class="mb-3">
+            <div class="mb-3">
                 <label for="juusyo" class="my-2"><span class="requiredItem">◎</span>住所</label>
                 <input type="text" class="form-control " name="juusyo" id="juusyo" placeholder="例：福岡県福岡市〇〇区1-1-1">
                 <div class="error" id="errorJuusyo"></div>
@@ -163,10 +161,10 @@
             </div>
 
             <!-- 建物名 -->
-    <div class="mb-3">
+            <div class="mb-3">
                 <label for="tatemono" class="my-2">建物名・部屋番号</label>
                 <input type="text" class="form-control " name="tatemono" id="tatemono" placeholder="例：〇〇ビル 101号室">
-    </div>
+            </div>
 
             <div class="mt-5 text-center">
                 <button type="button" class="btn btn-outline-dark col-6" onclick="check()">新規会員登録 </button>

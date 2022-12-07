@@ -16,7 +16,7 @@
 <body>
 
     <div class="container" style="max-width: 800px;">
-        <h2>新規会員登録</h2>
+    <h2>新規会員登録</h2>
         <p class="requiredItem">◎...必須項目</p>
 
         <!-- フォームで囲う -->
@@ -128,7 +128,6 @@
                     <?php for($i=1; $i<=12; $i++): ?>
                         <option value="<?=$i;?>"><?=$i;?></option>
                     <?php endfor;?>
-                    <p></p>
                 </select>
                 <label class="input-group-text" for="month">月</label>
 
@@ -139,7 +138,6 @@
                         <option value="<?=$i;?>"><?=$i;?></option>
                     <?php endfor;?>
 
-                    <p></p>
                 </select>
                 <label class="input-group-text" for="day">日</label>
                 
@@ -175,11 +173,11 @@
         </form>
 
         <div class="my-5 d-grid gap-2 text-center">
-            <a href="login.php">
-                <button type="button" class="btn btn-outline-dark col-6">ログイン画面に戻る</button>
-            </a>
-        </div>
-        
+        <a href="login.php">
+            <button type="button" class="btn btn-outline-dark col-6">ログイン画面に戻る</button>
+        </a>
+    </div>
+    
     </div>
     <script>
         function check(){
